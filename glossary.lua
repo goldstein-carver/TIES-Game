@@ -17,7 +17,6 @@ function glossary.load()
 	glossary.book = love.graphics.newImage("images/Book.png")
 	glossary.hand = love.mouse.getSystemCursor("hand")
 	glossary.smallfont = love.graphics.newFont(20)
-	glossary.middlefont = love.graphics.newFont(25)
 end
 function glossary.draw()
 	love.graphics.draw(glossary.background, 0, 0)
@@ -56,7 +55,7 @@ function glossary.cleanup()
 	glossary.background:release()
 	glossary.hand:release()
 	glossary.smallfont:release()
-	glossary.middlefont:release()
+	glossary.book:release()
 end
 function glossary.mousepressed(x, y, button, istouch, presses)
 	if button ~= 1 then return end

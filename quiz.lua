@@ -22,6 +22,8 @@ function quiz.load()
 	quiz.smallfont = love.graphics.newFont(20)
 	quiz.bigfont = love.graphics.newFont(40)
 	quiz.middlefont = love.graphics.newFont(30)
+	quiz.tinyfont = love.graphics.newFont(15)
+	quiz.book = love.graphics.newImage("images/Book.png")
 end
 function quiz.reset()
 	quiz.number = 0
@@ -37,13 +39,12 @@ function quiz.readnext(number)
 		quiz.question = nil
 		quiz.answers = nil
 		quiz.correct = nil
-		quiz.winmessage = "Your score: " .. quiz.correct_answers .. "/10."
 		if quiz.correct_answers >= 8 then
-			quiz.winmessage = quiz.winmessage .. "\nYay! It looks like you know a thing or two about Darwin and natural selection."
+			quiz.winmessage = "Yay! It looks like you know a thing or two about Darwin and natural selection."
 		elseif quiz.correct_answers >= 6 then
-			quiz.winmessage = quiz.winmessage .. "\nNot too bad but a good brain definitely helps with survival. Why don’t you review the section on natural selection and Darwin and try again?"
+			quiz.winmessage = "Not too bad but a good brain definitely helps with survival. Why don’t you review the section on natural selection and Darwin and try again?"
 		else
-			quiz.winmessage = quiz.winmessage .. "\nOh, bother. You can do better than that! Why don’t you review the section on natural selection and Darwin and try again?"
+			quiz.winmessage = "Oh, bother. You can do better than that! Why don’t you review the section on natural selection and Darwin and try again?"
 		end
 		return
 	end
@@ -58,7 +59,7 @@ function quiz.readnext(number)
 		quiz.no = "Charles Darwin served as the naturalist on the HMS Beagle from 1831-1836."
 	elseif number == 3 then
 		quiz.question = "For a trait to be beneficial (helpful) for a species, it must   ____."
-		answers= {"be passed on from parent to offspring", "make the individuals stronger", "be found in every single member of the population", "be there from the beginning"}
+		answers= {"be passed on from parent to offspring", "make the individuals stronger", "be found in every single member of the\npopulation", "be there from the beginning"}
 		quiz.no = "For a trait to be beneficial (helpful) for a species, it must be passed on from parent to offspring."
 	elseif number == 4 then
 		quiz.question = "A species has lived happily for thousands of years in a moderate climate. If the environment suddenly begins to warm, which random mutation might help the species survive?"
@@ -175,67 +176,64 @@ function quiz.draw()
 	love.graphics.printf("Glossary", 854, 5, 171, "center")
 	love.graphics.setColor(0, 0, 0)
 	love.graphics.printf("Quiz", 513, 5, 171, "center")
+	love.graphics.setColor(1, 1, 1)
+	love.graphics.draw(quiz.book, 0, 60)
 	if quiz.number == 0 then
-		love.graphics.setColor(1, 1, 1)
-		love.graphics.rectangle("fill", 312, 600, 400, 50)
 		love.graphics.setFont(quiz.bigfont)
-		love.graphics.printf("Test your knowledge!", 312, 100, 400, "center")
-		love.graphics.setFont(quiz.middlefont)
-		love.graphics.printf("Let’s see how much you have learned playing the TIES Time Machine Game. You may want to review the section on natural selection or Charles Darwin before you begin. Good luck!", 312, 200, 400, "center")
+		love.graphics.setColor(0, 0, 1)
+		love.graphics.printf("Take the Quiz", 540, 100, 400, "center")
 		love.graphics.setColor(0, 0, 0)
-		love.graphics.printf("Take the Quiz", 312, 600, 400, "center")
+		love.graphics.printf("Test your knowledge!", 100, 100, 400, "center")
+		love.graphics.setFont(quiz.middlefont)
+		love.graphics.printf("Let’s see how much you have learned playing the TIES Time Machine Game. You may want to review the section on natural selection or Charles Darwin before you begin. Good luck!", 100, 200, 400, "center")
 		love.graphics.setColor(1, 1, 1)
 	elseif quiz.number < 11 then
-		love.graphics.setFont(quiz.smallfont)
-		love.graphics.setColor(1, 1, 1)
-		love.graphics.rectangle("fill", 212, 80, 600, 220)
+		if quiz.number == 3 then
+			love.graphics.setFont(quiz.tinyfont)
+		else
+			love.graphics.setFont(quiz.smallfont)
+		end
 		for index, answer in ipairs(quiz.answers) do
 			if quiz.selected and quiz.correct == index then
 				love.graphics.setColor(0, 1, 0)
 			elseif quiz.selected == index then
 				love.graphics.setColor(1, 0, 0)
+			elseif quiz.selected then
+				love.graphics.setColor(0, 0, 0)
 			else
-				love.graphics.setColor(1, 1, 1)
+				love.graphics.setColor(0, 0, 1)
 			end
-			love.graphics.rectangle("fill", 212, 275 + 50*index, 600, 25)
-			love.graphics.setColor(0, 0, 0)
-			love.graphics.print(answer, 215, 278 + 50*index)
+			love.graphics.print(index .. ") " .. answer, 570, 50 + 50*index)
 		end
+		love.graphics.setColor(0, 0, 0)
 		love.graphics.setFont(quiz.middlefont)
-		love.graphics.printf(quiz.question, 212, 85, 600, "center")
-		love.graphics.setColor(1, 1, 1)
+		love.graphics.printf(quiz.question, 100, 100, 390, "center")
 		if quiz.selected then
-			love.graphics.polygon("fill", 1000, 600, 900, 650, 900, 550)
+			love.graphics.setColor(0, 0, 1)
+			love.graphics.print("Next question", 570, 635)
 		end
+		love.graphics.setColor(0, 0, 0)
 		if quiz.answers[3] then
 			if quiz.selected and quiz.selected == quiz.correct and quiz.yes then
-				love.graphics.rectangle("fill", 212, 550, 600, 140)
-				love.graphics.setColor(0, 0, 0)
-				love.graphics.printf("Correct! " .. quiz.yes, 212, 550, 600, "center")
+				love.graphics.printf("Correct! " .. quiz.yes, 540, 350, 400, "center")
 			elseif quiz.selected and quiz.selected ~= quiz.correct and quiz.no then
-				love.graphics.rectangle("fill", 212, 550, 600, 140)
-				love.graphics.setColor(0, 0, 0)
-				love.graphics.printf("Incorrect! " .. quiz.no, 212, 550, 600, "center")
+				love.graphics.printf("Incorrect! " .. quiz.no, 540, 350, 400, "center")
 			end
 		else
 			if quiz.selected and quiz.selected == quiz.correct and quiz.yes then
-				love.graphics.rectangle("fill", 212, 450, 600, 240)
-				love.graphics.setColor(0, 0, 0)
-				love.graphics.printf("Correct! " .. quiz.yes, 212, 450, 600, "center")
+				love.graphics.printf("Correct! " .. quiz.yes, 540, 250, 400, "center")
 			elseif quiz.selected and quiz.selected ~= quiz.correct and quiz.no then
-				love.graphics.rectangle("fill", 212, 450, 600, 240)
-				love.graphics.setColor(0, 0, 0)
-				love.graphics.printf("Incorrect! " .. quiz.no, 212, 450, 600, "center")
+				love.graphics.printf("Incorrect! " .. quiz.no, 540, 250, 400, "center")
 			end
 		end
 		love.graphics.setColor(1, 1, 1)
 	elseif quiz.number == 11 then
-		love.graphics.setColor(1, 1, 1)
-		love.graphics.setFont(quiz.bigfont)
-		love.graphics.printf(quiz.winmessage, 0, 60, 1024, "center")
-		love.graphics.rectangle("fill", 312, 600, 400, 75)
 		love.graphics.setColor(0, 0, 0)
-		love.graphics.printf("Try Again", 312, 615, 400, "center")
+		love.graphics.setFont(quiz.bigfont)
+		love.graphics.printf("Your score: " .. quiz.correct_answers .. "/10.", 100, 100, 390, "center")
+		love.graphics.printf(quiz.winmessage, 540, 100, 400, "center")
+		love.graphics.setColor(0, 0, 1)
+		love.graphics.print("Try Again", 570, 635)
 		love.graphics.setColor(1, 1, 1)
 	end
 	
@@ -244,15 +242,15 @@ function quiz.update(dt)
 	local x,y = love.mouse.getPosition()
 	if y <= 60 then
 		love.mouse.setCursor(quiz.hand)
-	elseif quiz.number == 0 and x >= 312 and x <= 712 and y >= 600 and y <= 650 then
+	elseif quiz.number == 0 and x >= 540 and x <= 940 and y >= 100 and y <= 140 then
 		love.mouse.setCursor(quiz.hand)
-	elseif quiz.number > 0 and quiz.number < 11 and (not quiz.selected) and x >= 212 and x <= 812 and y >= 325 and y <= 500 and y % 50 >= 25 then
+	elseif quiz.number > 0 and quiz.number < 11 and (not quiz.selected) and x >= 565 and x <= 900 and y >= 100 and y <= 300 and y % 50 < 25 then
 		if y < 425 or quiz.answers[3] then
 			love.mouse.setCursor(quiz.hand)
 		end
-	elseif quiz.selected and x >= 900 and x <= 1000 and y >= 550 and y <= 650 then
+	elseif quiz.selected and x >= 540 and x <= 940 and y >= 635 and y <= 660 then
 		love.mouse.setCursor(quiz.hand)
-	elseif quiz.number == 11 and x >= 312 and x <= 712 and y >= 600 and y <= 675 then
+	elseif quiz.number == 11 and x >= 540 and x <= 940 and y >= 635 and y <= 680 then
 		love.mouse.setCursor(quiz.hand)
 	else
 		love.mouse.setCursor()
@@ -264,6 +262,27 @@ function quiz.cleanup()
 	quiz.smallfont:release()
 	quiz.bigfont:release()
 	quiz.middlefont:release()
+	quiz.book:release()
+	quiz.tinyfont:release()
+	love.keypressed = nil
+end
+function love.keypressed(key)
+	if quiz.number > 0 and quiz.number < 11 and not quiz.selected then
+		if tonumber(key) then
+			quiz.select(tonumber(key))
+		elseif string.sub(key, 1, 2) == "kp" and tonumber(string.sub(key, 3, 3)) then
+			quiz.select(tonumber(string.sub(key, 3, 3)))
+		end
+	end
+	if key == "return" then
+		if quiz.number == 0 then
+			quiz.readnext(1)
+		elseif quiz.number == 11 then
+			quiz.reset()
+		elseif quiz.selected then
+			quiz.readnext(quiz.number + 1)
+		end
+	end
 end
 function quiz.mousepressed(x, y, button, istouch, presses)
 	if button ~= 1 then return end
@@ -282,24 +301,24 @@ function quiz.mousepressed(x, y, button, istouch, presses)
 			switch("glossary")
 		end
 		return
-	elseif quiz.number == 0 and x >= 312 and x <= 712 and y >= 600 and y <= 650 then
+	elseif quiz.number == 0 and x >= 540 and x <= 940 and y >= 100 and y <= 140 then
 		quiz.readnext(1)
-	elseif quiz.number < 11 and (not quiz.selected) and x >= 212 and x <= 812 and y >= 325 then
-		if y <= 350 then
+	elseif quiz.number < 11 and (not quiz.selected) and x >= 565 and x <= 900 and y >= 100 then
+		if y <= 125 then
 			quiz.select(1)
-		elseif y <= 375 then
-		elseif y <= 400 then
+		elseif y <= 150 then
+		elseif y <= 175 then
 			quiz.select(2)
-		elseif y <= 425 then
-		elseif y <= 450 then
+		elseif y <= 200 then
+		elseif y <= 225 then
 			quiz.select(3)
-		elseif y <= 475 then
-		elseif y <= 500 then
+		elseif y <= 250 then
+		elseif y <= 275 then
 			quiz.select(4)
 		end
-	elseif quiz.selected and x >= 900 and x <= 1000 and y >= 550 and y <= 650 then
+	elseif quiz.selected and x >= 540 and x <= 940 and y >= 635 and y <= 660 then
 		quiz.readnext(quiz.number + 1)
-	elseif quiz.number == 11 and x >= 312 and x <= 712 and y >= 600 and y <= 675 then
+	elseif quiz.number == 11 and x >= 540 and x <= 940 and y >= 635 and y <= 680 then
 		quiz.reset()
 	end
 end
