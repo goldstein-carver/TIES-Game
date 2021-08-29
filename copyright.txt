@@ -1,0 +1,1 @@
+The source code for this game is licensed under the GPLv3. This includes all files that end in .lua. The other assets (images and audio) are not currently licensed under anything. I will get to finding a license for them later.
