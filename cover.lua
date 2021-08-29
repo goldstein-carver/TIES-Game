@@ -21,6 +21,7 @@ function cover.load()
 	cover.voice = love.audio.newSource("audios/DarwinOpening.ogg", "stream")
 	cover.mute = love.graphics.newImage("images/AudioButton.png")--100x100
 	cover.unmute = love.graphics.newImage("images/NonAudioButton.png")--110x110
+	cover.logo = love.graphics.newImage("images/TIES.jpg")--195x200
 	if (not is_muted) and (not cover.finished_audio) then
 		cover.voice:play()
 	end
@@ -37,6 +38,7 @@ function cover.mute_unmute()
 end
 function cover.draw()
 	love.graphics.draw(cover.background, 0, 0)
+	love.graphics.draw(cover.logo, 0, 0)
 	love.graphics.setFont(cover.middlefont)
 	love.graphics.setColor(1, 1, 1)
 	love.graphics.draw(cover.darwin, 100, 190, 0, 1.25, 1.25)
@@ -49,8 +51,8 @@ function cover.draw()
 	love.graphics.polygon("fill", 482, 385, 512, 375, 512, 395)
 	love.graphics.rectangle("fill", 512, 220, 462, 380, 20, 20)
 	love.graphics.setColor(139/255, 69/255, 19/255)
-	love.graphics.rectangle("fill", 140, 70, 300, 85, 10, 10)
-	love.graphics.rectangle("fill", 584, 70, 315, 85, 10, 10)
+	love.graphics.rectangle("fill", 240, 100, 300, 85, 10, 10)
+	love.graphics.rectangle("fill", 584, 100, 315, 85, 10, 10)
 	love.graphics.rectangle("fill", 320, 640, 480, 55, 10, 3)
 	love.graphics.rectangle("fill", 10, 640, 295, 55, 10, 3)
 	love.graphics.rectangle("fill", 820, 640, 194, 55, 10, 3)
@@ -58,10 +60,10 @@ function cover.draw()
 	love.graphics.print("Glossary", 855, 650)
 	love.graphics.print("More about Darwin", 15, 650)
 	love.graphics.print("Take the Natural Selection Quiz", 325, 650)
-	love.graphics.print("So what's", 215, 78)
-	love.graphics.print("Natural Selection?", 155, 112)
-	love.graphics.print("Play the TIES", 645, 78)
-	love.graphics.print("Time Machine Game", 590, 112)
+	love.graphics.print("So what's", 315, 108)
+	love.graphics.print("Natural Selection?", 255, 142)
+	love.graphics.print("Play the TIES", 645, 108)
+	love.graphics.print("Time Machine Game", 590, 142)
 	love.graphics.setColor(139/255, 69/255, 19/255)
 	love.graphics.setFont(cover.smallfont)
 	love.graphics.printf("Almost 200 years ago, I sailed the world studying nature. I discovered the process of natural selection, which is the main way evolution happens.\n\nChoose a panel above to learn how species evolve.", 520, 340, 440, "center")
@@ -69,7 +71,7 @@ function cover.draw()
 	love.graphics.printf("Well, hello, I am\nCharles Darwin. ", 520, 230, 440, "center")
 	love.graphics.setColor(1, 1, 1)
 	love.graphics.setFont(cover.smallfont)
-	love.graphics.print("Credits", 0, 0)
+	love.graphics.printf("This game is brought to you by the Teacher Institute for Evolutionary Science", 220, 10, 600, "center")
 end
 function cover.update(dt)
 	local x,y = love.mouse.getPosition()
@@ -77,11 +79,14 @@ function cover.update(dt)
 	if x >= 924 and y <= 100 then
 		bool = true
 	end
-	if x <= 95 and y <= 30 then
+	if x <= 195 and y <= 200 then
 		bool = true
 	end
-	if y>=70 and y<=155 then
-		if x>=140 and x<=440 then
+	if x >= 240 and x <= 795 and y >= 10 and y <= 70 then
+		bool = true
+	end
+	if y>=100 and y<=185 then
+		if x>=240 and x<=540 then
 			bool=true
 		elseif x>=584 and x<=899 then
 			bool=true
@@ -117,6 +122,7 @@ function cover.cleanup()
 	cover.mute:release()
 	cover.voice:stop()
 	cover.voice:release()
+	cover.logo:release()
 end
 function cover.mousepressed(x, y, button, istouch, presses)
 	if button ~= 1 then return end
@@ -124,12 +130,16 @@ function cover.mousepressed(x, y, button, istouch, presses)
 		cover.mute_unmute()
 		return
 	end
-	if x <= 95 and y <= 30 then
+	if x <= 195 and y <= 200 then
+		love.system.openURL("https://tieseducation.org")
+		return
+	end
+	if x >= 240 and x <= 795 and y >= 10 and y <= 70 then
 		switch("credits")
 		return
 	end
-	if y>=70 and y<=155 then
-		if x>=140 and x<=440 then
+	if y>=100 and y<=185 then
+		if x>=240 and x<=540 then
 			switch("learn")
 		elseif x>=584 and x<=899 then
 			switch("game")
