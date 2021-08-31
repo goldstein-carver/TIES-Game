@@ -9,14 +9,15 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 You should have received a copy of the GNU General Public License along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ]]
 glossary = {}
-glossary.leftwriting = "Evolution: The unifying theme of the life sciences. Evolution explains how all living things on this planet are related and how we all descend from common ancestors. It explains how this vast, beautiful array of millions and millions of species got here in the first place.\nNatural Selection: One of the driving mechanisms of evolution. Simply stated, natural selection means that random genetic mutations arise in a population of living things. Some of these mutations are harmful and will hurt the individual’s chances of surviving. Other mutations are neutral, they do not help or hurt the individual.  Sometimes, a mutation can be beneficial, helping the individual survive better than its companions. If this mutation is passed on to its offspring, the entire population can change over time, with more and more individuals exhibiting the desirable characteristic."
-glossary.rightwriting = "Trait: A physical characteristic found in a species, for example eye color or height. Traits are controlled by genetic factors.\nSpecies: Loosely stated, a group of living things who can reproduce together, producing offspring who can reproduce together. (A horse and a donkey can produce a mule, but a mule cannot reproduce. So horses and donkeys are considered two separate species.\nHypothesis: A testable statement.\nTheory: A broad explanation of a natural phenomena based on facts, repeatedly-tested hypotheses, and laws. The Theory of Gravitational Attraction explains why we have gravity. The Heliocentric Theory explains how the sun is the center of our Solar System.\nVariation: the different “flavors” of a trait. For example, eye color is the trait, brown, blue, green, and hazel eyes are the possible variations of that trait."
+glossary.leftwriting = "Evolution: The unifying theme of the life sciences. Evolution explains how all living things on this planet are related and how we all descend from common ancestors. It explains how this vast, beautiful array of millions and millions of species got here in the first place.\n\nNatural Selection: One of the driving mechanisms of evolution. Simply stated, natural selection means that random genetic mutations arise in a population of living things. Some of these mutations are harmful and will hurt the individual’s chances of surviving. Other mutations are neutral, they do not help or hurt the individual.  Sometimes, a mutation can be beneficial, helping the individual survive better than its companions. If this mutation is passed on to its offspring, the entire population can change over time, with more and more individuals exhibiting the desirable characteristic."
+glossary.rightwriting = "Trait: A physical characteristic found in a species, for example eye color or height. Traits are controlled by genetic factors.\n\nSpecies: Loosely stated, a group of living things who can reproduce together, producing offspring who can reproduce together. (A horse and a donkey can produce a mule, but a mule cannot reproduce. So horses and donkeys are considered two separate species.\n\nHypothesis: A testable statement.\n\nTheory: A broad explanation of a natural phenomena based on facts, repeatedly-tested hypotheses, and laws. The Theory of Gravitational Attraction explains why we have gravity. The Heliocentric Theory explains how the sun is the center of our Solar System.\n\nVariation: The different “flavors” of a trait. For example, eye color is the trait, brown, blue, green, and hazel eyes are the possible variations of that trait."
 function glossary.load()
 	love.graphics.setBackgroundColor(205/255, 133/255, 63/255)
 	glossary.background = love.graphics.newImage("images/WoodBackground.jpg")
 	glossary.book = love.graphics.newImage("images/Book.png")
 	glossary.hand = love.mouse.getSystemCursor("hand")
 	glossary.smallfont = love.graphics.newFont(20)
+	glossary.tinyfont = love.graphics.newFont(17)
 end
 function glossary.draw()
 	love.graphics.draw(glossary.background, 0, 0)
@@ -38,9 +39,9 @@ function glossary.draw()
 	love.graphics.printf("Darwin's Bio", 683, 5, 171, "center")
 	love.graphics.setColor(0, 0, 0)
 	love.graphics.printf("Glossary", 854, 5, 171, "center")
-	love.graphics.setFont(glossary.smallfont)
-	love.graphics.printf(glossary.leftwriting, 100, 85, 372, "left")
-	love.graphics.printf(glossary.rightwriting, 562, 85, 362, "right")
+	love.graphics.setFont(glossary.tinyfont)
+	love.graphics.printf(glossary.leftwriting, 120, 85, 352, "left")
+	love.graphics.printf(glossary.rightwriting, 572, 85, 342, "right")
 	love.graphics.setColor(1, 1, 1)
 end
 function glossary.update(dt)
@@ -56,6 +57,7 @@ function glossary.cleanup()
 	glossary.hand:release()
 	glossary.smallfont:release()
 	glossary.book:release()
+	glossary.tinyfont:release()
 end
 function glossary.mousepressed(x, y, button, istouch, presses)
 	if button ~= 1 then return end
