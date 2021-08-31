@@ -185,7 +185,7 @@ function quiz.draw()
 		love.graphics.setColor(0, 0, 0)
 		love.graphics.printf("Test your knowledge!", 100, 100, 400, "center")
 		love.graphics.setFont(quiz.middlefont)
-		love.graphics.printf("Let’s see how much you have learned playing the TIES Time Machine Game. You may want to review the section on natural selection or Charles Darwin before you begin. Good luck!", 100, 200, 400, "center")
+		love.graphics.printf("Let’s see how much you have learned playing the TIES Time Machine Game. You may want to review the section on natural selection or Charles Darwin before you begin. Good luck!", 125, 200, 350, "center")
 		love.graphics.setColor(1, 1, 1)
 	elseif quiz.number < 11 then
 		if quiz.number == 3 then
