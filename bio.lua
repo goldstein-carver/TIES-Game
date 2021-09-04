@@ -14,9 +14,15 @@ function bio.load()
 	bio.background = love.graphics.newImage("images/WoodBackground.jpg")
 	bio.hand = love.mouse.getSystemCursor("hand")
 	bio.smallfont = love.graphics.newFont(20)
+	bio.bigfont = love.graphics.newFont(30)
+	bio.book = love.graphics.newImage("images/Book.png")--257x300
+	bio.darwin = love.graphics.newImage("images/Darwin.png")
+	bio.logo = love.graphics.newImage("images/SmallTIES.jpg")
 end
 function bio.draw()
 	love.graphics.draw(bio.background, 0, 0)
+	love.graphics.draw(bio.book, 0, 60)
+	love.graphics.draw(bio.darwin, 100, 80, 0, 0.5, 0.5)
 	love.graphics.setFont(bio.smallfont)
 	love.graphics.setColor(139/255, 69/255, 19/255)
 	love.graphics.rectangle("fill", 0, 0, 170, 60, 10, 8)
@@ -27,6 +33,7 @@ function bio.draw()
 	love.graphics.setColor(245/255,222/255,179/255)
 	love.graphics.rectangle("fill", 683, 0, 170, 60, 10, 8)
 	love.graphics.setColor(1, 1, 1)
+	love.graphics.draw(bio.logo, 0, 628, 0, 0.6, 0.6)
 	love.graphics.printf("Home", 0, 5, 171, "center")
 	love.graphics.printf("Natural Selection", 171, 5, 171, "center")
 	love.graphics.printf("Time Machine Game", 342, 5, 171, "center")
@@ -34,11 +41,15 @@ function bio.draw()
 	love.graphics.printf("Glossary", 854, 5, 171, "center")
 	love.graphics.setColor(0, 0, 0)
 	love.graphics.printf("Darwin's Bio", 683, 5, 171, "center")
+	love.graphics.setFont(bio.bigfont)
+	love.graphics.print("Charles Darwin", 230, 80)
 	love.graphics.setColor(1, 1, 1)
 end
 function bio.update(dt)
 	local x,y = love.mouse.getPosition()
 	if y <= 60 then
+		love.mouse.setCursor(bio.hand)
+	elseif x <= 81 and y >= 628 then
 		love.mouse.setCursor(bio.hand)
 	else
 		love.mouse.setCursor()
@@ -48,10 +59,16 @@ function bio.cleanup()
 	bio.background:release()
 	bio.hand:release()
 	bio.smallfont:release()
+	bio.book:release()
+	bio.darwin:release()
+	bio.bigfont:release()
+	bio.logo:release()
 end
 function bio.mousepressed(x, y, button, istouch, presses)
 	if button ~= 1 then return end
-	if y <= 60 then
+	if x <= 81 and y >= 628 then
+		love.system.openURL("https://www.tieseducation.org")
+	elseif y <= 60 then
 		if x < 171 then
 			switch("cover")
 		elseif x < 342 then

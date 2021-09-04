@@ -18,10 +18,12 @@ function glossary.load()
 	glossary.hand = love.mouse.getSystemCursor("hand")
 	glossary.smallfont = love.graphics.newFont(20)
 	glossary.tinyfont = love.graphics.newFont(17)
+	glossary.logo = love.graphics.newImage("images/SmallTIES.jpg")
 end
 function glossary.draw()
 	love.graphics.draw(glossary.background, 0, 0)
 	love.graphics.draw(glossary.book, 0, 60)
+	love.graphics.draw(glossary.logo, 0, 628, 0, 0.6, 0.6)
 	love.graphics.setFont(glossary.smallfont)
 	love.graphics.setColor(139/255, 69/255, 19/255)
 	love.graphics.rectangle("fill", 0, 0, 170, 60, 10, 8)
@@ -48,6 +50,8 @@ function glossary.update(dt)
 	local x,y = love.mouse.getPosition()
 	if y <= 60 then
 		love.mouse.setCursor(glossary.hand)
+	elseif x <= 81 and y >= 628 then
+		love.mouse.setCursor(glossary.hand)
 	else
 		love.mouse.setCursor()
 	end
@@ -58,10 +62,13 @@ function glossary.cleanup()
 	glossary.smallfont:release()
 	glossary.book:release()
 	glossary.tinyfont:release()
+	glossary.logo:release()
 end
 function glossary.mousepressed(x, y, button, istouch, presses)
 	if button ~= 1 then return end
-	if y <= 60 then
+	if x <= 81 and y >= 628 then
+		love.system.openURL("https://www.tieseducation.org")
+	elseif y <= 60 then
 		if x < 171 then
 			switch("cover")
 		elseif x < 342 then

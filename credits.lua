@@ -14,11 +14,13 @@ function credits.load()
 	credits.background = love.graphics.newImage("images/WoodBackground.jpg")
 	credits.hand = love.mouse.getSystemCursor("hand")
 	credits.middlefont = love.graphics.newFont(30)
+	credits.logo = love.graphics.newImage("images/SmallTIES.jpg")
 end
 function credits.cleanup()
 	credits.middlefont:release()
 	credits.hand:release()
 	credits.background:release()
+	credits.logo:release()
 end
 function credits.update(dt)
 	local x,y = love.mouse.getPosition()
@@ -34,6 +36,7 @@ function credits.draw(dt)
 	love.graphics.draw(credits.background, 0, 0)
 	love.graphics.printf(credits.string, 100, 0, 824, "center")
 	love.graphics.print("Go back", 0, 670)
+	love.graphics.draw(credits.logo, 0, 580)--Logo
 end
 function credits.mousepressed(x, y, button, istouch, presses)
 	if button ~= 1 then return end

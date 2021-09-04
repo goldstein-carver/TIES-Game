@@ -14,9 +14,13 @@ function hints.load()
 	hints.background = love.graphics.newImage("images/WoodBackground.jpg")
 	hints.hand = love.mouse.getSystemCursor("hand")
 	hints.smallfont = love.graphics.newFont(20)
+	hints.book = love.graphics.newImage("images/Book.png")
+	hints.logo = love.graphics.newImage("images/SmallTIES.jpg")
 end
 function hints.draw()
 	love.graphics.draw(hints.background, 0, 0)
+	love.graphics.draw(hints.book, 0, 60)
+	love.graphics.draw(hints.logo, 0, 628, 0, 0.6, 0.6)
 	love.graphics.setFont(hints.smallfont)
 	love.graphics.setColor(139/255, 69/255, 19/255)
 	love.graphics.rectangle("fill", 0, 0, 170, 60, 10, 8)
@@ -38,6 +42,8 @@ function hints.update(dt)
 	local x,y = love.mouse.getPosition()
 	if y <= 60 then
 		love.mouse.setCursor(hints.hand)
+	elseif x <= 81 and y >= 628 then
+		love.mouse.setCursor(hints.hand)
 	else
 		love.mouse.setCursor()
 	end
@@ -46,10 +52,14 @@ function hints.cleanup()
 	hints.background:release()
 	hints.hand:release()
 	hints.smallfont:release()
+	hints.book:release()
+	hints.logo:release()
 end
 function hints.mousepressed(x, y, button, istouch, presses)
 	if button ~= 1 then return end
-	if y <= 60 then
+	if x <= 81 and y >= 628 then
+		love.system.openURL("https://www.tieseducation.org")
+	elseif y <= 60 then
 		if x < 171 then
 			switch("cover")
 		elseif x < 342 then

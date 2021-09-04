@@ -24,6 +24,25 @@ function quiz.load()
 	quiz.middlefont = love.graphics.newFont(30)
 	quiz.tinyfont = love.graphics.newFont(15)
 	quiz.book = love.graphics.newImage("images/Book.png")
+	quiz.logo = love.graphics.newImage("images/SmallTIES.jpg")
+	function love.keypressed(key)
+		if quiz.number > 0 and quiz.number < 11 and not quiz.selected then
+			if tonumber(key) then
+				quiz.select(tonumber(key))
+			elseif string.sub(key, 1, 2) == "kp" and tonumber(string.sub(key, 3, 3)) then
+				quiz.select(tonumber(string.sub(key, 3, 3)))
+			end
+		end
+		if key == "return" then
+			if quiz.number == 0 then
+				quiz.readnext(1)
+			elseif quiz.number == 11 then
+				quiz.reset()
+			elseif quiz.selected then
+				quiz.readnext(quiz.number + 1)
+			end
+		end
+	end
 end
 function quiz.reset()
 	quiz.number = 0
@@ -178,6 +197,7 @@ function quiz.draw()
 	love.graphics.printf("Quiz", 513, 5, 171, "center")
 	love.graphics.setColor(1, 1, 1)
 	love.graphics.draw(quiz.book, 0, 60)
+	love.graphics.draw(quiz.logo, 0, 628, 0, 0.6, 0.6)--Logo
 	if quiz.number == 0 then
 		love.graphics.setFont(quiz.bigfont)
 		love.graphics.setColor(0, 0, 1)
@@ -240,7 +260,9 @@ function quiz.draw()
 end
 function quiz.update(dt)
 	local x,y = love.mouse.getPosition()
-	if y <= 60 then
+	if x <= 81 and y >= 628 then
+		love.mouse.setCursor(quiz.hand)
+	elseif y <= 60 then
 		love.mouse.setCursor(quiz.hand)
 	elseif quiz.number == 0 and x >= 540 and x <= 940 and y >= 100 and y <= 140 then
 		love.mouse.setCursor(quiz.hand)
@@ -265,28 +287,13 @@ function quiz.cleanup()
 	quiz.book:release()
 	quiz.tinyfont:release()
 	love.keypressed = nil
-end
-function love.keypressed(key)
-	if quiz.number > 0 and quiz.number < 11 and not quiz.selected then
-		if tonumber(key) then
-			quiz.select(tonumber(key))
-		elseif string.sub(key, 1, 2) == "kp" and tonumber(string.sub(key, 3, 3)) then
-			quiz.select(tonumber(string.sub(key, 3, 3)))
-		end
-	end
-	if key == "return" then
-		if quiz.number == 0 then
-			quiz.readnext(1)
-		elseif quiz.number == 11 then
-			quiz.reset()
-		elseif quiz.selected then
-			quiz.readnext(quiz.number + 1)
-		end
-	end
+	quiz.logo:release()
 end
 function quiz.mousepressed(x, y, button, istouch, presses)
 	if button ~= 1 then return end
-	if y <= 60 then
+	if x <= 81 and y >= 628 then
+		love.system.openURL("https://www.tieseducation.org")
+	elseif y <= 60 then
 		if x < 171 then
 			switch("cover")
 		elseif x < 342 then

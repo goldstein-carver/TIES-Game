@@ -19,6 +19,7 @@ function game.load()
 	game.background = love.graphics.newImage("images/Environment.jpg")
 	game.woodbackground = love.graphics.newImage("images/WoodBackground.jpg")
 	game.darwin = love.graphics.newImage("images/Darwin.png")
+	game.logo = love.graphics.newImage("images/SmallTIES.jpg")
 	game.critters = {}
 	game.max_pop = 16
 end
@@ -31,6 +32,7 @@ function game.cleanup()
 		critter:release()
 	end
 	game.critters = nil
+	game.logo:release()
 end
 function game.load_critter(critter)
 	local string = "" .. critter.Mass % 3 .. critter.Hair % 3 .. critter.Striped % 2 .. critter.Neck % 2 .. critter.Legs % 3
@@ -506,17 +508,18 @@ function game.draw()
 	love.graphics.setColor(139/255, 69/255, 19/255)
 	love.graphics.rectangle("fill", 0, 580, 1024, 120)
 	love.graphics.setColor(1, 1, 1)
+	love.graphics.draw(game.logo, 0, 580)
 	love.graphics.print("Hints", 965, 555)
-	love.graphics.draw(game.darwin, 0, 550, 0, 0.5, 0.5)
+	love.graphics.draw(game.darwin, 140, 550, 0, 0.5, 0.5)
 	if game.arrowvisible then
-		love.graphics.polygon("fill", 900, 585, 900, 695, 1010, 640)
+		love.graphics.polygon("fill", 930, 595, 930, 685, 1020, 640)
 	end
 	if game.talking then
 		love.graphics.setColor(210/255, 180/255, 140/255)
-		love.graphics.polygon("fill", 160, 635, 180, 625, 180, 645)
-		love.graphics.rectangle("fill", 180, 590, 650, 100, 20, 20)
+		love.graphics.polygon("fill", 250, 635, 270, 625, 270, 645)
+		love.graphics.rectangle("fill", 270, 590, 650, 100, 20, 20)
 		love.graphics.setColor(0, 0, 0)
-		love.graphics.printf(game.talking, 185, 595, 640, "left")
+		love.graphics.printf(game.talking, 275, 595, 640, "left")
 	end
 	--Final White Color Set
 	love.graphics.setColor(1, 1, 1)
@@ -585,9 +588,11 @@ function game.cursor_check()
 	local x,y = love.mouse.getPosition()
 	if y <= 60 then
 		love.mouse.setCursor(game.hand)
+	elseif y >= 580 and x <= 135 then
+		love.mouse.setCursor(game.hand)
 	elseif y >= 555 and y <= 575 and x >= 965 then
 		love.mouse.setCursor(game.hand)
-	elseif x >= 900 and y >= 580 and game.arrowvisible then
+	elseif x >= 925 and y >= 580 and game.arrowvisible then
 		love.mouse.setCursor(game.hand)
 	elseif game.choices and x >= 50 and x <= 450 and y <= 560 and y >= 100 then
 		if y >= 520 then
@@ -640,7 +645,9 @@ function game.mousepressed(x, y, button, istouch, presses)
 		return
 	elseif y >= 555 and y <= 575 and x >= 965 then
 		switch("hints")
-	elseif x >= 900 and y >= 580 and game.arrowvisible then
+	elseif y >= 580 and x <= 135 then
+		love.system.openURL("https://www.tieseducation.org")
+	elseif x >= 925 and y >= 580 and game.arrowvisible then
 		game.arrowclicked = true
 	elseif game.choices then
 		if x >= 50 and x <= 450 and y <= 560 and y >= 520 then
