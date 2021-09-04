@@ -22,6 +22,7 @@ function cover.load()
 	cover.mute = love.graphics.newImage("images/AudioButton.png")--100x100
 	cover.unmute = love.graphics.newImage("images/NonAudioButton.png")--110x110
 	cover.logo = love.graphics.newImage("images/TIES.jpg")--195x200
+	cover.bold = love.graphics.newFont("Bold.ttf", 25)
 	if (not is_muted) and (not cover.finished_audio) then
 		cover.voice:play()
 	end
@@ -70,8 +71,8 @@ function cover.draw()
 	love.graphics.setFont(cover.bigfont)
 	love.graphics.printf("Well, hello, I am\nCharles Darwin. ", 520, 230, 440, "center")
 	love.graphics.setColor(1, 1, 1)
-	love.graphics.setFont(cover.smallfont)
-	love.graphics.printf("This game is brought to you by the Teacher Institute for Evolutionary Science", 220, 10, 600, "center")
+	love.graphics.setFont(cover.bold)
+	love.graphics.printf("This game is brought to you by The Teacher Institute for Evolutionary Science", 240, 10, 660, "center")
 end
 function cover.update(dt)
 	local x,y = love.mouse.getPosition()
@@ -82,7 +83,7 @@ function cover.update(dt)
 	if x <= 195 and y <= 200 then
 		bool = true
 	end
-	if x >= 240 and x <= 795 and y >= 10 and y <= 70 then
+	if x >= 250 and x <= 885 and y >= 10 and y <= 70 then--HERE
 		bool = true
 	end
 	if y>=100 and y<=185 then
@@ -123,6 +124,7 @@ function cover.cleanup()
 	cover.voice:stop()
 	cover.voice:release()
 	cover.logo:release()
+	cover.bold:release()
 end
 function cover.mousepressed(x, y, button, istouch, presses)
 	if button ~= 1 then return end
@@ -134,7 +136,7 @@ function cover.mousepressed(x, y, button, istouch, presses)
 		love.system.openURL("https://tieseducation.org")
 		return
 	end
-	if x >= 240 and x <= 795 and y >= 10 and y <= 70 then
+	if x >= 250 and x <= 885 and y >= 10 and y <= 70 then
 		switch("credits")
 		return
 	end

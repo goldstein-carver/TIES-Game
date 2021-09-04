@@ -29,6 +29,7 @@ function credits.update(dt)
 	end
 end
 function credits.draw(dt)
+	love.graphics.setFont(credits.middlefont)
 	love.graphics.setColor(1, 1, 1)
 	love.graphics.draw(credits.background, 0, 0)
 	love.graphics.printf(credits.string, 100, 0, 824, "center")
