@@ -435,7 +435,7 @@ function game.make_choice(x, y)
 	end
 	local z = 3*y+x+1
 	game.selections = game.selections + 1
-	game.organisms[game.selections] = {Mass=13*game.choices[z].Mass, Hair=13*game.choices[z].Hair, Legs=13*game.choices[z].Legs, Neck=7*game.choices[z].Neck, Striped=7*game.choices[z].Striped, x=500+100*game.selections, y=100}
+	game.organisms[game.selections] = {Mass=13*game.choices[z].Mass, Hair=13*game.choices[z].Hair, Legs=13*game.choices[z].Legs, Neck=7*game.choices[z].Neck, Striped=7*game.choices[z].Striped, x=500+100*game.selections, y=200}
 end
 function game.run_sound(filepath)--nil can be used to cancel audio
 	if not is_muted then
