@@ -72,7 +72,25 @@ function game.lose()
 
 end
 function game.walk()
-	
+	local i = 1
+	while game.organisms[i] do
+		local bad = true
+		while bad do
+			bad = false
+			game.organisms[i].y = 660-math.random(3)*100+math.random(20)
+			game.organisms[i].x = 10+math.random(924)
+			local j = i-1
+			while j > 1 do
+				if math.abs(game.organisms[i].y-game.organisms[j].y) <= 40 and math.abs(game.organisms[i].x-game.organisms[j].x) <= 90 then
+					bad = true
+					break
+				end
+				j = j-1
+			end
+		end
+		i=i+1
+	end
+	table.sort(game.organisms, function(a,b) return a.y < b.y end)
 end
 function game.choose_susceptible_attributes()
 	local attribute
@@ -473,7 +491,8 @@ function game.draw()
 	love.graphics.printf("Time Machine Game", 342, 5, 171, "center")
 	love.graphics.setColor(1, 1, 1)
 	for _, critter in ipairs(game.organisms) do
-		love.graphics.draw(game.load_critter(critter), critter.x, critter.y, 0, 1, 1)
+		local picture = game.load_critter(critter)
+		love.graphics.draw(picture, critter.x, critter.y-picture:getHeight(), 0, 1, 1)
 	end
 	if game.choices then
 		love.graphics.setColor(210/255, 180/255, 140/255)
