@@ -551,7 +551,14 @@ function game.update(dt)
 			if game.paused > 0 then
 				game.paused = game.paused - dt
 			else
-				game.arrowvisible = true
+				if game.arrowclicked then
+					game.arrowvisible = false
+					game.paused = nil
+					game.talking = nil
+					game.arrowclicked = false
+				else
+					game.arrowvisible = true
+				end
 			end
 		else
 			game.elapsed_time = game.elapsed_time + dt
@@ -633,16 +640,19 @@ function game.next_generation()
 	game.round_count = game.round_count + 1
 	game.elapsed_time = 0
 	game.reproduce()
+	game.walk()
+	game.kill()
 	if game.round_count == 3 then
 		if not game.disaster then
 			game.round_count = 0
 			game.choose_disaster()
+			game.paused = 1
+			game.talking = game.disaster
 		else
 			game.round_count = 0
 			game.disaster = nil
 		end
 	end
-	game.kill()
 	if not game.organisms[1] then game.lose() end
 end
 function game.mousepressed(x, y, button, istouch, presses)

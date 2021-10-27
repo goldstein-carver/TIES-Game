@@ -24,7 +24,9 @@ function credits.cleanup()
 end
 function credits.update(dt)
 	local x,y = love.mouse.getPosition()
-	if x <= 100 and y >= 670 then
+	if x >= 904 and y >= 670 then
+		love.mouse.setCursor(credits.hand)
+	elseif x <= 135 and y >= 580 then
 		love.mouse.setCursor(credits.hand)
 	else
 		love.mouse.setCursor()
@@ -35,13 +37,15 @@ function credits.draw(dt)
 	love.graphics.setColor(1, 1, 1)
 	love.graphics.draw(credits.background, 0, 0)
 	love.graphics.printf(credits.string, 100, 0, 824, "center")
-	love.graphics.print("Go back", 0, 670)
+	love.graphics.print("Go back", 904, 670)
 	love.graphics.draw(credits.logo, 0, 580)--Logo
 end
 function credits.mousepressed(x, y, button, istouch, presses)
 	if button ~= 1 then return end
-	if x <= 100 and y >= 670 then
+	if x >= 904 and y >= 670 then
 		switch("cover")
+	elseif x <= 135 and y >= 580 then
+		love.system.openURL("https://tieseducation.org")
 	end
 end
 function credits.touchpressed(id, x, y, dx, dy, pressure)
