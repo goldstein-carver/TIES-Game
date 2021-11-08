@@ -9,6 +9,8 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 You should have received a copy of the GNU General Public License along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ]]
 --Darwin is 257x300
+--Mass (3), Hair (3), Legs (3), Neck (2), Striped (2)
+--Use bit or trit math, with least significant being the phenotype and other two being the alleles
 game = {}
 game.began = false
 game.elapsed_time = 0
@@ -49,24 +51,6 @@ function game.debase(num, base)
 	local y = num % base
 	num = (num - y)/base
 	return tostring(num) .. tostring(y) .. tostring(z)
-end
-function game.setgame()--Begins the game
-	game.run_sound("audios/Darwin4.ogg")
-	game.began = true
-	game.talking = "Here we go. The goal of the TIES Time Machine is for your species to survive one million years. The individuals with the traits best suited to the changing environment will survive."
-	local i = 1
-	while i <= 3 do
-		game.organisms[i+3] = {Mass=game.organisms[i].Mass, Hair=game.organisms[i].Hair, Neck=game.organisms[i].Neck, Legs=game.organisms[i].Legs, Striped=game.organisms[i].Striped}
-		i=i+1
-	end
-	--{{Mass=13, Hair=13, Neck=7, Legs=13, Striped=7}, {Mass=0, Hair=0, Neck=0, Legs=0, Striped=0}, {Mass=26, Hair=26, Neck=7, Legs=26, Striped=0}}
-	game.walk()
-	game.disaster = nil
-	game.elapsed_time = 0
-	game.round_count = 0
-	game.paused = 2
-	--Mass (3), Hair (3), Legs (3), Neck (2), Striped (2)
-	--Use bit or trit math, with least significant being the phenotype and other two being the alleles
 end
 function game.lose()
 
@@ -544,6 +528,7 @@ function game.draw()
 	love.graphics.setColor(1, 1, 1)
 end
 function game.update(dt)
+	print(1/dt)--Prints the fps, remove eventually
 	game.cursor_check()
 	--Game counter
 	if game.began and not game.ended then
@@ -600,13 +585,35 @@ function game.handle_pregame(dt)
 			game.generate_choices()--Creates game.choices
 			game.selections = 0
 		end
-	elseif game.elapsed_time >= 200 then
+	elseif game.elapsed_time >= 200 and game.elapsed_time < 300 then
 		game.elapsed_time = 200
 		if game.selections == 3 then
 			game.choices = nil
 			game.arrowvisible = false
-			game.setgame()
+			game.talking = "Here we go. The goal of the TIES Time Machine is for your species to survive one million years. The individuals with the traits best suited to the changing environment will survive."
+			game.run_sound("audios/Darwin4.ogg")
 			game.selections = nil
+			game.elapsed_time = 300
+			local i = 1
+			while i <= 3 do
+				game.organisms[i+3] = {Mass=game.organisms[i].Mass, Hair=game.organisms[i].Hair, Neck=game.organisms[i].Neck, Legs=game.organisms[i].Legs, Striped=game.organisms[i].Striped}
+				i=i+1
+			end
+			game.walk()
+		end
+	elseif game.elapsed_time >= 302 then
+		if game.arrowclicked == true then
+			game.run_sound("audios/Darwin5.ogg")
+			game.talking = "You can spin the Wheel of Mutations three times during your time travel. Be careful: You do not know what you are going to get. Mutations are random."
+			game.disaster = nil
+			game.paused = 2
+			game.began = true
+			game.elapsed_time = 0
+			game.round_count = 0
+			game.arrowclicked = false
+			game.arrowvisible = false
+		else
+			game.arrowvisible = true
 		end
 	end
 end
