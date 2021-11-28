@@ -37,10 +37,13 @@ function hints.draw()
 	love.graphics.printf("Darwin's Bio", 683, 5, 171, "center")
 	love.graphics.printf("Glossary", 854, 5, 171, "center")
 	love.graphics.setColor(1, 1, 1)
+	love.graphics.print("Go back", 944, 670)
 end
 function hints.update(dt)
 	local x,y = love.mouse.getPosition()
 	if y <= 60 then
+		love.mouse.setCursor(hints.hand)
+	elseif x >= 944 and y >= 670 then
 		love.mouse.setCursor(hints.hand)
 	elseif x <= 81 and y >= 628 then
 		love.mouse.setCursor(hints.hand)
@@ -57,7 +60,9 @@ function hints.cleanup()
 end
 function hints.mousepressed(x, y, button, istouch, presses)
 	if button ~= 1 then return end
-	if x <= 81 and y >= 628 then
+	if x >= 944 and y >= 670 then
+		switch("game")
+	elseif x <= 81 and y >= 628 then
 		love.system.openURL("https://www.tieseducation.org")
 	elseif y <= 60 then
 		if x < 171 then
