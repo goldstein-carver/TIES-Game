@@ -53,7 +53,16 @@ function game.debase(num, base)
 	return tostring(num) .. tostring(y) .. tostring(z)
 end
 function game.lose()
-
+	if game.disaster == "predator" then
+		game.talking = "Bummer! Your species did not have enough camouflage or long legs to avoid those hungry predators. Would you like to try again?"
+	end
+	game.arrowvisible = true
+	game.ended = true
+end
+function game.win()
+	game.talking = "Yay!! Your species survived one million years! Hopefully, you learned something about natural selection along the way. Do you want to try again?"
+	game.arrowvisible = true
+	game.ended = true
 end
 function game.walk()
 	local i = 1
@@ -127,17 +136,27 @@ function game.choose_susceptible_attributes()
 	return attribute, phenotype
 end
 function game.choose_disaster()
-	local rand = math.random(6)
+	local rand = math.random(7)
 	if rand == 1 then
 		game.disaster = "volcano"
+		game.talking = "Everybody run! A volcano is erupting. There is no time to use the Wheel of Mutations. Cross your fingers that some of your TIES critters have what it takes to survive."
+		game.run_sound("audios/Darwin_Volcano.ogg")
 	elseif rand == 2 then
 		game.disaster = "predator"
+		game.talking = "Don’t look now but hungry predators have entered the territory. Remember, you can pause the game and try your luck on the Wheel of Mutations three times during your time travel."
+		game.run_sound("audios/Darwin_Predator.ogg")
 	elseif rand == 3 then
 		game.disaster = "cold"
+		game.talking = "Yikes, it’s cold! Some of the TIES critters may not be able to stay warm enough to survive this colder climate. Remember, you can pause the game and try your luck on the Wheel of Mutations three times during your time travel."
+		game.run_sound("audios/Darwin_Cold.ogg")
 	elseif rand == 4 then
 		game.disaster = "heat"
+		game.talking = "It sure is hot! It appears we are entering a period of global warming. Remember, youcan pause the game and try your luck on the Wheel of Mutations three times during your time travel."
+		game.run_sound("audios/Darwin_Heat.ogg")
 	elseif rand == 5 then
 		game.disaster = "high food"
+		game.talking = "Check out the delicious fruit trees sprouting in your territory. Are your TIES critters tall enough? Remember, you can pause the game and try your luck on the Wheel of Mutations three times during your time travel."
+		game.run_sound("audios/Darwin_HighFood.ogg")
 	elseif rand == 6 then
 		game.disaster = "disease"
 		game.primary_attribute, game.primary_phenotype = game.choose_susceptible_attributes()
@@ -145,11 +164,17 @@ function game.choose_disaster()
 		while game.secondary_attribute == game.primary_attribute do
 			game.secondary_attribute, game.secondary_phenotype = game.choose_susceptible_attributes()
 		end
+		game.talking = "Oh no, a deadly virus is spreading in your population. There is no time to use the Wheel of Mutations. Cross your fingers that some of your TIES critters have what it takes to survive."
+		game.run_sound("audios/Darwin_Disease.ogg")
+	elseif rand == 7 then
+		game.disaster = "asteroid"
+		game.talking = "Mayday!! Mayday!! Your planet has been hit by an asteroid. This is what you call a cataclysmic event. There is definitely no time to use the Wheel of Mutations. Cross your fingers that some of your TIES critters have what it takes to survive."
+		game.run_sound("audios/Darwin_Asteroid.ogg")
 	end
 end
 function game.kill()
 	if not game.disaster then return end
-	if game.disaster == "volcano" then
+	if game.disaster == "volcano" or game.disaster == "asteroid" then
 		local original_size = 0
 		for _,__ in ipairs(game.organisms) do
 			original_size = original_size + 1
@@ -518,6 +543,10 @@ function game.draw()
 	love.graphics.draw(game.darwin, 140, 550, 0, 0.5, 0.5)
 	if game.arrowvisible then
 		love.graphics.polygon("fill", 930, 595, 930, 685, 1020, 640)
+		if game.ended then
+			love.graphics.setColor(0, 1, 0)
+			love.graphics.print("Replay", 935, 628)
+		end
 	end
 	if game.talking then
 		love.graphics.setColor(210/255, 180/255, 140/255)
@@ -528,6 +557,7 @@ function game.draw()
 	end
 	--Final White Color Set
 	love.graphics.setColor(1, 1, 1)
+	love.graphics.print(tostring(game.years), 900, 350)--TEST
 end
 function game.update(dt)
 	print(1/dt)--Prints the fps, remove eventually
@@ -543,6 +573,7 @@ function game.update(dt)
 					game.paused = nil
 					game.talking = nil
 					game.arrowclicked = false
+					game.run_sound()
 				else
 					game.arrowvisible = true
 				end
@@ -555,6 +586,15 @@ function game.update(dt)
 		end
 	elseif not game.began then
 		game.handle_pregame(dt)
+	elseif game.ended and game.arrowclicked then
+		game.arrowvisible = false
+		game.paused = nil
+		game.talking = nil
+		game.arrowclicked = false
+		game.run_sound()
+		game.began = nil
+		game.ended = nil
+		game.update(0)
 	end
 end
 function game.handle_pregame(dt)
@@ -562,6 +602,8 @@ function game.handle_pregame(dt)
 	if game.elapsed_time < 0.5 then
 		game.arrowvisible = false
 		game.talking = nil
+		game.generations = 0
+		game.years = 0
 	elseif game.elapsed_time >= 0.5 and game.elapsed_time - dt < 0.5 then
 		game.talking = "Welcome to the TIES Time Machine! The game is based on the rules of natural selection. Your species will have to survive a changing, often cruel, environment."
 		game.run_sound("audios/Darwin1.ogg")
@@ -646,23 +688,32 @@ function game.cursor_check()
 	end
 end
 function game.next_generation()
+	game.generations = game.generations + 1
+	if game.generations  == 18 then
+		game.years = 1000000
+	else
+		game.years = 55555*game.generations + math.random(10000)-5000
+	end
 	game.round_count = game.round_count + 1
 	game.elapsed_time = 0
 	game.reproduce()
 	game.walk()
 	game.kill()
-	if game.round_count == 3 then
+	if not game.organisms[1] then
+		game.lose()
+	elseif game.round_count == 3 then
 		if not game.disaster then
 			game.round_count = 0
 			game.choose_disaster()
 			game.paused = 1
-			game.talking = game.disaster
 		else
 			game.round_count = 0
 			game.disaster = nil
 		end
 	end
-	if not game.organisms[1] then game.lose() end
+	if game.organisms[1] and game.generations == 18 then
+		game.win()
+	end
 end
 function game.mousepressed(x, y, button, istouch, presses)
 	if button ~= 1 then return end
