@@ -19,6 +19,8 @@ function game.load()
 	game.smallfont = love.graphics.newFont(20)
 	game.hand = love.mouse.getSystemCursor("hand")
 	game.background = love.graphics.newImage("images/Environment.jpg")
+	game.hotbackground = love.graphics.newImage("images/HotEnvironment.jpg")
+	game.coldbackground = love.graphics.newImage("images/ColdEnvironment.jpg")
 	game.woodbackground = love.graphics.newImage("images/WoodBackground.jpg")
 	game.darwin = love.graphics.newImage("images/Darwin.png")
 	game.logo = love.graphics.newImage("images/SmallTIES.jpg")
@@ -30,6 +32,9 @@ function game.cleanup()
 	game.smallfont:release()
 	game.hand:release()
 	game.background:release()
+	game.hotbackground:release()
+	game.coldbackground:release()
+	game.woodbackground:release()
 	game.run_sound(nil)
 	for _, critter in ipairs(game.critters) do
 		critter:release()
@@ -489,7 +494,13 @@ function game.run_sound(filepath)--nil can be used to cancel audio
 end
 function game.draw()
 	love.graphics.draw(game.woodbackground, 0, 0)
-	love.graphics.draw(game.background, 0, 60)
+	if game.displaydisaster == "cold" then
+		love.graphics.draw(game.coldbackground, 0, 60)
+	elseif game.displaydisaster == "heat" then
+		love.graphics.draw(game.hotbackground, 0, 60)
+	else
+		love.graphics.draw(game.background, 0, 60)
+	end
 	--Top Ribbon
 	love.graphics.setFont(game.smallfont)
 	love.graphics.setColor(139/255, 69/255, 19/255)
@@ -611,6 +622,9 @@ function game.update(dt)
 		game.run_sound()
 		game.began = nil
 		game.ended = nil
+		game.displaydisaster = nil
+		game.disaster = nil
+		game.organisms = {}
 		game.update(0)
 	end
 end
@@ -705,6 +719,7 @@ function game.cursor_check()
 	end
 end
 function game.next_generation()
+	game.displaydisaster = game.disaster
 	game.generations = game.generations + 1
 	if game.generations  == 18 then
 		game.years = 1000000
@@ -722,6 +737,7 @@ function game.next_generation()
 		if not game.disaster then
 			game.round_count = 0
 			game.choose_disaster()
+			game.displaydisaster = game.disaster
 			game.paused = 1
 		else
 			game.round_count = 0
