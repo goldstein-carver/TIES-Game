@@ -55,6 +55,14 @@ end
 function game.lose()
 	if game.disaster == "predator" then
 		game.talking = "Bummer! Your species did not have enough camouflage or long legs to avoid those hungry predators. Would you like to try again?"
+	elseif game.disaster == "cold" then
+		game.talking = "Too bad. Your TIES critters couldn’t stay warm enough to survive. Maybe thicker fur coats would have helped. Would you like to try again?"
+	elseif game.disaster == "heat" then
+		game.talking = "HEAT"--RETURN
+	elseif game.disaser == "disease" then
+		game.talking = "DISEASE"--RETURN
+	elseif game.disaster == "high food" then
+		game.talking = "HIGHFOOD"--RETURN
 	end
 	game.arrowvisible = true
 	game.ended = true
@@ -151,7 +159,7 @@ function game.choose_disaster()
 		game.run_sound("audios/Darwin_Cold.ogg")
 	elseif rand == 4 then
 		game.disaster = "heat"
-		game.talking = "It sure is hot! It appears we are entering a period of global warming. Remember, youcan pause the game and try your luck on the Wheel of Mutations three times during your time travel."
+		game.talking = "It sure is hot! It appears we are entering a period of global warming. Remember, you can pause the game and try your luck on the Wheel of Mutations three times during your time travel."
 		game.run_sound("audios/Darwin_Heat.ogg")
 	elseif rand == 5 then
 		game.disaster = "high food"
@@ -462,7 +470,7 @@ function game.make_choice(x, y)
 	end
 	local z = 3*y+x+1
 	game.selections = game.selections + 1
-	game.organisms[game.selections] = {Mass=13*game.choices[z].Mass, Hair=13*game.choices[z].Hair, Legs=13*game.choices[z].Legs, Neck=7*game.choices[z].Neck, Striped=7*game.choices[z].Striped, x=500+100*game.selections, y=200}
+	game.organisms[game.selections] = {Mass=13*game.choices[z].Mass, Hair=13*game.choices[z].Hair, Legs=13*game.choices[z].Legs, Neck=7*game.choices[z].Neck, Striped=7*game.choices[z].Striped, x=500+100*game.selections, y=500}
 end
 function game.run_sound(filepath)--nil can be used to cancel audio
 	if not is_muted then
