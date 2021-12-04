@@ -22,6 +22,7 @@ function game.load()
 	game.woodbackground = love.graphics.newImage("images/WoodBackground.jpg")
 	game.darwin = love.graphics.newImage("images/Darwin.png")
 	game.logo = love.graphics.newImage("images/SmallTIES.jpg")
+	game.boldfont = love.graphics.newFont("Bold.ttf")
 	game.critters = {}
 	game.max_pop = 16
 end
@@ -35,6 +36,7 @@ function game.cleanup()
 	end
 	game.critters = nil
 	game.logo:release()
+	game.boldfont:release()
 end
 function game.load_critter(critter)
 	local string = "" .. critter.Mass % 3 .. critter.Hair % 3 .. critter.Striped % 2 .. critter.Neck % 2 .. critter.Legs % 3
@@ -563,9 +565,16 @@ function game.draw()
 		love.graphics.setColor(0, 0, 0)
 		love.graphics.printf(game.talking, 275, 595, 640, "left")
 	end
+	love.graphics.setColor(139/255, 69/255, 19/255)
+	love.graphics.rectangle("fill", 840, 90, 170, 60, 10, 8)
+	love.graphics.setColor(245/255,222/255,179/255)
+	love.graphics.rectangle("fill", 850, 100, 150, 40, 10, 8)
+	love.graphics.setColor(31/255, 67/255, 156/255)
+	love.graphics.setFont(game.boldfont)
+	love.graphics.printf("YEARS:", 860, 112, 130, "left")
+	love.graphics.printf(tostring(game.years), 860, 112, 130, "right")
 	--Final White Color Set
 	love.graphics.setColor(1, 1, 1)
-	love.graphics.print(tostring(game.years), 900, 350)--TEST
 end
 function game.update(dt)
 	print(1/dt)--Prints the fps, remove eventually
