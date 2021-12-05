@@ -574,7 +574,7 @@ function game.draw()
 		love.graphics.polygon("fill", 250, 635, 270, 625, 270, 645)
 		love.graphics.rectangle("fill", 270, 590, 650, 100, 20, 20)
 		love.graphics.setColor(0, 0, 0)
-		love.graphics.printf(game.talking, 275, 595, 640, "left")
+		love.graphics.printf(game.talking, 285, 595, 630, "left")
 	end
 	love.graphics.setColor(139/255, 69/255, 19/255)
 	love.graphics.rectangle("fill", 840, 90, 170, 60, 10, 8)
