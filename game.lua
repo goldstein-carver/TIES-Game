@@ -17,6 +17,7 @@ game.elapsed_time = 0
 game.organisms = {}
 function game.load()
 	game.smallfont = love.graphics.newFont(20)
+	game.bigfont = love.graphics.newFont(30)
 	game.hand = love.mouse.getSystemCursor("hand")
 	game.background = love.graphics.newImage("images/Environment.jpg")
 	game.hotbackground = love.graphics.newImage("images/HotEnvironment.jpg")
@@ -24,13 +25,13 @@ function game.load()
 	game.woodbackground = love.graphics.newImage("images/WoodBackground.jpg")
 	game.darwin = love.graphics.newImage("images/Darwin.png")
 	game.logo = love.graphics.newImage("images/SmallTIES.jpg")
-	game.smallwheel = love.graphics.newImage("images/smallwheel.jpg")
 	game.boldfont = love.graphics.newFont("Bold.ttf")
 	game.critters = {}
 	game.max_pop = 16
 end
 function game.cleanup()
 	game.smallfont:release()
+	game.bigfont:release()
 	game.hand:release()
 	game.background:release()
 	game.hotbackground:release()
@@ -42,7 +43,6 @@ function game.cleanup()
 	end
 	game.critters = nil
 	game.logo:release()
-	game.smallwheel:release()
 	game.boldfont:release()
 end
 function game.load_critter(critter)
@@ -92,6 +92,7 @@ function game.win()
 	game.ended = true
 end
 function game.setwheel()
+	game.spins = game.spins - 1
 	game.wheel = {critters={}, theta=0, omega=0, clickable=true}
 	local organismcount = 0
 	while game.organisms[organismcount+1] do
@@ -695,7 +696,6 @@ function game.draw()
 		while i <= 8 do
 			local image = game.load_critter(game.wheel.critters[i])
 			love.graphics.draw(image, image:getWidth()/2-10, 180, math.pi)
-			love.graphics.print(game.wheel.critters[i], 0, 180)
 			love.graphics.rotate(math.pi/4)
 			i = i+1
 		end
@@ -704,7 +704,19 @@ function game.draw()
 		love.graphics.pop()
 	elseif game.began and not game.ended then
 		if not (game.disaster == "disease" or game.disaster == "asteroid" or game.disaster == "volcano") then
-			love.graphics.draw(game.smallwheel, 40, 80)
+			local i = 1
+			while i <= 8 do
+				if i % 2 == 1 then
+					love.graphics.setColor(243/255, 116/255, 47/255)
+				else
+					love.graphics.setColor(31/255, 67/255, 156/255)
+				end
+				love.graphics.arc("fill", 80, 120, 40, (i-1)*math.pi/4, i*math.pi/4)
+				i = i+1
+			end
+			love.graphics.setFont(game.bigfont)
+			love.graphics.setColor(1, 1, 1)
+			love.graphics.print(tostring(game.spins), 70, 105)
 		end
 	end
 	--Final White Color Set
@@ -838,6 +850,7 @@ function game.handle_pregame(dt)
 		end
 	elseif game.elapsed_time >= 302 then
 		if game.arrowclicked == true then
+			game.spins = 3
 			game.run_sound("audios/Darwin5.ogg")
 			game.talking = "You can spin the Wheel of Mutations three times during your time travel. Be careful: You do not know what you are going to get. Mutations are random."
 			game.disaster = nil
@@ -874,9 +887,21 @@ function game.cursor_check()
 		else
 			love.mouse.setCursor()
 		end
-	elseif x >= 40 and x<= 115 and y >= 80 and y <= 155 then
+	elseif (x-80)*(x-80)+(y-120)*(y-120) <= 1600 and game.spins > 0 then
 		if game.began and (not game.ended) and (not game.wheel) and not (game.disaster == "disease" or game.disaster == "asteroid" or game.disaster == "volcano") then
 			if game.generations > 0 or not game.paused then
+				love.mouse.setCursor(game.hand)
+			else
+				love.mouse.setCursor()
+			end
+		else
+			love.mouse.setCursor()
+		end
+	elseif game.wheel then
+		if game.wheel.clickable then
+			local dx = x-512
+			local dy = y-330
+			if dx*dx+dy*dy <= 44100 then
 				love.mouse.setCursor(game.hand)
 			else
 				love.mouse.setCursor()
@@ -943,7 +968,7 @@ function game.mousepressed(x, y, button, istouch, presses)
 		love.system.openURL("https://www.tieseducation.org")
 	elseif x >= 925 and y >= 580 and game.arrowvisible then
 		game.arrowclicked = true
-	elseif x >= 40 and x<= 115 and y >= 80 and y <= 155 then
+	elseif (x-80)*(x-80)+(y-120)*(y-120) <= 1600 and game.spins > 0 then
 		if game.began and (not game.ended) and (not game.wheel) and not (game.disaster == "disease" or game.disaster == "asteroid" or game.disaster == "volcano") then
 			if game.generations > 0 or not game.paused then
 				game.setwheel()
@@ -959,7 +984,9 @@ function game.mousepressed(x, y, button, istouch, presses)
 		end
 	elseif game.wheel then
 		if game.wheel.clickable then
-			if x >= 200 and x <= 800 and y >= 80 and y <= 600 then--Change these values later
+			local dx = x-512
+			local dy = y-330
+			if dx*dx+dy*dy <= 44100 then
 				game.wheel.clickable = false
 				game.wheel.omega = math.pi*(math.random()+3.5)
 			end
