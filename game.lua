@@ -24,6 +24,7 @@ function game.load()
 	game.woodbackground = love.graphics.newImage("images/WoodBackground.jpg")
 	game.darwin = love.graphics.newImage("images/Darwin.png")
 	game.logo = love.graphics.newImage("images/SmallTIES.jpg")
+	game.smallwheel = love.graphics.newImage("images/smallwheel.jpg")
 	game.boldfont = love.graphics.newFont("Bold.ttf")
 	game.critters = {}
 	game.max_pop = 16
@@ -41,15 +42,25 @@ function game.cleanup()
 	end
 	game.critters = nil
 	game.logo:release()
+	game.smallwheel:release()
 	game.boldfont:release()
 end
 function game.load_critter(critter)
-	local string = "" .. critter.Mass % 3 .. critter.Hair % 3 .. critter.Striped % 2 .. critter.Neck % 2 .. critter.Legs % 3
-	if game.critters[string] then
-		return game.critters[string]
-	else
-		game.critters[string] = love.graphics.newImage("images/critter" .. string .. ".png")
-		return game.critters[string]
+	if type(critter) == "table" then
+		local string = "" .. critter.Mass % 3 .. critter.Hair % 3 .. critter.Striped % 2 .. critter.Neck % 2 .. critter.Legs % 3
+		if game.critters[string] then
+			return game.critters[string]
+		else
+			game.critters[string] = love.graphics.newImage("images/critter" .. string .. ".png")
+			return game.critters[string]
+		end
+	elseif type(critter) == "string" then
+		if game.critters[critter] then
+			return game.critters[critter]
+		else
+			game.critters[critter] = love.graphics.newImage("images/critter" .. critter .. ".png")
+			return game.critters[critter]
+		end
 	end
 end
 function game.debase(num, base)
@@ -75,9 +86,80 @@ function game.lose()
 	game.ended = true
 end
 function game.win()
+	game.displaydisaster = nil
 	game.talking = "Yay!! Your species survived one million years! Hopefully, you learned something about natural selection along the way. Do you want to try again?"
 	game.arrowvisible = true
 	game.ended = true
+end
+function game.setwheel()
+	game.wheel = {critters={}, theta=0, omega=0, clickable=true}
+	local organismcount = 0
+	while game.organisms[organismcount+1] do
+		organismcount = organismcount + 1
+	end
+	if organismcount == 0 then return end
+	game.wheel.chosenone = math.random(organismcount)
+	local omass = game.organisms[game.wheel.chosenone].Mass % 3
+	local ohair = game.organisms[game.wheel.chosenone].Hair % 3
+	local ostriped = game.organisms[game.wheel.chosenone].Striped % 2
+	local oneck = game.organisms[game.wheel.chosenone].Neck % 2
+	local olegs = game.organisms[game.wheel.chosenone].Legs % 3
+	if omass == 1 then
+		game.wheel.critters[1] = 2 .. ohair .. ostriped .. oneck .. olegs
+		game.wheel.critters[2] = 0 .. ohair .. ostriped .. oneck .. olegs
+	elseif omass == 2 then
+		game.wheel.critters[1] = 1 .. ohair .. ostriped .. oneck .. olegs
+		game.wheel.critters[2] = 0 .. ohair .. ostriped .. oneck .. olegs
+	elseif omass == 0 then
+		game.wheel.critters[1] = 1 .. ohair .. ostriped .. oneck .. olegs
+		game.wheel.critters[2] = 2 .. ohair .. ostriped .. oneck .. olegs
+	end
+	if ohair == 1 then
+		game.wheel.critters[3] = omass .. 2 .. ostriped .. oneck .. olegs
+		game.wheel.critters[4] = omass .. 0 .. ostriped .. oneck .. olegs
+	elseif ohair == 2 then
+		game.wheel.critters[3] = omass .. 1 .. ostriped .. oneck .. olegs
+		game.wheel.critters[4] = omass .. 0 .. ostriped .. oneck .. olegs
+	elseif ohair == 0 then
+		game.wheel.critters[3] = omass .. 1 .. ostriped .. oneck .. olegs
+		game.wheel.critters[4] = omass .. 2 .. ostriped .. oneck .. olegs
+	end
+	if olegs == 1 then
+		game.wheel.critters[5] = omass .. ohair .. ostriped .. oneck .. 2
+		game.wheel.critters[6] = omass .. ohair .. ostriped .. oneck .. 0
+	elseif olegs == 2 then
+		game.wheel.critters[5] = omass .. ohair .. ostriped .. oneck .. 1
+		game.wheel.critters[6] = omass .. ohair .. ostriped .. oneck .. 0
+	elseif olegs == 0 then
+		game.wheel.critters[5] = omass .. ohair .. ostriped .. oneck .. 1
+		game.wheel.critters[6] = omass .. ohair .. ostriped .. oneck .. 2
+	end
+	if oneck == 1 then
+		game.wheel.critters[7] = omass .. ohair .. ostriped .. 0 .. olegs
+	elseif oneck == 0 then
+		game.wheel.critters[7] = omass .. ohair .. ostriped .. 1 .. olegs
+	end
+	if ostriped == 1 then
+		game.wheel.critters[8] = omass .. ohair .. 0 .. oneck .. olegs
+	elseif ostriped == 0 then
+		game.wheel.critters[8] = omass .. ohair .. 1 .. oneck .. olegs
+	end
+	local rearranged_table = {}
+	local i = 1
+	while i <= 8 do
+		local rand = math.random(9-i)
+		local j = 0
+		local k = 0
+		while j < rand do
+			k = k+1
+			if not rearranged_table[k] then
+				j = j+1
+			end
+		end
+		rearranged_table[k] = game.wheel.critters[i]
+		i=i+1
+	end
+	game.wheel.critters = rearranged_table
 end
 function game.walk()
 	local i = 1
@@ -584,11 +666,47 @@ function game.draw()
 	love.graphics.setFont(game.boldfont)
 	love.graphics.printf("YEARS:", 860, 112, 130, "left")
 	love.graphics.printf(tostring(game.years), 860, 112, 130, "right")
+	love.graphics.setColor(1, 1, 1)
+	if game.wheel then
+		love.graphics.push()
+		love.graphics.translate(512, 330)
+		love.graphics.circle("fill", 0, 0, 210)
+		love.graphics.push()
+		love.graphics.rotate(game.wheel.theta-math.pi/4)
+		local i = 1
+		while i <= 8 do
+			love.graphics.rotate(math.pi/4)
+			if i % 2 == 1 then
+				love.graphics.setColor(243/255, 116/255, 47/255)
+			else
+				love.graphics.setColor(31/255, 67/255, 156/255)
+			end
+			love.graphics.arc("fill", 0, 0, 200, 0, math.pi/4)
+			i = i+1
+		end
+		love.graphics.setColor(1, 1, 1)
+		love.graphics.rotate(math.pi/8)
+		i = 1
+		while i <= 8 do
+			local image = game.load_critter(game.wheel.critters[i])
+			love.graphics.draw(image, image:getWidth()/2-10, 180, math.pi)
+			love.graphics.print(game.wheel.critters[i], 0, 180)
+			love.graphics.rotate(math.pi/4)
+			i = i+1
+		end
+		love.graphics.pop()
+		love.graphics.polygon("fill", -5, 200, 5, 200, 0, 170)
+		love.graphics.pop()
+	elseif game.began and not game.ended then
+		if not (game.disaster == "disease" or game.disaster == "asteroid" or game.disaster == "volcano") then
+			love.graphics.draw(game.smallwheel, 40, 80)
+		end
+	end
 	--Final White Color Set
 	love.graphics.setColor(1, 1, 1)
 end
 function game.update(dt)
-	print(1/dt)--Prints the fps, remove eventually
+	--print(1/dt)--Prints the fps, remove eventually
 	game.cursor_check()
 	--Game counter
 	if game.began and not game.ended then
@@ -604,6 +722,22 @@ function game.update(dt)
 					game.run_sound()
 				else
 					game.arrowvisible = true
+				end
+			end
+		elseif game.wheel then
+			if game.wheel.waittime then
+				game.wheel.waittime = game.wheel.waittime - dt
+				if game.wheel.waittime <= 0 then
+					local n = math.ceil(4*game.wheel.theta/math.pi)
+					n = (1-n) % 8
+					--print(game.wheel.critters[n+1])
+					game.wheel = nil
+				end
+			elseif not game.wheel.clickable then
+				game.wheel.theta = (game.wheel.theta + game.wheel.omega*dt) % (2*math.pi)
+				game.wheel.omega = game.wheel.omega - 2*math.random()*dt
+				if game.wheel.omega <= 0 then
+					game.wheel.waittime = 1.5
 				end
 			end
 		else
@@ -714,6 +848,16 @@ function game.cursor_check()
 		else
 			love.mouse.setCursor()
 		end
+	elseif x >= 40 and x<= 115 and y >= 80 and y <= 155 then
+		if game.began and (not game.ended) and (not game.wheel) and not (game.disaster == "disease" or game.disaster == "asteroid" or game.disaster == "volcano") then
+			if game.generations > 0 or not game.paused then
+				love.mouse.setCursor(game.hand)
+			else
+				love.mouse.setCursor()
+			end
+		else
+			love.mouse.setCursor()
+		end
 	else
 		love.mouse.setCursor()
 	end
@@ -771,12 +915,25 @@ function game.mousepressed(x, y, button, istouch, presses)
 		love.system.openURL("https://www.tieseducation.org")
 	elseif x >= 925 and y >= 580 and game.arrowvisible then
 		game.arrowclicked = true
+	elseif x >= 40 and x<= 115 and y >= 80 and y <= 155 then
+		if game.began and (not game.ended) and (not game.wheel) and not (game.disaster == "disease" or game.disaster == "asteroid" or game.disaster == "volcano") then
+			if game.generations > 0 or not game.paused then
+				game.setwheel()
+			end
+		end
 	elseif game.choices then
 		if x >= 50 and x <= 450 and y <= 560 and y >= 520 then
 			game.generate_choices()
 		elseif (x >= 100 and x <= 180) or (x >= 220 and x <= 300) or (x >= 340 and x <= 420) then
 			if (y >= 145 and y <= 225) or (y >= 265 and y <= 345) or (y >= 385 and y <= 465) then
 				game.make_choice(x, y)
+			end
+		end
+	elseif game.wheel then
+		if game.wheel.clickable then
+			if x >= 200 and x <= 800 and y >= 80 and y <= 600 then--Change these values later
+				game.wheel.clickable = false
+				game.wheel.omega = math.pi*(math.random()+3.5)
 			end
 		end
 	end
