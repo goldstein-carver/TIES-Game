@@ -602,9 +602,14 @@ function game.draw()
 	love.graphics.setColor(0, 0, 0)
 	love.graphics.printf("Time Machine Game", 342, 5, 171, "center")
 	love.graphics.setColor(1, 1, 1)
-	for _, critter in ipairs(game.organisms) do
+	for index, critter in ipairs(game.organisms) do
 		local picture = game.load_critter(critter)
 		love.graphics.draw(picture, critter.x, critter.y-picture:getHeight(), 0, 1, 1)
+		if game.shimmertarget == index then
+			love.graphics.setColor(1, 1, 102/255, game.shimmeralpha)
+			love.graphics.rectangle("fill", critter.x, critter.y-picture:getHeight(), picture:getWidth(), picture:getHeight())
+			love.graphics.setColor(1, 1, 1, 1)
+		end
 	end
 	if game.choices then
 		love.graphics.setColor(210/255, 180/255, 140/255)
@@ -706,8 +711,15 @@ function game.draw()
 	love.graphics.setColor(1, 1, 1)
 end
 function game.update(dt)
-	--print(1/dt)--Prints the fps, remove eventually
+	print(1/dt)--Prints the fps, remove eventually
 	game.cursor_check()
+	if game.shimmeralpha then
+		game.shimmeralpha = game.shimmeralpha - 5*dt
+		if game.shimmeralpha <= 0 then
+			game.shimmeralpha = nil
+			game.shimmertarget = nil
+		end
+	end
 	--Game counter
 	if game.began and not game.ended then
 		if game.paused then
@@ -730,7 +742,21 @@ function game.update(dt)
 				if game.wheel.waittime <= 0 then
 					local n = math.ceil(4*game.wheel.theta/math.pi)
 					n = (1-n) % 8
-					--print(game.wheel.critters[n+1])
+					local org = game.organisms[game.wheel.chosenone]
+					local str = game.wheel.critters[n+1]
+					if tostring(org.Mass % 3) ~= string.sub(str, 1, 1) then
+						org.Mass = 13*tonumber(string.sub(str, 1, 1))
+					elseif tostring(org.Hair % 3) ~= string.sub(str, 2, 2) then
+						org.Hair = 13*tonumber(string.sub(str, 2, 2))
+					elseif tostring(org.Striped % 2) ~= string.sub(str, 3, 3) then
+						org.Striped = 7*tonumber(string.sub(str, 3, 3))
+					elseif tostring(org.Neck % 2) ~= string.sub(str, 4, 4) then
+						org.Neck = 7*tonumber(string.sub(str, 4, 4))
+					elseif tostring(org.Legs % 3) ~= string.sub(str, 5, 5) then
+						org.Legs = 13*tonumber(string.sub(str, 5, 5))
+					end
+					game.shimmertarget = game.wheel.chosenone
+					game.shimmeralpha = 1
 					game.wheel = nil
 				end
 			elseif not game.wheel.clickable then
@@ -863,6 +889,8 @@ function game.cursor_check()
 	end
 end
 function game.next_generation()
+	game.shimmeralpha = nil
+	game.shimmertarget = nil
 	game.displaydisaster = game.disaster
 	game.generations = game.generations + 1
 	if game.generations  == 18 then
