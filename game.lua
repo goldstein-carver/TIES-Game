@@ -76,11 +76,15 @@ function game.lose()
 	elseif game.disaster == "cold" then
 		game.talking = "Too bad. Your TIES critters couldn’t stay warm enough to survive. Maybe thicker fur coats would have helped. Would you like to try again?"
 	elseif game.disaster == "heat" then
-		game.talking = "HEAT"--RETURN
+		game.talking = "Too bad. Your TIES critters couldn't stay cool enough to survive. Maybe a larger surface area would have helped. Would you like to try again?"
 	elseif game.disaser == "disease" then
-		game.talking = "DISEASE"--RETURN
+		game.talking = "Oh no! Your species was wiped out by the spreading disease. Perhaps more variation would have helped. Would you like to try again?"
 	elseif game.disaster == "high food" then
-		game.talking = "HIGHFOOD"--RETURN
+		game.talking = "Unfortunately, your species wasn't tall enough to reach the food, so they starved. Would you like to try again?"
+	elseif game.disaster == "asteroid" then
+		game.talking = "Sadly, the asteroid's impact on the world's ecosystems were too severe for your TIES critters to survive. Would you like to try again?"
+	elseif game.disaster == "volcano" then
+		game.talking = "Sadly, the volcano's impact on the world's ecosystems were too severe for your TIES critters to survive. Would you like to try again?"
 	end
 	game.arrowvisible = true
 	game.ended = true
@@ -172,12 +176,14 @@ function game.walk()
 			game.organisms[i].x = 10+math.random(924)
 			local j = i-1
 			while j > 1 do
+				print(game.organisms[i].y, game.organisms[j].y, game.organisms[i].x, game.organisms[j].x)
 				if math.abs(game.organisms[i].y-game.organisms[j].y) <= 40 and math.abs(game.organisms[i].x-game.organisms[j].x) <= 90 then
 					bad = true
 					break
 				end
 				j = j-1
 			end
+			print(bad)
 		end
 		i=i+1
 	end
@@ -723,7 +729,7 @@ function game.draw()
 	love.graphics.setColor(1, 1, 1)
 end
 function game.update(dt)
-	print(1/dt)--Prints the fps, remove eventually
+	--print(1/dt)--Prints the fps, remove eventually
 	game.cursor_check()
 	if game.shimmeralpha then
 		game.shimmeralpha = game.shimmeralpha - 5*dt
