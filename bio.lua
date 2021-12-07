@@ -46,7 +46,7 @@ function bio.draw()
 	love.graphics.print("Charles Darwin", 230, 80)
 	love.graphics.setFont(bio.middlefont)
 	love.graphics.printf("was born in England in 1809. He studied medicine and", 230, 113, 250)
-	love.graphics.printf("theology before embarking on a trip around the world on the H.M.S. Beagle in 1931 for 5 years. Darwin wrote down notes and drew pictures of everything he observed. He sent many specimens home to England. He discovered many new species. He noticed that many of the fossils he found resembled the living species at the same location.", 100, 230, 380)
+	love.graphics.printf("theology before embarking on a trip around the world on the H.M.S. Beagle in 1931 for 5 years. Darwin wrote down notes and drew pictures of everything he observed. He sent many specimens home to England. He discovered many new species. He noticed that many of the fossils he found resembled the living species at the same location.", 110, 230, 370)
 	love.graphics.setColor(1, 1, 1)
 end
 function bio.update(dt)
