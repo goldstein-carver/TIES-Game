@@ -175,15 +175,13 @@ function game.walk()
 			game.organisms[i].y = 660-math.random(3)*100+math.random(20)
 			game.organisms[i].x = 10+math.random(924)
 			local j = i-1
-			while j > 1 do
-				print(game.organisms[i].y, game.organisms[j].y, game.organisms[i].x, game.organisms[j].x)
+			while j >= 1 do
 				if math.abs(game.organisms[i].y-game.organisms[j].y) <= 40 and math.abs(game.organisms[i].x-game.organisms[j].x) <= 90 then
 					bad = true
 					break
 				end
 				j = j-1
 			end
-			print(bad)
 		end
 		i=i+1
 	end
@@ -729,7 +727,6 @@ function game.draw()
 	love.graphics.setColor(1, 1, 1)
 end
 function game.update(dt)
-	--print(1/dt)--Prints the fps, remove eventually
 	game.cursor_check()
 	if game.shimmeralpha then
 		game.shimmeralpha = game.shimmeralpha - 5*dt
@@ -934,6 +931,9 @@ function game.next_generation()
 	game.reproduce()
 	game.walk()
 	game.kill()
+	if game.generations < 18 and not game.organisms[2] then
+		game.organisms[1] = nil
+	end
 	if not game.organisms[1] then
 		game.lose()
 	elseif game.round_count == 3 then
