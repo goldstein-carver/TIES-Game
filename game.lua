@@ -735,6 +735,7 @@ function game.draw()
 	love.graphics.setColor(1, 1, 1)
 end
 function game.update(dt)
+	print(1/dt)--TEST; Remove at some point
 	game.cursor_check()
 	if game.shimmeralpha then
 		game.shimmeralpha = game.shimmeralpha - 5*dt
