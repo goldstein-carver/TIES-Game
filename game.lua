@@ -73,18 +73,25 @@ end
 function game.lose()
 	if game.disaster == "predator" then
 		game.talking = "Bummer! Your species did not have enough camouflage or long legs to avoid those hungry predators. Would you like to try again?"
+		game.run_sound("audios/Darwin_L_Predator.ogg")
 	elseif game.disaster == "cold" then
 		game.talking = "Too bad. Your TIES critters couldn’t stay warm enough to survive. Maybe thicker fur coats would have helped. Would you like to try again?"
+		game.run_sound("audios/Darwin_L_Cold.ogg")
 	elseif game.disaster == "heat" then
 		game.talking = "Too bad. Your TIES critters couldn't stay cool enough to survive. Maybe a larger surface area would have helped. Would you like to try again?"
+		game.run_sound("audios/Darwin_L_Heat.ogg")
 	elseif game.disaser == "disease" then
 		game.talking = "Oh no! Your species was wiped out by the spreading disease. Perhaps more variation would have helped. Would you like to try again?"
+		game.run_sound("audios/Darwin_L_Disease.ogg")
 	elseif game.disaster == "high food" then
 		game.talking = "Unfortunately, your species wasn't tall enough to reach the food, so they starved. Would you like to try again?"
+		game.run_sound("audios/Darwin_L_HighFood.ogg")
 	elseif game.disaster == "asteroid" then
 		game.talking = "Sadly, the asteroid's impact on the world's ecosystems were too severe for your TIES critters to survive. Would you like to try again?"
+		game.run_sound("audios/Darwin_L_Asteroid.ogg")
 	elseif game.disaster == "volcano" then
 		game.talking = "Sadly, the volcano's impact on the world's ecosystems were too severe for your TIES critters to survive. Would you like to try again?"
+		game.run_sound("audios/Darwin_L_Volcano.ogg")
 	end
 	game.arrowvisible = true
 	game.ended = true
@@ -94,6 +101,7 @@ function game.win()
 	game.talking = "Yay!! Your species survived one million years! Hopefully, you learned something about natural selection along the way. Do you want to try again?"
 	game.arrowvisible = true
 	game.ended = true
+	game.run_sound("audios/Darwin_Win.ogg")
 end
 function game.setwheel()
 	game.spins = game.spins - 1
