@@ -40,3 +40,11 @@ Be careful choosing the traits of your starter population. Hint: Variation helps
 Here we go. The goal of the TIES Time Machine is for your species to survive one million years. The individuals with the traits best suited to the changing environment will survive.
 #Darwin5.ogg
 You can spin the Wheel of Mutations three times during your time travel. Be careful: You do not know what you are going to get. Mutations are random.
+#Darwin6.ogg
+Individual members of a species can have a different fur color, height, wingspan, beak depth, you name it. 
+#Darwin7.ogg
+Just look at a litter of kittens. Some look like mom and some look more like dad.
+#Darwin8.ogg
+The beneficial, or helpful, traits will become more common in the population. This changes the look of the population over time.
+#Darwin9.ogg
+Some mutations hurt your chances of survival, some help, some are neutral. Evolution is the accumulation of beneficial mutations over time. But remember: an individual cannot just WISH for a specific mutation to occur. It’s luck.
