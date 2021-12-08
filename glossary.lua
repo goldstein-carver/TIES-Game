@@ -43,7 +43,7 @@ function glossary.draw()
 	love.graphics.printf("Glossary", 854, 5, 171, "center")
 	love.graphics.setFont(glossary.tinyfont)
 	love.graphics.printf(glossary.leftwriting, 120, 85, 352, "left")
-	love.graphics.printf(glossary.rightwriting, 572, 85, 342, "right")
+	love.graphics.printf(glossary.rightwriting, 572, 85, 342, "left")
 	love.graphics.setColor(1, 1, 1)
 end
 function glossary.update(dt)

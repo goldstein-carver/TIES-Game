@@ -752,7 +752,7 @@ function game.update(dt)
 	print(1/dt)--TEST; Remove at some point
 	game.cursor_check()
 	if game.shimmeralpha then
-		game.shimmeralpha = game.shimmeralpha - 5*dt
+		game.shimmeralpha = game.shimmeralpha - 2*dt
 		if game.shimmeralpha <= 0 then
 			game.shimmeralpha = nil
 			game.shimmertarget = nil
@@ -806,7 +806,7 @@ function game.update(dt)
 			end
 		else
 			game.elapsed_time = game.elapsed_time + dt
-			if game.elapsed_time > 5 then
+			if game.elapsed_time > 3 then
 				game.next_generation()
 			end
 		end
@@ -913,7 +913,7 @@ function game.cursor_check()
 		else
 			love.mouse.setCursor()
 		end
-	elseif (x-80)*(x-80)+(y-120)*(y-120) <= 1600 and game.spins > 0 then
+	elseif (x-80)*(x-80)+(y-120)*(y-120) <= 1600 and game.began and game.spins > 0 then
 		if game.began and (not game.ended) and (not game.wheel) and not (game.disaster == "disease" or game.disaster == "asteroid" or game.disaster == "volcano") then
 			if game.generations > 0 or not game.paused then
 				love.mouse.setCursor(game.hand)
@@ -997,7 +997,7 @@ function game.mousepressed(x, y, button, istouch, presses)
 		love.system.openURL("https://www.tieseducation.org")
 	elseif x >= 925 and y >= 580 and game.arrowvisible then
 		game.arrowclicked = true
-	elseif (x-80)*(x-80)+(y-120)*(y-120) <= 1600 and game.spins > 0 then
+	elseif (x-80)*(x-80)+(y-120)*(y-120) <= 1600 and game.began and game.spins > 0 then
 		if game.began and (not game.ended) and (not game.wheel) and not (game.disaster == "disease" or game.disaster == "asteroid" or game.disaster == "volcano") then
 			if game.generations > 0 or not game.paused then
 				game.setwheel()

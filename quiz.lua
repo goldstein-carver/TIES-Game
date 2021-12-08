@@ -100,7 +100,7 @@ function quiz.readnext(number)
 	elseif number == 8 then
 		quiz.question = "What is the name of Darwin's famous book?"
 		answers = {"On the Origin of Species", "The Natural History of the World", "Natural Selection", "Cosmos"}
-		quiz.no = "Darwin’s famous book is \"On the Origin of Species\"."
+		quiz.no = "Darwin’s famous book is On the Origin of Species."
 	elseif number == 9 then
 		quiz.question = "True or False: Mutations occur because the population needs them to survive."
 		answers = 2
@@ -227,7 +227,7 @@ function quiz.draw()
 		end
 		love.graphics.setColor(0, 0, 0)
 		love.graphics.setFont(quiz.middlefont)
-		love.graphics.printf(quiz.question, 100, 100, 390, "center")
+		love.graphics.printf(quiz.question, 120, 100, 350, "center")
 		if quiz.selected then
 			love.graphics.setColor(0, 0, 1)
 			love.graphics.print("Next question", 570, 635)
@@ -235,15 +235,15 @@ function quiz.draw()
 		love.graphics.setColor(0, 0, 0)
 		if quiz.answers[3] then
 			if quiz.selected and quiz.selected == quiz.correct and quiz.yes then
-				love.graphics.printf("Correct! " .. quiz.yes, 540, 350, 400, "center")
+				love.graphics.printf("Correct! " .. quiz.yes, 560, 350, 360, "center")
 			elseif quiz.selected and quiz.selected ~= quiz.correct and quiz.no then
-				love.graphics.printf("Incorrect! " .. quiz.no, 540, 350, 400, "center")
+				love.graphics.printf("Incorrect! " .. quiz.no, 560, 350, 360, "center")
 			end
 		else
 			if quiz.selected and quiz.selected == quiz.correct and quiz.yes then
-				love.graphics.printf("Correct! " .. quiz.yes, 540, 250, 400, "center")
+				love.graphics.printf("Correct! " .. quiz.yes, 560, 250, 360, "center")
 			elseif quiz.selected and quiz.selected ~= quiz.correct and quiz.no then
-				love.graphics.printf("Incorrect! " .. quiz.no, 540, 250, 400, "center")
+				love.graphics.printf("Incorrect! " .. quiz.no, 560, 250, 360, "center")
 			end
 		end
 		love.graphics.setColor(1, 1, 1)
@@ -251,7 +251,7 @@ function quiz.draw()
 		love.graphics.setColor(0, 0, 0)
 		love.graphics.setFont(quiz.bigfont)
 		love.graphics.printf("Your score: " .. quiz.correct_answers .. "/10.", 100, 100, 390, "center")
-		love.graphics.printf(quiz.winmessage, 540, 100, 400, "center")
+		love.graphics.printf(quiz.winmessage, 560, 100, 360, "center")
 		love.graphics.setColor(0, 0, 1)
 		love.graphics.print("Try Again", 570, 635)
 		love.graphics.setColor(1, 1, 1)
