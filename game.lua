@@ -18,6 +18,7 @@ game.organisms = {}
 function game.load()
 	game.smallfont = love.graphics.newFont(20)
 	game.bigfont = love.graphics.newFont(30)
+	game.verybigfont = love.graphics.newFont(40)
 	game.hand = love.mouse.getSystemCursor("hand")
 	game.background = love.graphics.newImage("images/Environment.jpg")
 	game.hotbackground = love.graphics.newImage("images/HotEnvironment.jpg")
@@ -34,6 +35,7 @@ end
 function game.cleanup()
 	game.smallfont:release()
 	game.bigfont:release()
+	game.verybigfont:release()
 	game.hand:release()
 	game.background:release()
 	game.hotbackground:release()
@@ -744,6 +746,17 @@ function game.draw()
 		love.graphics.draw(game.predator, 300, 200, 0, 0.5, 0.5)
 		love.graphics.draw(game.predator, 600, 200, 0, 0.5, 0.5)
 		love.graphics.draw(game.predator, 900, 200, 0, 0.5, 0.5)
+	end
+	if game.ended then
+		love.graphics.setColor(243/255, 116/255, 47/255)
+		love.graphics.ellipse("fill", 512, 330, 200, 100)
+		love.graphics.setColor(31/255, 67/255, 156/255)
+		love.graphics.setFont(game.verybigfont)
+		if game.displaydisaster then
+			love.graphics.printf("You lost!", 312, 310, 400, "center")
+		else
+			love.graphics.printf("You won!", 312, 310, 400, "center")
+		end
 	end
 	--Final White Color Set
 	love.graphics.setColor(1, 1, 1)
