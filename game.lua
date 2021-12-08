@@ -24,7 +24,9 @@ function game.load()
 	game.coldbackground = love.graphics.newImage("images/ColdEnvironment.jpg")
 	game.woodbackground = love.graphics.newImage("images/WoodBackground.jpg")
 	game.darwin = love.graphics.newImage("images/Darwin.png")
+	game.darwinmasked = love.graphics.newImage("images/DarwinMask.png")
 	game.logo = love.graphics.newImage("images/SmallTIES.jpg")
+	game.predator = love.graphics.newImage("images/predator.png")
 	game.boldfont = love.graphics.newFont("Bold.ttf")
 	game.critters = {}
 	game.max_pop = 16
@@ -37,12 +39,15 @@ function game.cleanup()
 	game.hotbackground:release()
 	game.coldbackground:release()
 	game.woodbackground:release()
+	game.darwin:release()
+	game.darwinmasked:release()
 	game.run_sound(nil)
 	for _, critter in ipairs(game.critters) do
 		critter:release()
 	end
 	game.critters = nil
 	game.logo:release()
+	game.predator:release()
 	game.boldfont:release()
 end
 function game.load_critter(critter)
@@ -80,7 +85,7 @@ function game.lose()
 	elseif game.disaster == "heat" then
 		game.talking = "Too bad. Your TIES critters couldn't stay cool enough to survive. Maybe a larger surface area would have helped. Would you like to try again?"
 		game.run_sound("audios/Darwin_L_Heat.ogg")
-	elseif game.disaser == "disease" then
+	elseif game.disaster == "disease" then
 		game.talking = "Oh no! Your species was wiped out by the spreading disease. Perhaps more variation would have helped. Would you like to try again?"
 		game.run_sound("audios/Darwin_L_Disease.ogg")
 	elseif game.disaster == "high food" then
@@ -661,7 +666,11 @@ function game.draw()
 	love.graphics.setColor(31/255, 67/255, 156/255)
 	love.graphics.print("Hints", 965, 555)
 	love.graphics.setColor(1, 1, 1)
-	love.graphics.draw(game.darwin, 140, 550, 0, 0.5, 0.5)
+	if game.disaster == "disease" then
+		love.graphics.draw(game.darwinmasked, 140, 550, 0, 0.5, 0.5)
+	else
+		love.graphics.draw(game.darwin, 140, 550, 0, 0.5, 0.5)
+	end
 	if game.arrowvisible then
 		love.graphics.polygon("fill", 930, 595, 930, 685, 1020, 640)
 		if game.ended then
@@ -730,6 +739,11 @@ function game.draw()
 			love.graphics.setColor(1, 1, 1)
 			love.graphics.print(tostring(game.spins), 70, 105)
 		end
+	end
+	if game.disaster == "predator" then
+		love.graphics.draw(game.predator, 300, 200, 0, 0.5, 0.5)
+		love.graphics.draw(game.predator, 600, 200, 0, 0.5, 0.5)
+		love.graphics.draw(game.predator, 900, 200, 0, 0.5, 0.5)
 	end
 	--Final White Color Set
 	love.graphics.setColor(1, 1, 1)
