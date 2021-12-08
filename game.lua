@@ -253,61 +253,57 @@ function game.choose_susceptible_attributes()
 	return attribute, phenotype
 end
 function game.choose_disaster()
-	local rand = math.random(7)
-	if rand == 1 then
-		game.disaster = "volcano"
-		game.talking = "Everybody run! A volcano is erupting. There is no time to use the Wheel of Mutations. Cross your fingers that some of your TIES critters have what it takes to survive."
-		game.run_sound("audios/Darwin_Volcano.ogg")
-	elseif rand == 2 then
-		game.disaster = "predator"
-		game.talking = "Don’t look now but hungry predators have entered the territory. Remember, you can pause the game and try your luck on the Wheel of Mutations three times during your time travel."
-		game.run_sound("audios/Darwin_Predator.ogg")
-	elseif rand == 3 then
-		game.disaster = "cold"
-		game.talking = "Yikes, it’s cold! Some of the TIES critters may not be able to stay warm enough to survive this colder climate. Remember, you can pause the game and try your luck on the Wheel of Mutations three times during your time travel."
-		game.run_sound("audios/Darwin_Cold.ogg")
-	elseif rand == 4 then
-		game.disaster = "heat"
-		game.talking = "It sure is hot! It appears we are entering a period of global warming. Remember, you can pause the game and try your luck on the Wheel of Mutations three times during your time travel."
-		game.run_sound("audios/Darwin_Heat.ogg")
-	elseif rand == 5 then
-		game.disaster = "high food"
-		game.talking = "Check out the delicious fruit trees sprouting in your territory. Are your TIES critters tall enough? Remember, you can pause the game and try your luck on the Wheel of Mutations three times during your time travel."
-		game.run_sound("audios/Darwin_HighFood.ogg")
-	elseif rand == 6 then
-		game.disaster = "disease"
-		game.primary_attribute, game.primary_phenotype = game.choose_susceptible_attributes()
-		game.secondary_attribute, game.secondary_phenotype = game.choose_susceptible_attributes()
-		while game.secondary_attribute == game.primary_attribute do
+	while game.lastdisaster == game.disaster or not game.disaster do
+		local rand = math.random(100)
+		if rand <= 5 then
+			game.disaster = "volcano"
+			game.talking = "Everybody run! A volcano is erupting. There is no time to use the Wheel of Mutations. Cross your fingers that some of your TIES critters have what it takes to survive."
+			game.run_sound("audios/Darwin_Volcano.ogg")
+		elseif rand <= 25 then
+			game.disaster = "predator"
+			game.talking = "Don’t look now but hungry predators have entered the territory. Remember, you can pause the game and try your luck on the Wheel of Mutations three times during your time travel."
+			game.run_sound("audios/Darwin_Predator.ogg")
+		elseif rand <= 45 then
+			game.disaster = "cold"
+			game.talking = "Yikes, it’s cold! Some of the TIES critters may not be able to stay warm enough to survive this colder climate. Remember, you can pause the game and try your luck on the Wheel of Mutations three times during your time travel."
+			game.run_sound("audios/Darwin_Cold.ogg")
+		elseif rand <= 65 then
+			game.disaster = "heat"
+			game.talking = "It sure is hot! It appears we are entering a period of global warming. Remember, you can pause the game and try your luck on the Wheel of Mutations three times during your time travel."
+			game.run_sound("audios/Darwin_Heat.ogg")
+		elseif rand <= 85 then
+			game.disaster = "high food"
+			game.talking = "Check out the delicious fruit trees sprouting in your territory. Are your TIES critters tall enough? Remember, you can pause the game and try your luck on the Wheel of Mutations three times during your time travel."
+			game.run_sound("audios/Darwin_HighFood.ogg")
+		elseif rand <= 98 then
+			game.disaster = "disease"
+			game.primary_attribute, game.primary_phenotype = game.choose_susceptible_attributes()
 			game.secondary_attribute, game.secondary_phenotype = game.choose_susceptible_attributes()
+			while game.secondary_attribute == game.primary_attribute do
+				game.secondary_attribute, game.secondary_phenotype = game.choose_susceptible_attributes()
+			end
+			game.talking = "Oh no, a deadly virus is spreading in your population. There is no time to use the Wheel of Mutations. Cross your fingers that some of your TIES critters have what it takes to survive."
+			game.run_sound("audios/Darwin_Disease.ogg")
+		elseif rand <= 100 then
+			game.disaster = "asteroid"
+			game.talking = "Mayday!! Mayday!! Your planet has been hit by an asteroid. This is what you call a cataclysmic event. There is definitely no time to use the Wheel of Mutations. Cross your fingers that some of your TIES critters have what it takes to survive."
+			game.run_sound("audios/Darwin_Asteroid.ogg")
 		end
-		game.talking = "Oh no, a deadly virus is spreading in your population. There is no time to use the Wheel of Mutations. Cross your fingers that some of your TIES critters have what it takes to survive."
-		game.run_sound("audios/Darwin_Disease.ogg")
-	elseif rand == 7 then
-		game.disaster = "asteroid"
-		game.talking = "Mayday!! Mayday!! Your planet has been hit by an asteroid. This is what you call a cataclysmic event. There is definitely no time to use the Wheel of Mutations. Cross your fingers that some of your TIES critters have what it takes to survive."
-		game.run_sound("audios/Darwin_Asteroid.ogg")
 	end
+	game.lastdisaster = game.disaster
 end
 function game.kill()
 	if not game.disaster then return end
 	if game.disaster == "volcano" or game.disaster == "asteroid" then
-		local original_size = 0
+		local counter = 0
 		for _,__ in ipairs(game.organisms) do
-			original_size = original_size + 1
+			counter = counter + 1
 		end
-		if original_size <= 3 then
-			local i = 1
-			while i <= original_size do
-				table.remove(game.organisms)
-				i = i+1
+		while counter > 0 do
+			if math.random(3) > 1 then
+				table.remove(game.organisms, counter)
 			end
-		else
-			local new_size = math.floor(original_size/4)
-			while original_size > new_size do
-				table.remove(game.organisms)
-				original_size = original_size - 1
-			end
+			counter = counter - 1
 		end
 	end
 	if game.disaster == "predator" then
@@ -897,6 +893,7 @@ function game.handle_pregame(dt)
 			game.began = true
 			game.elapsed_time = 0
 			game.round_count = 0
+			game.lastdisaster = nil
 			game.arrowclicked = false
 			game.arrowvisible = false
 		else
@@ -982,6 +979,9 @@ function game.next_generation()
 			game.round_count = 0
 			game.disaster = nil
 		end
+	elseif game.disaster == "disease" or game.disaster == "volcano" or game.disaster == "asteroid" then
+		game.round_count = 0
+		game.disaster = nil
 	end
 	if game.organisms[1] and game.generations == 18 then
 		game.win()
