@@ -8,8 +8,7 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 
 You should have received a copy of the GNU General Public License along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ]]
-learn = {}
-learn.slide = 1
+learn = {ended=true}
 function learn.load()
 	love.graphics.setBackgroundColor(205/255, 133/255, 63/255)
 	learn.background = love.graphics.newImage("images/WoodBackground.jpg")
@@ -17,6 +16,13 @@ function learn.load()
 	learn.smallfont = love.graphics.newFont(20)
 	learn.logo = love.graphics.newImage("images/SmallTIES.jpg")
 	learn.darwin = love.graphics.newImage("images/Darwin.png")
+	if learn.ended then
+		learn.talking = "Individual members of a species can have a different fur color, height, wingspan, beak depth, you name it."
+		learn.time_on_slide = 0
+		learn.run_sound("audios/Darwin6.ogg")
+		learn.slide = 1
+		learn.ended = false
+	end
 end
 function learn.draw()
 	love.graphics.draw(learn.background, 0, 0)
@@ -73,6 +79,8 @@ function learn.update(dt)
 		elseif learn.slide == 4 then
 			learn.talking = "Some mutations hurt your chances of survival, some help, some are neutral. Evolution is the accumulation of beneficial mutations over time. But remember: an individual cannot just WISH for a specific mutation to occur. It’s luck."
 			learn.run_sound("audios/Darwin9.ogg")
+		elseif learn.slide == 5 then
+			switch("game")
 		end
 	end
 	learn.time_on_slide = learn.time_on_slide + dt
@@ -87,6 +95,7 @@ function learn.update(dt)
 	end
 	if learn.slide == 4 and learn.time_on_slide > 1 then--Change this number
 		learn.arrowvisible = true
+		learn.ended = true
 	end
 end
 function learn.cursor_check()
@@ -107,6 +116,7 @@ function learn.cleanup()
 	learn.smallfont:release()
 	learn.logo:release()
 	learn.darwin:release()
+	learn.run_sound()
 end
 function learn.mousepressed(x, y, button, istouch, presses)
 	if button ~= 1 then return end
@@ -147,7 +157,3 @@ function learn.run_sound(filepath)--nil can be used to cancel audio
 		end
 	end
 end
---Begin when opened first
-learn.talking = "Individual members of a species can have a different fur color, height, wingspan, beak depth, you name it."
-learn.run_sound("audios/Darwin6.ogg")
-learn.time_on_slide = 0
