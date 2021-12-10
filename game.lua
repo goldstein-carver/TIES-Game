@@ -643,23 +643,6 @@ function game.draw()
 			i=i+1
 		end
 	end
-	--[[TESTING
-	message = ""
-	for _,org in ipairs(game.organisms) do
-		message = message .. "Mass: " .. game.debase(org.Mass,3) .. ", Hair: " .. game.debase(org.Hair,3) .. ", Legs: " .. game.debase(org.Legs,3) .. ", Neck: " .. game.debase(org.Neck,2) .. ", Striped: " .. game.debase(org.Striped,2) .. "\n"
-	end
-	if game.disaster then
-		message = message .. "DISASTER: " .. game.disaster .. "\n"
-		if game.disaster == "disease" then
-			message = message .. "PRIMARY: " .. game.primary_attribute .. game.primary_phenotype .. "\n"
-			message = message .. "SECONDARY: " .. game.secondary_attribute .. game.secondary_phenotype .. "\n"
-		end
-	end
-	love.graphics.print(message, 0, 60)
-	if game.elapsed_time == 0 then
-		print(message)
-	end
-	]]
 	--Bottom Ribbon
 	love.graphics.setColor(139/255, 69/255, 19/255)
 	love.graphics.rectangle("fill", 0, 580, 1024, 120)
@@ -762,7 +745,6 @@ function game.draw()
 	love.graphics.setColor(1, 1, 1)
 end
 function game.update(dt)
-	print(1/dt)--TEST; Remove at some point
 	game.cursor_check()
 	if game.shimmeralpha then
 		game.shimmeralpha = game.shimmeralpha - 2*dt
