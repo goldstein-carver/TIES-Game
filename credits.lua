@@ -9,7 +9,7 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 You should have received a copy of the GNU General Public License along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ]]
 credits = {}
-credits.string = "Who Wants to Live a Million Years?\nThe Darwin Evolution Game\n"
+credits.string = "The TIES Time Machine Game\n\nBrought to you by The Teacher Institute for Evolutionary Science\n\nProgramming by Carver Goldstein\n\nGame Art by Keystone Canyon Press\n\nGalápagos Island Map from https://www.freeworldmaps.net/southamerica/galapagos/map.html\n\nLandscapes courtesy of tallhawaiianshirtenby"
 function credits.load()
 	credits.background = love.graphics.newImage("images/WoodBackground.jpg")
 	credits.hand = love.mouse.getSystemCursor("hand")
@@ -36,9 +36,10 @@ function credits.draw(dt)
 	love.graphics.setFont(credits.middlefont)
 	love.graphics.setColor(1, 1, 1)
 	love.graphics.draw(credits.background, 0, 0)
-	love.graphics.printf(credits.string, 100, 0, 824, "center")
-	love.graphics.print("Go back", 904, 670)
 	love.graphics.draw(credits.logo, 0, 580)--Logo
+	love.graphics.printf(credits.string, 100, 0, 824, "center")
+	love.graphics.setColor(31/255, 67/255, 156/255)
+	love.graphics.print("Go back", 904, 670)
 end
 function credits.mousepressed(x, y, button, istouch, presses)
 	if button ~= 1 then return end
