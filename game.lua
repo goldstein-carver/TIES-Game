@@ -26,6 +26,7 @@ function game.load()
 	game.asteroidbackground = love.graphics.newImage("images/AsteroidEnvironment.jpg")
 	game.volcanobackground = love.graphics.newImage("images/VolcanoEnvironment.jpg")
 	game.woodbackground = love.graphics.newImage("images/WoodBackground.jpg")
+	game.tree = love.graphics.newImage("images/tree.png")
 	game.darwin = love.graphics.newImage("images/Darwin.png")
 	game.darwinmasked = love.graphics.newImage("images/DarwinMask.png")
 	game.logo = love.graphics.newImage("images/SmallTIES.jpg")
@@ -45,6 +46,7 @@ function game.cleanup()
 	game.asteroidbackground:release()
 	game.volcanobackground:release()
 	game.woodbackground:release()
+	game.tree:release()
 	game.darwin:release()
 	game.darwinmasked:release()
 	game.run_sound(nil)
@@ -628,6 +630,10 @@ function game.draw()
 	love.graphics.setColor(1, 1, 1)
 	if game.displaydisaster == "volcano" or game.displaydisaster == "asteroid" then
 		love.graphics.setColor(0.5, 0.5, 0.5)
+	end
+	if game.displaydisaster == "high food" then
+		love.graphics.draw(game.tree, 200, 200)
+		love.graphics.draw(game.tree, 800, 170)
 	end
 	for index, critter in ipairs(game.organisms) do
 		local picture = game.load_critter(critter)
