@@ -24,6 +24,7 @@ function game.load()
 	game.hotbackground = love.graphics.newImage("images/HotEnvironment.jpg")
 	game.coldbackground = love.graphics.newImage("images/ColdEnvironment.jpg")
 	game.asteroidbackground = love.graphics.newImage("images/AsteroidEnvironment.jpg")
+	game.volcanobackground = love.graphics.newImage("images/VolcanoEnvironment.jpg")
 	game.woodbackground = love.graphics.newImage("images/WoodBackground.jpg")
 	game.darwin = love.graphics.newImage("images/Darwin.png")
 	game.darwinmasked = love.graphics.newImage("images/DarwinMask.png")
@@ -42,6 +43,7 @@ function game.cleanup()
 	game.hotbackground:release()
 	game.coldbackground:release()
 	game.asteroidbackground:release()
+	game.volcanobackground:release()
 	game.woodbackground:release()
 	game.darwin:release()
 	game.darwinmasked:release()
@@ -600,6 +602,8 @@ function game.draw()
 		love.graphics.draw(game.hotbackground, 0, 60)
 	elseif game.displaydisaster == "asteroid" then
 		love.graphics.draw(game.asteroidbackground, 0, 60)
+	elseif game.displaydisaster == "volcano" then
+		love.graphics.draw(game.volcanobackground, 0, 60)
 	else
 		love.graphics.draw(game.background, 0, 60)
 	end
@@ -622,6 +626,9 @@ function game.draw()
 	love.graphics.setColor(0, 0, 0)
 	love.graphics.printf("Time Machine Game", 342, 5, 171, "center")
 	love.graphics.setColor(1, 1, 1)
+	if game.displaydisaster == "volcano" or game.displaydisaster == "asteroid" then
+		love.graphics.setColor(0.5, 0.5, 0.5)
+	end
 	for index, critter in ipairs(game.organisms) do
 		local picture = game.load_critter(critter)
 		love.graphics.draw(picture, critter.x, critter.y-picture:getHeight(), 0, 1, 1)
@@ -631,6 +638,7 @@ function game.draw()
 			love.graphics.setColor(1, 1, 1, 1)
 		end
 	end
+	love.graphics.setColor(1, 1, 1)
 	if game.choices then
 		love.graphics.setColor(210/255, 180/255, 140/255)
 		love.graphics.rectangle("fill", 50, 100, 400, 460)
