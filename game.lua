@@ -100,10 +100,10 @@ function game.lose()
 		game.talking = "Unfortunately, your species wasn't tall enough to reach the food, so they starved. Would you like to try again?"
 		game.run_sound("audios/Darwin_L_HighFood.ogg")
 	elseif game.disaster == "asteroid" then
-		game.talking = "Sadly, the asteroid's impact on the world's ecosystems were too severe for your TIES critters to survive. Would you like to try again?"
+		game.talking = "Sadly, the asteroid's impact on the world's ecosystems was too severe for your TIES critters to survive. Would you like to try again?"
 		game.run_sound("audios/Darwin_L_Asteroid.ogg")
 	elseif game.disaster == "volcano" then
-		game.talking = "Sadly, the volcano's impact on the world's ecosystems were too severe for your TIES critters to survive. Would you like to try again?"
+		game.talking = "Sadly, the volcano's impact on the world's ecosystems was too severe for your TIES critters to survive. Would you like to try again?"
 		game.run_sound("audios/Darwin_L_Volcano.ogg")
 	end
 	game.arrowvisible = true
