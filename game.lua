@@ -635,6 +635,11 @@ function game.draw()
 		love.graphics.draw(game.tree, 200, 200)
 		love.graphics.draw(game.tree, 800, 170)
 	end
+	if game.disaster == "predator" then
+		love.graphics.draw(game.predator, 300, 200, 0, 0.5, 0.5)
+		love.graphics.draw(game.predator, 600, 200, 0, 0.5, 0.5)
+		love.graphics.draw(game.predator, 900, 200, 0, 0.5, 0.5)
+	end
 	for index, critter in ipairs(game.organisms) do
 		local picture = game.load_critter(critter)
 		love.graphics.draw(picture, critter.x, critter.y-picture:getHeight(), 0, 1, 1)
@@ -738,11 +743,6 @@ function game.draw()
 			love.graphics.setColor(1, 1, 1)
 			love.graphics.print(tostring(game.spins), 70, 105)
 		end
-	end
-	if game.disaster == "predator" then
-		love.graphics.draw(game.predator, 300, 200, 0, 0.5, 0.5)
-		love.graphics.draw(game.predator, 600, 200, 0, 0.5, 0.5)
-		love.graphics.draw(game.predator, 900, 200, 0, 0.5, 0.5)
 	end
 	if game.ended then
 		love.graphics.setColor(243/255, 116/255, 47/255)
