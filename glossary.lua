@@ -1,12 +1,10 @@
 --[[
 This file is part of "Who Wants to Live a Million Years?"
-Copyright (C) 2021 Carver Goldstein, Syarra Goldstein
+Copyright (C) 2021 Carver Goldstein
 
-"Who Wants to Live a Million Years?" is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+"Who Wants to Live a Million Years?" is software released under the CC-BY-NC-ND 4.0 license: <https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode>. Furthermore, this file is licensed under the GNU General Public License version 3.0. You should have received a copy of the GNU General Public License along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License along with this program.  If not, see <https://www.gnu.org/licenses/>.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ]]
 glossary = {}
 glossary.leftwriting = "Evolution: The unifying theme of the life sciences. Evolution explains how all living things on this planet are related and how we all descend from common ancestors. It explains how this vast, beautiful array of millions and millions of species got here in the first place.\n\nNatural Selection: One of the driving mechanisms of evolution. Simply stated, natural selection means that random genetic mutations arise in a population of living things. Some of these mutations are harmful and will hurt the individual’s chances of surviving. Other mutations are neutral, they do not help or hurt the individual.  Sometimes, a mutation can be beneficial, helping the individual survive better than its companions. If this mutation is passed on to its offspring, the entire population can change over time, with more and more individuals exhibiting the desirable characteristic."
