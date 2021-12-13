@@ -48,6 +48,10 @@ function quiz.reset()
 	quiz.number = 0
 	quiz.correct_answers = 0
 	quiz.answers = {}
+	if quiz.endcritter then
+		quiz.endcritter:release()
+		quiz.endcritter = nil
+	end
 end
 function quiz.readnext(number)
 	quiz.yes = nil
@@ -60,10 +64,13 @@ function quiz.readnext(number)
 		quiz.correct = nil
 		if quiz.correct_answers >= 8 then
 			quiz.winmessage = "Yay! It looks like you know a thing or two about Darwin and natural selection."
+			quiz.endcritter = love.graphics.newImage("images/quiz810.png")
 		elseif quiz.correct_answers >= 6 then
 			quiz.winmessage = "Not too bad but a good brain definitely helps with survival. Why don’t you review the section on natural selection and Darwin and try again?"
+			quiz.endcritter = love.graphics.newImage("images/quiz67.png")
 		else
 			quiz.winmessage = "Oh, bother. You can do better than that! Why don’t you review the section on natural selection and Darwin and try again?"
+			quiz.endcritter = love.graphics.newImage("images/quiz05.png")
 		end
 		return
 	end
@@ -255,6 +262,7 @@ function quiz.draw()
 		love.graphics.setColor(0, 0, 1)
 		love.graphics.print("Try Again", 570, 635)
 		love.graphics.setColor(1, 1, 1)
+		love.graphics.draw(quiz.endcritter, 225, 200, 0, 2, 2)
 	end
 	
 end
