@@ -9,15 +9,17 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 You should have received a copy of the GNU General Public License along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ]]
 credits = {}
-credits.string = "The TIES Time Machine Game\n\nBrought to you by The Teacher Institute for Evolutionary Science\n\nProgramming by Carver Goldstein\n\nGame Art by Keystone Canyon Press\n\nGalápagos Island Map from https://www.freeworldmaps.net/southamerica/galapagos/map.html\n\nLandscapes courtesy of tallhawaiianshirtenby"
+credits.string = "The TIES Time Machine Game\n\nBrought to you by The Teacher Institute for Evolutionary Science\n\nBuilt using LÖVE (https://www.love2d.org)\n\nProgrammed by Carver Goldstein\n\nGame Art by Keystone Canyon Press (https://www.keystonecanyon.com)\n\nGalápagos Island Map from https://www.freeworldmaps.net/southamerica/galapagos/map.html\n\nLandscapes courtesy of tallhawaiianshirtenby\n\nAudio by Nicholas Little"
 function credits.load()
 	credits.background = love.graphics.newImage("images/WoodBackground.jpg")
 	credits.hand = love.mouse.getSystemCursor("hand")
 	credits.middlefont = love.graphics.newFont(30)
+	credits.smallfont = love.graphics.newFont(25)
 	credits.logo = love.graphics.newImage("images/SmallTIES.jpg")
 end
 function credits.cleanup()
 	credits.middlefont:release()
+	credits.smallfont:release()
 	credits.hand:release()
 	credits.background:release()
 	credits.logo:release()
@@ -28,18 +30,26 @@ function credits.update(dt)
 		love.mouse.setCursor(credits.hand)
 	elseif x <= 135 and y >= 580 then
 		love.mouse.setCursor(credits.hand)
+	elseif x >= 530 and x <= 950 and y >= 240 and y <= 260 then
+		love.mouse.setCursor(credits.hand)
+	elseif x >= 475 and x <= 765 and y >= 125 and y <= 145 then
+		love.mouse.setCursor(credits.hand)
+	elseif x >= 97 and x <= 927 and y >= 327 and y <= 347 then
+		love.mouse.setCursor(credits.hand)
 	else
 		love.mouse.setCursor()
 	end
 end
 function credits.draw(dt)
-	love.graphics.setFont(credits.middlefont)
+	love.graphics.setFont(credits.smallfont)
 	love.graphics.setColor(1, 1, 1)
 	love.graphics.draw(credits.background, 0, 0)
 	love.graphics.draw(credits.logo, 0, 580)--Logo
-	love.graphics.printf(credits.string, 100, 0, 824, "center")
+	love.graphics.printf(credits.string, 0, 0, 1024, "center")
 	love.graphics.setColor(31/255, 67/255, 156/255)
+	love.graphics.setFont(credits.middlefont)
 	love.graphics.print("Go back", 904, 670)
+	love.graphics.setColor(1, 1, 1)
 end
 function credits.mousepressed(x, y, button, istouch, presses)
 	if button ~= 1 then return end
@@ -47,6 +57,12 @@ function credits.mousepressed(x, y, button, istouch, presses)
 		switch("cover")
 	elseif x <= 135 and y >= 580 then
 		love.system.openURL("https://tieseducation.org")
+	elseif x >= 530 and x <= 950 and y >= 240 and y <= 260 then
+		love.system.openURL("https://www.keystonecanyon.com")
+	elseif x >= 475 and x <= 765 and y >= 125 and y <= 145 then
+		love.system.openURL("https://www.love2d.org")
+	elseif x >= 97 and x <= 927 and y >= 327 and y <= 347 then
+		love.system.openURL("https://www.freeworldmaps.net/southamerica/galapagos/map.html")
 	end
 end
 function credits.touchpressed(id, x, y, dx, dy, pressure)
