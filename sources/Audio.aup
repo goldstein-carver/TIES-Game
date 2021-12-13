@@ -1,0 +1,1254 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="Audio_data" version="1.3.0" audacityversion="2.3.2" sel0="0.0000000000" sel1="0.0000000000" vpos="0" h="238.9626629371" zoom="7.4321234044" rate="48000.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags>
+		<tag name="Encoded by" value="Switch Trial Version © NCH Software"/>
+		<tag name="Band" value="Voice Recorder"/>
+		<tag name="TITLE" value="TIES Game"/>
+		<tag name="YEAR" value="2021-01-01"/>
+	</tags>
+	<wavetrack name="TIES Game" channel="0" linked="1" mute="1" solo="0" height="150" minimized="0" isSelected="1" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="64585">
+				<waveblock start="0">
+					<simpleblockfile filename="e08085cb.au" len="64585" min="-0.000177" max="0.000232" rms="0.000031"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="19.10625000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="180837">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808ed0.au" len="180837" min="-0.014886" max="0.014539" rms="0.001265"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="33.09956250" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="116252">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808bb0.au" len="116252" min="-0.00064" max="0.000591" rms="0.000051"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="46.28556250" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="155003">
+				<waveblock start="0">
+					<simpleblockfile filename="e08084ba.au" len="155003" min="-0.004631" max="0.005244" rms="0.000073"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="60.54797917" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="103335">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808af5.au" len="103335" min="-0.000161" max="0.000202" rms="0.00003"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="73.46487500" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="193753">
+				<waveblock start="0">
+					<simpleblockfile filename="e08082c0.au" len="193753" min="-0.010499" max="0.011681" rms="0.0009"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="85.57445833" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="193754">
+				<waveblock start="0">
+					<simpleblockfile filename="e08085d3.au" len="193754" min="-0.01012" max="0.008386" rms="0.000473"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="99.29866667" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="206671">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808dd3.au" len="206671" min="-0.09383" max="0.146334" rms="0.002561"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="112.75377083" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="142086">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808ed6.au" len="142086" min="-0.000161" max="0.000161" rms="0.000032"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="125.93979167" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="103335">
+				<waveblock start="0">
+					<simpleblockfile filename="e08081a9.au" len="103335" min="-0.000126" max="0.000184" rms="0.000029"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="140.47129167" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="167920">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808215.au" len="167920" min="-0.000122" max="0.000124" rms="0.000029"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="157.15562500" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="90418">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808331.au" len="90418" min="-0.022353" max="0.021373" rms="0.000256"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="173.83995833" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="167920">
+				<waveblock start="0">
+					<simpleblockfile filename="e0800a38.au" len="167920" min="-0.001325" max="0.001326" rms="0.000109"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="189.17877083" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="187295">
+				<waveblock start="0">
+					<simpleblockfile filename="e08005de.au" len="187295" min="-0.007865" max="0.007206" rms="0.000325"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="206.53585417" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="251880">
+				<waveblock start="0">
+					<simpleblockfile filename="e0800e31.au" len="251880" min="-0.009662" max="0.012888" rms="0.000589"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="223.22018750" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="200212">
+				<waveblock start="0">
+					<simpleblockfile filename="e08000ad.au" len="200212" min="-0.001195" max="0.00127" rms="0.000055"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="242.59554167" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="213129">
+				<waveblock start="0">
+					<simpleblockfile filename="e0800641.au" len="213129" min="-0.026133" max="0.024822" rms="0.000598"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="258.33802083" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="381048">
+				<waveblock start="0">
+					<simpleblockfile filename="e08009cb.au" len="182687" min="-0.345554" max="0.389298" rms="0.02572"/>
+				</waveblock>
+				<waveblock start="182687">
+					<simpleblockfile filename="e08002fd.au" len="198361" min="-0.489073" max="0.350311" rms="0.044542"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="281.48079167" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="258338">
+				<waveblock start="0">
+					<simpleblockfile filename="e08002d4.au" len="258338" min="-0.009743" max="0.011527" rms="0.000346"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="297.49237500" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="187295">
+				<waveblock start="0">
+					<simpleblockfile filename="e08003a8.au" len="187295" min="-0.011624" max="0.012004" rms="0.000311"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="313.63850000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="206670">
+				<waveblock start="0">
+					<simpleblockfile filename="e08002e6.au" len="206670" min="-0.030895" max="0.026427" rms="0.000236"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="328.03545833" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="174378">
+				<waveblock start="0">
+					<simpleblockfile filename="e08008ca.au" len="174378" min="-0.012066" max="0.007942" rms="0.000655"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="338.79954167" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="174378">
+				<waveblock start="0">
+					<simpleblockfile filename="e08001c3.au" len="174378" min="-0.018717" max="0.016424" rms="0.001131"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="347.41081250" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="174378">
+				<waveblock start="0">
+					<simpleblockfile filename="e08008cc.au" len="174378" min="-0.013643" max="0.013758" rms="0.000185"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="360.59681250" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="213129">
+				<waveblock start="0">
+					<simpleblockfile filename="e0800758.au" len="213129" min="-0.013518" max="0.015735" rms="0.000808"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="381.58677083" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="155003">
+				<waveblock start="0">
+					<simpleblockfile filename="e08007df.au" len="155003" min="-0.000233" max="0.000164" rms="0.000029"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="1" linked="0" mute="1" solo="0" height="150" minimized="0" isSelected="1" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="64585">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808c76.au" len="64585" min="-0.000177" max="0.000232" rms="0.000031"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="19.10625000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="180837">
+				<waveblock start="0">
+					<simpleblockfile filename="e080834d.au" len="180837" min="-0.014886" max="0.014539" rms="0.001265"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="33.09956250" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="116252">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808521.au" len="116252" min="-0.00064" max="0.000591" rms="0.000051"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="46.28556250" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="155003">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808b2e.au" len="155003" min="-0.004631" max="0.005244" rms="0.000073"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="60.54797917" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="103335">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808765.au" len="103335" min="-0.000161" max="0.000202" rms="0.00003"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="73.46487500" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="193753">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808df5.au" len="193753" min="-0.010499" max="0.011681" rms="0.0009"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="85.57445833" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="193754">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808718.au" len="193754" min="-0.01012" max="0.008386" rms="0.000473"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="99.29866667" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="206671">
+				<waveblock start="0">
+					<simpleblockfile filename="e08089c8.au" len="206671" min="-0.09383" max="0.146334" rms="0.002561"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="112.75377083" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="142086">
+				<waveblock start="0">
+					<simpleblockfile filename="e08081e7.au" len="142086" min="-0.000161" max="0.000161" rms="0.000032"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="125.93979167" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="103335">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808ad4.au" len="103335" min="-0.000126" max="0.000184" rms="0.000029"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="140.47129167" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="167920">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808b1b.au" len="167920" min="-0.000122" max="0.000124" rms="0.000029"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="157.15562500" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="90418">
+				<waveblock start="0">
+					<simpleblockfile filename="e08086ec.au" len="90418" min="-0.022353" max="0.021373" rms="0.000256"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="173.83995833" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="167920">
+				<waveblock start="0">
+					<simpleblockfile filename="e0800208.au" len="167920" min="-0.001325" max="0.001326" rms="0.000109"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="189.17877083" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="187295">
+				<waveblock start="0">
+					<simpleblockfile filename="e0800d82.au" len="187295" min="-0.007865" max="0.007206" rms="0.000325"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="206.53585417" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="251880">
+				<waveblock start="0">
+					<simpleblockfile filename="e080079a.au" len="251880" min="-0.009662" max="0.012888" rms="0.000589"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="223.22018750" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="200212">
+				<waveblock start="0">
+					<simpleblockfile filename="e08003fa.au" len="200212" min="-0.001195" max="0.00127" rms="0.000055"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="242.59554167" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="213129">
+				<waveblock start="0">
+					<simpleblockfile filename="e0800776.au" len="213129" min="-0.026133" max="0.024822" rms="0.000598"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="258.33802083" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="381048">
+				<waveblock start="0">
+					<simpleblockfile filename="e0800d94.au" len="182687" min="-0.345554" max="0.389298" rms="0.02572"/>
+				</waveblock>
+				<waveblock start="182687">
+					<simpleblockfile filename="e0800038.au" len="198361" min="-0.489073" max="0.350311" rms="0.044542"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="281.48079167" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="258338">
+				<waveblock start="0">
+					<simpleblockfile filename="e0800e28.au" len="258338" min="-0.009743" max="0.011527" rms="0.000346"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="297.49237500" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="187295">
+				<waveblock start="0">
+					<simpleblockfile filename="e0800b85.au" len="187295" min="-0.011624" max="0.012004" rms="0.000311"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="313.63850000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="206670">
+				<waveblock start="0">
+					<simpleblockfile filename="e08005ca.au" len="206670" min="-0.030895" max="0.026427" rms="0.000236"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="328.03545833" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="174378">
+				<waveblock start="0">
+					<simpleblockfile filename="e0800575.au" len="174378" min="-0.012066" max="0.007942" rms="0.000655"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="338.79954167" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="174378">
+				<waveblock start="0">
+					<simpleblockfile filename="e08007e5.au" len="174378" min="-0.018717" max="0.016424" rms="0.001131"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="347.41081250" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="174378">
+				<waveblock start="0">
+					<simpleblockfile filename="e0800825.au" len="174378" min="-0.013643" max="0.013758" rms="0.000185"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="360.59681250" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="213129">
+				<waveblock start="0">
+					<simpleblockfile filename="e08009a9.au" len="213129" min="-0.013518" max="0.015735" rms="0.000808"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="381.58677083" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="155003">
+				<waveblock start="0">
+					<simpleblockfile filename="e0800743.au" len="155003" min="-0.000233" max="0.000164" rms="0.000029"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="1.34552083" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="852515">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808380.au" len="197559" min="-0.451619" max="0.412883" rms="0.029319"/>
+				</waveblock>
+				<waveblock start="197559">
+					<simpleblockfile filename="e0808a83.au" len="262144" min="-0.281264" max="0.250438" rms="0.025879"/>
+				</waveblock>
+				<waveblock start="459703">
+					<simpleblockfile filename="e0808b45.au" len="262144" min="-0.315314" max="0.260949" rms="0.027205"/>
+				</waveblock>
+				<waveblock start="721847">
+					<simpleblockfile filename="e0808ef8.au" len="130668" min="-0.209248" max="0.152416" rms="0.021043"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="1.34552083" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="852515">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808f25.au" len="197559" min="-0.451619" max="0.412883" rms="0.029319"/>
+				</waveblock>
+				<waveblock start="197559">
+					<simpleblockfile filename="e0808f4d.au" len="262144" min="-0.281264" max="0.250438" rms="0.025879"/>
+				</waveblock>
+				<waveblock start="459703">
+					<simpleblockfile filename="e0808656.au" len="262144" min="-0.315314" max="0.260949" rms="0.027205"/>
+				</waveblock>
+				<waveblock start="721847">
+					<simpleblockfile filename="e08088eb.au" len="130668" min="-0.209248" max="0.152416" rms="0.021043"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="22.87368750" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="490842">
+				<waveblock start="0">
+					<simpleblockfile filename="e08089ce.au" len="212783" min="-0.318683" max="0.365387" rms="0.03326"/>
+				</waveblock>
+				<waveblock start="212783">
+					<simpleblockfile filename="e0808a47.au" len="262144" min="-0.368599" max="0.486884" rms="0.039157"/>
+				</waveblock>
+				<waveblock start="474927">
+					<simpleblockfile filename="e0808725.au" len="15915" min="-0.00017" max="0.000183" rms="0.000038"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="22.87368750" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="490842">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808829.au" len="212783" min="-0.318683" max="0.365387" rms="0.03326"/>
+				</waveblock>
+				<waveblock start="212783">
+					<simpleblockfile filename="e0808919.au" len="262144" min="-0.368599" max="0.486884" rms="0.039157"/>
+				</waveblock>
+				<waveblock start="474927">
+					<simpleblockfile filename="e0808039.au" len="15915" min="-0.00017" max="0.000183" rms="0.000038"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="35.52147917" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="516676">
+				<waveblock start="0">
+					<simpleblockfile filename="e08083c7.au" len="129977" min="-0.293328" max="0.325502" rms="0.027942"/>
+				</waveblock>
+				<waveblock start="129977">
+					<simpleblockfile filename="e08080c0.au" len="262144" min="-0.471392" max="0.513012" rms="0.044539"/>
+				</waveblock>
+				<waveblock start="392121">
+					<simpleblockfile filename="e0808c2c.au" len="124555" min="-0.294646" max="0.326821" rms="0.03379"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="35.52147917" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="516676">
+				<waveblock start="0">
+					<simpleblockfile filename="e080855b.au" len="129977" min="-0.293328" max="0.325502" rms="0.027942"/>
+				</waveblock>
+				<waveblock start="129977">
+					<simpleblockfile filename="e0808ab9.au" len="262144" min="-0.471392" max="0.513012" rms="0.044539"/>
+				</waveblock>
+				<waveblock start="392121">
+					<simpleblockfile filename="e0808fc3.au" len="124555" min="-0.294646" max="0.326821" rms="0.03379"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="49.51479167" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="529593">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808938.au" len="244730" min="-0.306165" max="0.395874" rms="0.043679"/>
+				</waveblock>
+				<waveblock start="244730">
+					<simpleblockfile filename="e08089ee.au" len="262144" min="-0.354646" max="0.292806" rms="0.041071"/>
+				</waveblock>
+				<waveblock start="506874">
+					<simpleblockfile filename="e08088fa.au" len="22719" min="-0.000119" max="0.00013" rms="0.00003"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="49.51479167" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="529593">
+				<waveblock start="0">
+					<simpleblockfile filename="e08084a0.au" len="244730" min="-0.306165" max="0.395874" rms="0.043679"/>
+				</waveblock>
+				<waveblock start="244730">
+					<simpleblockfile filename="e0808fab.au" len="262144" min="-0.354646" max="0.292806" rms="0.041071"/>
+				</waveblock>
+				<waveblock start="506874">
+					<simpleblockfile filename="e0808926.au" len="22719" min="-0.000119" max="0.00013" rms="0.00003"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="62.70079167" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="439175">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808002.au" len="160366" min="-0.513212" max="0.620525" rms="0.067394"/>
+				</waveblock>
+				<waveblock start="160366">
+					<simpleblockfile filename="e0808f35.au" len="160367" min="-0.504838" max="0.447069" rms="0.046318"/>
+				</waveblock>
+				<waveblock start="320733">
+					<simpleblockfile filename="e08081e9.au" len="118442" min="-0.264171" max="0.310439" rms="0.035185"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="62.70079167" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="439175">
+				<waveblock start="0">
+					<simpleblockfile filename="e08085dd.au" len="160366" min="-0.513212" max="0.620525" rms="0.067394"/>
+				</waveblock>
+				<waveblock start="160366">
+					<simpleblockfile filename="e0808d25.au" len="160367" min="-0.504838" max="0.447069" rms="0.046318"/>
+				</waveblock>
+				<waveblock start="320733">
+					<simpleblockfile filename="e0808c43.au" len="118442" min="-0.264171" max="0.310439" rms="0.035185"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="77.50139583" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="387507">
+				<waveblock start="0">
+					<simpleblockfile filename="e080857e.au" len="212093" min="-0.416828" max="0.345363" rms="0.048936"/>
+				</waveblock>
+				<waveblock start="212093">
+					<simpleblockfile filename="e0808a16.au" len="175414" min="-0.492907" max="0.425712" rms="0.039376"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="77.50139583" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="387507">
+				<waveblock start="0">
+					<simpleblockfile filename="e08087a1.au" len="212093" min="-0.416828" max="0.345363" rms="0.048936"/>
+				</waveblock>
+				<waveblock start="212093">
+					<simpleblockfile filename="e08084c3.au" len="175414" min="-0.492907" max="0.425712" rms="0.039376"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="89.61100000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="465008">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808bf7.au" len="155120" min="-0.439183" max="0.577076" rms="0.05471"/>
+				</waveblock>
+				<waveblock start="155120">
+					<simpleblockfile filename="e08083d9.au" len="262144" min="-0.387551" max="0.415576" rms="0.044704"/>
+				</waveblock>
+				<waveblock start="417264">
+					<simpleblockfile filename="e0808f37.au" len="47744" min="-0.002212" max="0.002402" rms="0.000119"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="89.61100000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="465008">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808ed4.au" len="155120" min="-0.439183" max="0.577076" rms="0.05471"/>
+				</waveblock>
+				<waveblock start="155120">
+					<simpleblockfile filename="e0808a7a.au" len="262144" min="-0.387551" max="0.415576" rms="0.044704"/>
+				</waveblock>
+				<waveblock start="417264">
+					<simpleblockfile filename="e0808067.au" len="47744" min="-0.002212" max="0.002402" rms="0.000119"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="103.60431250" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="439174">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808b71.au" len="7729" min="-0.059691" max="0.063989" rms="0.010994"/>
+				</waveblock>
+				<waveblock start="7729">
+					<simpleblockfile filename="e0808a2d.au" len="262144" min="-0.637092" max="0.821852" rms="0.061399"/>
+				</waveblock>
+				<waveblock start="269873">
+					<simpleblockfile filename="e0808979.au" len="169301" min="-0.439437" max="0.38284" rms="0.044661"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="103.60431250" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="439174">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808017.au" len="7729" min="-0.059691" max="0.063989" rms="0.010994"/>
+				</waveblock>
+				<waveblock start="7729">
+					<simpleblockfile filename="e0808c1d.au" len="262144" min="-0.637092" max="0.821852" rms="0.061399"/>
+				</waveblock>
+				<waveblock start="269873">
+					<simpleblockfile filename="e08083f6.au" len="169301" min="-0.439437" max="0.38284" rms="0.044661"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="115.71389583" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="490843">
+				<waveblock start="0">
+					<simpleblockfile filename="e08089ec.au" len="35407" min="-0.105492" max="0.087016" rms="0.012113"/>
+				</waveblock>
+				<waveblock start="35407">
+					<simpleblockfile filename="e08086b2.au" len="177494" min="-0.543752" max="0.431515" rms="0.063358"/>
+				</waveblock>
+				<waveblock start="212901">
+					<simpleblockfile filename="e08089b4.au" len="262144" min="-0.739948" max="0.672435" rms="0.059414"/>
+				</waveblock>
+				<waveblock start="475045">
+					<simpleblockfile filename="e0808f0d.au" len="15798" min="-0.0001" max="0.000095" rms="0.000029"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="115.71389583" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="490843">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808190.au" len="35407" min="-0.105492" max="0.087016" rms="0.012113"/>
+				</waveblock>
+				<waveblock start="35407">
+					<simpleblockfile filename="e08080fb.au" len="177494" min="-0.543752" max="0.431515" rms="0.063358"/>
+				</waveblock>
+				<waveblock start="212901">
+					<simpleblockfile filename="e0808350.au" len="262144" min="-0.739948" max="0.672435" rms="0.059414"/>
+				</waveblock>
+				<waveblock start="475045">
+					<simpleblockfile filename="e0808950.au" len="15798" min="-0.0001" max="0.000095" rms="0.000029"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="128.09260417" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="594177">
+				<waveblock start="0">
+					<simpleblockfile filename="e08080b6.au" len="143011" min="-0.482956" max="0.45702" rms="0.066586"/>
+				</waveblock>
+				<waveblock start="143011">
+					<simpleblockfile filename="e0808855.au" len="262144" min="-0.490847" max="0.538208" rms="0.059259"/>
+				</waveblock>
+				<waveblock start="405155">
+					<simpleblockfile filename="e080839d.au" len="189022" min="-0.622505" max="0.616441" rms="0.051519"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="128.09260417" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="594177">
+				<waveblock start="0">
+					<simpleblockfile filename="e080896d.au" len="143011" min="-0.482956" max="0.45702" rms="0.066586"/>
+				</waveblock>
+				<waveblock start="143011">
+					<simpleblockfile filename="e0808d33.au" len="262144" min="-0.490847" max="0.538208" rms="0.059259"/>
+				</waveblock>
+				<waveblock start="405155">
+					<simpleblockfile filename="e08080a4.au" len="189022" min="-0.622505" max="0.616441" rms="0.051519"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="143.96962500" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="632928">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808105.au" len="167346" min="-0.729505" max="0.875455" rms="0.063295"/>
+				</waveblock>
+				<waveblock start="167346">
+					<simpleblockfile filename="e0808ecd.au" len="262144" min="-0.508653" max="0.535809" rms="0.060525"/>
+				</waveblock>
+				<waveblock start="429490">
+					<simpleblockfile filename="e0808fa9.au" len="203438" min="-0.428687" max="0.491128" rms="0.040416"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="143.96962500" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="632928">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808224.au" len="167346" min="-0.729505" max="0.875455" rms="0.063295"/>
+				</waveblock>
+				<waveblock start="167346">
+					<simpleblockfile filename="e0808a00.au" len="262144" min="-0.508653" max="0.535809" rms="0.060525"/>
+				</waveblock>
+				<waveblock start="429490">
+					<simpleblockfile filename="e0808a04.au" len="203438" min="-0.428687" max="0.491128" rms="0.040416"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="158.50113566" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="665221">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808e9c.au" len="185223" min="-0.569321" max="0.650102" rms="0.072726"/>
+				</waveblock>
+				<waveblock start="185223">
+					<simpleblockfile filename="e08083b1.au" len="262144" min="-0.562489" max="0.83552" rms="0.061278"/>
+				</waveblock>
+				<waveblock start="447367">
+					<simpleblockfile filename="e0808155.au" len="217854" min="-0.437843" max="0.498107" rms="0.048275"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="158.50113566" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="665221">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808d34.au" len="185223" min="-0.569321" max="0.650102" rms="0.072726"/>
+				</waveblock>
+				<waveblock start="185223">
+					<simpleblockfile filename="e0808a20.au" len="262144" min="-0.562489" max="0.83552" rms="0.061278"/>
+				</waveblock>
+				<waveblock start="447367">
+					<simpleblockfile filename="e0808ee2.au" len="217854" min="-0.437843" max="0.498107" rms="0.048275"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="177.33829167" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="568343">
+				<waveblock start="0">
+					<simpleblockfile filename="e0800f3a.au" len="138514" min="-0.492893" max="0.406262" rms="0.060318"/>
+				</waveblock>
+				<waveblock start="138514">
+					<simpleblockfile filename="e0808bb9.au" len="262144" min="-0.555819" max="0.497245" rms="0.064032"/>
+				</waveblock>
+				<waveblock start="400658">
+					<simpleblockfile filename="e08004c5.au" len="167685" min="-0.537554" max="0.516436" rms="0.052529"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="177.33829167" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="568343">
+				<waveblock start="0">
+					<simpleblockfile filename="e0800ded.au" len="138514" min="-0.492893" max="0.406262" rms="0.060318"/>
+				</waveblock>
+				<waveblock start="138514">
+					<simpleblockfile filename="e0808fcf.au" len="262144" min="-0.555819" max="0.497245" rms="0.064032"/>
+				</waveblock>
+				<waveblock start="400658">
+					<simpleblockfile filename="e0800bba.au" len="167685" min="-0.537554" max="0.516436" rms="0.052529"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="193.08075000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="645845">
+				<waveblock start="0">
+					<simpleblockfile filename="e080014f.au" len="169308" min="-0.388437" max="0.500569" rms="0.057442"/>
+				</waveblock>
+				<waveblock start="169308">
+					<simpleblockfile filename="e0808a37.au" len="262144" min="-0.645786" max="0.563317" rms="0.065866"/>
+				</waveblock>
+				<waveblock start="431452">
+					<simpleblockfile filename="e08001bb.au" len="214393" min="-0.500552" max="0.493364" rms="0.051251"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="193.08075000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="645845">
+				<waveblock start="0">
+					<simpleblockfile filename="e0800845.au" len="169308" min="-0.388437" max="0.500569" rms="0.057442"/>
+				</waveblock>
+				<waveblock start="169308">
+					<simpleblockfile filename="e0808be9.au" len="262144" min="-0.645786" max="0.563317" rms="0.065866"/>
+				</waveblock>
+				<waveblock start="431452">
+					<simpleblockfile filename="e080069a.au" len="214393" min="-0.500552" max="0.493364" rms="0.051251"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="211.78335417" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="548968">
+				<waveblock start="0">
+					<simpleblockfile filename="e0800eca.au" len="58015" min="-0.648845" max="0.740142" rms="0.121343"/>
+				</waveblock>
+				<waveblock start="58015">
+					<simpleblockfile filename="e080832b.au" len="262144" min="-0.460171" max="0.743299" rms="0.057966"/>
+				</waveblock>
+				<waveblock start="320159">
+					<simpleblockfile filename="e0800e14.au" len="228809" min="-0.581841" max="0.606656" rms="0.054513"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="211.78335417" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="548968">
+				<waveblock start="0">
+					<simpleblockfile filename="e0800a2a.au" len="58015" min="-0.648845" max="0.740142" rms="0.121343"/>
+				</waveblock>
+				<waveblock start="58015">
+					<simpleblockfile filename="e08081d3.au" len="262144" min="-0.460171" max="0.743299" rms="0.057966"/>
+				</waveblock>
+				<waveblock start="320159">
+					<simpleblockfile filename="e080003e.au" len="228809" min="-0.581841" max="0.606656" rms="0.054513"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="227.39127083" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="729805">
+				<waveblock start="0">
+					<simpleblockfile filename="e0800434.au" len="95267" min="-0.42541" max="0.537299" rms="0.070936"/>
+				</waveblock>
+				<waveblock start="95267">
+					<simpleblockfile filename="e0808444.au" len="262144" min="-0.470426" max="0.534852" rms="0.058024"/>
+				</waveblock>
+				<waveblock start="357411">
+					<simpleblockfile filename="e0808e6a.au" len="262144" min="-0.579812" max="0.663669" rms="0.063543"/>
+				</waveblock>
+				<waveblock start="619555">
+					<simpleblockfile filename="e0800a47.au" len="110250" min="-0.585258" max="0.535993" rms="0.053737"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="227.39127083" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="729805">
+				<waveblock start="0">
+					<simpleblockfile filename="e0800039.au" len="95267" min="-0.42541" max="0.537299" rms="0.070936"/>
+				</waveblock>
+				<waveblock start="95267">
+					<simpleblockfile filename="e0808993.au" len="262144" min="-0.470426" max="0.534852" rms="0.058024"/>
+				</waveblock>
+				<waveblock start="357411">
+					<simpleblockfile filename="e080854b.au" len="262144" min="-0.579812" max="0.663669" rms="0.063543"/>
+				</waveblock>
+				<waveblock start="619555">
+					<simpleblockfile filename="e0800248.au" len="110250" min="-0.585258" max="0.535993" rms="0.053737"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="247.03572917" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="542510">
+				<waveblock start="0">
+					<simpleblockfile filename="e0800cf7.au" len="200909" min="-0.498954" max="0.771356" rms="0.062523"/>
+				</waveblock>
+				<waveblock start="200909">
+					<simpleblockfile filename="e08084d3.au" len="262144" min="-0.642192" max="0.609544" rms="0.059282"/>
+				</waveblock>
+				<waveblock start="463053">
+					<simpleblockfile filename="e0800077.au" len="79457" min="-0.565592" max="0.435648" rms="0.046896"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="247.03572917" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="542510">
+				<waveblock start="0">
+					<simpleblockfile filename="e0800728.au" len="200909" min="-0.498954" max="0.771356" rms="0.062523"/>
+				</waveblock>
+				<waveblock start="200909">
+					<simpleblockfile filename="e0808d14.au" len="262144" min="-0.642192" max="0.609544" rms="0.059282"/>
+				</waveblock>
+				<waveblock start="463053">
+					<simpleblockfile filename="e0800b10.au" len="79457" min="-0.565592" max="0.435648" rms="0.046896"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="266.27652083" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="729805">
+				<waveblock start="0">
+					<simpleblockfile filename="e0800657.au" len="63783" min="-0.622179" max="0.60483" rms="0.074869"/>
+				</waveblock>
+				<waveblock start="63783">
+					<simpleblockfile filename="e08083ca.au" len="262144" min="-0.713239" max="0.645579" rms="0.070746"/>
+				</waveblock>
+				<waveblock start="325927">
+					<simpleblockfile filename="e080817e.au" len="262144" min="-0.460212" max="0.526924" rms="0.061837"/>
+				</waveblock>
+				<waveblock start="588071">
+					<simpleblockfile filename="e0800b8a.au" len="141734" min="-0.370992" max="0.513314" rms="0.050722"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="266.27652083" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="729805">
+				<waveblock start="0">
+					<simpleblockfile filename="e0800f0f.au" len="63783" min="-0.622179" max="0.60483" rms="0.074869"/>
+				</waveblock>
+				<waveblock start="63783">
+					<simpleblockfile filename="e0808c4f.au" len="262144" min="-0.713239" max="0.645579" rms="0.070746"/>
+				</waveblock>
+				<waveblock start="325927">
+					<simpleblockfile filename="e08084a2.au" len="262144" min="-0.460212" max="0.526924" rms="0.061837"/>
+				</waveblock>
+				<waveblock start="588071">
+					<simpleblockfile filename="e0800eb6.au" len="141734" min="-0.370992" max="0.513314" rms="0.050722"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="286.86283333" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="510218">
+				<waveblock start="0">
+					<simpleblockfile filename="e0800d01.au" len="124216" min="-0.650197" max="0.495527" rms="0.069353"/>
+				</waveblock>
+				<waveblock start="124216">
+					<simpleblockfile filename="e080837d.au" len="262144" min="-0.610347" max="0.630183" rms="0.066424"/>
+				</waveblock>
+				<waveblock start="386360">
+					<simpleblockfile filename="e08006a7.au" len="123858" min="-0.271136" max="0.336869" rms="0.038357"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="286.86283333" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="510218">
+				<waveblock start="0">
+					<simpleblockfile filename="e0800fdd.au" len="124216" min="-0.650197" max="0.495527" rms="0.069353"/>
+				</waveblock>
+				<waveblock start="124216">
+					<simpleblockfile filename="e080839c.au" len="262144" min="-0.610347" max="0.630183" rms="0.066424"/>
+				</waveblock>
+				<waveblock start="386360">
+					<simpleblockfile filename="e0800315.au" len="123858" min="-0.271136" max="0.336869" rms="0.038357"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="301.39435417" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="587719">
+				<waveblock start="0">
+					<simpleblockfile filename="e0800790.au" len="213135" min="-0.774706" max="0.756286" rms="0.070532"/>
+				</waveblock>
+				<waveblock start="213135">
+					<simpleblockfile filename="e0808e48.au" len="262144" min="-0.804921" max="0.56843" rms="0.063511"/>
+				</waveblock>
+				<waveblock start="475279">
+					<simpleblockfile filename="e080074f.au" len="112440" min="-0.499127" max="0.657587" rms="0.064311"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="301.39435417" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="587719">
+				<waveblock start="0">
+					<simpleblockfile filename="e080009a.au" len="213135" min="-0.774706" max="0.756286" rms="0.070532"/>
+				</waveblock>
+				<waveblock start="213135">
+					<simpleblockfile filename="e080882b.au" len="262144" min="-0.804921" max="0.56843" rms="0.063511"/>
+				</waveblock>
+				<waveblock start="475279">
+					<simpleblockfile filename="e080008c.au" len="112440" min="-0.499127" max="0.657587" rms="0.064311"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="317.94412500" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="484384">
+				<waveblock start="0">
+					<simpleblockfile filename="e0800976.au" len="205178" min="-0.409306" max="0.537714" rms="0.058777"/>
+				</waveblock>
+				<waveblock start="205178">
+					<simpleblockfile filename="e0808945.au" len="262144" min="-0.489935" max="0.565898" rms="0.064608"/>
+				</waveblock>
+				<waveblock start="467322">
+					<simpleblockfile filename="e080003a.au" len="17062" min="-0.106659" max="0.097825" rms="0.010551"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="317.94412500" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="484384">
+				<waveblock start="0">
+					<simpleblockfile filename="e0800a96.au" len="205178" min="-0.409306" max="0.537714" rms="0.058777"/>
+				</waveblock>
+				<waveblock start="205178">
+					<simpleblockfile filename="e0808d0b.au" len="262144" min="-0.489935" max="0.565898" rms="0.064608"/>
+				</waveblock>
+				<waveblock start="467322">
+					<simpleblockfile filename="e0800df6.au" len="17062" min="-0.106659" max="0.097825" rms="0.010551"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="331.66833333" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="342298">
+				<waveblock start="0">
+					<simpleblockfile filename="e0800f30.au" len="70704" min="-0.55159" max="0.602178" rms="0.088215"/>
+				</waveblock>
+				<waveblock start="70704">
+					<simpleblockfile filename="e0808d2b.au" len="262144" min="-0.684556" max="0.711325" rms="0.067611"/>
+				</waveblock>
+				<waveblock start="332848">
+					<simpleblockfile filename="e0800543.au" len="9450" min="-0.000095" max="0.000129" rms="0.000031"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="331.66833333" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="342298">
+				<waveblock start="0">
+					<simpleblockfile filename="e08008f1.au" len="70704" min="-0.55159" max="0.602178" rms="0.088215"/>
+				</waveblock>
+				<waveblock start="70704">
+					<simpleblockfile filename="e0808d61.au" len="262144" min="-0.684556" max="0.711325" rms="0.067611"/>
+				</waveblock>
+				<waveblock start="332848">
+					<simpleblockfile filename="e0800ddd.au" len="9450" min="-0.000095" max="0.000129" rms="0.000031"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="342.43241667" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="238963">
+				<waveblock start="0">
+					<simpleblockfile filename="e080068d.au" len="238963" min="-0.518666" max="0.591331" rms="0.078663"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="342.43241667" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="238963">
+				<waveblock start="0">
+					<simpleblockfile filename="e08006a5.au" len="238963" min="-0.518666" max="0.591331" rms="0.078663"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="351.04368750" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="458550">
+				<waveblock start="0">
+					<simpleblockfile filename="e0800941.au" len="7442" min="-0.00556" max="0.005153" rms="0.001021"/>
+				</waveblock>
+				<waveblock start="7442">
+					<simpleblockfile filename="e08005ef.au" len="181821" min="-0.56439" max="0.666618" rms="0.064831"/>
+				</waveblock>
+				<waveblock start="189263">
+					<simpleblockfile filename="e0808751.au" len="262144" min="-0.655319" max="0.561304" rms="0.056623"/>
+				</waveblock>
+				<waveblock start="451407">
+					<simpleblockfile filename="e080060e.au" len="7143" min="-0.000096" max="0.000094" rms="0.000029"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="351.04368750" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="458550">
+				<waveblock start="0">
+					<simpleblockfile filename="e08001a8.au" len="7442" min="-0.00556" max="0.005153" rms="0.001021"/>
+				</waveblock>
+				<waveblock start="7442">
+					<simpleblockfile filename="e08006f2.au" len="181821" min="-0.56439" max="0.666618" rms="0.064831"/>
+				</waveblock>
+				<waveblock start="189263">
+					<simpleblockfile filename="e0808ef7.au" len="262144" min="-0.655319" max="0.561304" rms="0.056623"/>
+				</waveblock>
+				<waveblock start="451407">
+					<simpleblockfile filename="e08009f0.au" len="7143" min="-0.000096" max="0.000094" rms="0.000029"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="365.03700000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="794389">
+				<waveblock start="0">
+					<simpleblockfile filename="e0800f65.au" len="41872" min="-0.427133" max="0.457029" rms="0.069071"/>
+				</waveblock>
+				<waveblock start="41872">
+					<simpleblockfile filename="e08089b8.au" len="262144" min="-0.666465" max="0.684207" rms="0.059648"/>
+				</waveblock>
+				<waveblock start="304016">
+					<simpleblockfile filename="e08087e0.au" len="262144" min="-0.463781" max="0.621228" rms="0.060932"/>
+				</waveblock>
+				<waveblock start="566160">
+					<simpleblockfile filename="e0800eee.au" len="228229" min="-0.655757" max="0.660576" rms="0.056205"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="TIES Game" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="365.03700000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="794389">
+				<waveblock start="0">
+					<simpleblockfile filename="e0800479.au" len="41872" min="-0.427133" max="0.457029" rms="0.069071"/>
+				</waveblock>
+				<waveblock start="41872">
+					<simpleblockfile filename="e0808576.au" len="262144" min="-0.666465" max="0.684207" rms="0.059648"/>
+				</waveblock>
+				<waveblock start="304016">
+					<simpleblockfile filename="e0808402.au" len="262144" min="-0.463781" max="0.621228" rms="0.060932"/>
+				</waveblock>
+				<waveblock start="566160">
+					<simpleblockfile filename="e08009a3.au" len="228229" min="-0.655757" max="0.660576" rms="0.056205"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+</project>
