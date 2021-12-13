@@ -7,7 +7,7 @@ Copyright (C) 2021 Carver Goldstein
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ]]
 function love.load()
-	require("muted")
+	is_muted = false
 	math.randomseed(os.time())
 	function cleanup() return end
 	function switch(filename)
