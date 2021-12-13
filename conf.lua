@@ -9,7 +9,14 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 You should have received a copy of the GNU General Public License along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ]]
 function love.conf(t)
+	t.window.title = "TIES Time Machine Game"
 	t.window.width = 1024
 	t.window.height = 700
-	t.window.title = "TIES Time Machine Game"
+	t.window.resizable = false
+	t.modules.data = false
+	t.modules.joystick = false
+	t.modules.math = false
+	t.modules.physics = false
+	t.modules.thread = false
+	t.modules.video = false
 end
