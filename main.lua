@@ -9,7 +9,7 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 You should have received a copy of the GNU General Public License along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ]]
 function love.load()
-	is_muted = false
+	require("muted")
 	math.randomseed(os.time())
 	function cleanup() return end
 	function switch(filename)

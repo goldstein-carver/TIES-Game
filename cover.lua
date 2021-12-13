@@ -36,6 +36,12 @@ function cover.mute_unmute()
 			cover.voice:play()
 		end
 	end
+	pcall(function()
+		local str = "is_muted = " .. tostring(is_muted)
+		io.output("muted.lua")
+		io.write(str)
+		io.output(io.stdout)
+	end)
 end
 function cover.draw()
 	love.graphics.draw(cover.background, 0, 0)
