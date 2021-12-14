@@ -49,6 +49,7 @@ function quiz.reset()
 	if quiz.endcritter then
 		quiz.endcritter:release()
 		quiz.endcritter = nil
+		quiz.crittername = nil
 	end
 end
 function quiz.readnext(number)
@@ -63,12 +64,15 @@ function quiz.readnext(number)
 		if quiz.correct_answers >= 8 then
 			quiz.winmessage = "Yay! It looks like you know a thing or two about Darwin and natural selection."
 			quiz.endcritter = love.graphics.newImage("images/quiz810.png")
+			quiz.crittername = "TIES Critter Super Slayer"
 		elseif quiz.correct_answers >= 6 then
 			quiz.winmessage = "Not too bad but a good brain definitely helps with survival. Why don’t you review the section on natural selection and Darwin and try again?"
 			quiz.endcritter = love.graphics.newImage("images/quiz67.png")
+			quiz.crittername = "TIES Critter Junior Slayer"
 		else
 			quiz.winmessage = "Oh, bother. You can do better than that! Why don’t you review the section on natural selection and Darwin and try again?"
 			quiz.endcritter = love.graphics.newImage("images/quiz05.png")
+			quiz.crittername = "TIES Critter Never-Quitter\n(try again!)"
 		end
 		return
 	end
@@ -259,6 +263,13 @@ function quiz.draw()
 		love.graphics.printf(quiz.winmessage, 560, 100, 360, "center")
 		love.graphics.setColor(0, 0, 1)
 		love.graphics.print("Try Again", 570, 635)
+		love.graphics.setColor(0, 0, 0)
+		love.graphics.setFont(quiz.smallfont)
+		if quiz.correct_answers == 6 or quiz.correct_answers == 7 then
+			love.graphics.printf(quiz.crittername, 100, 455, 390, "center")
+		else
+			love.graphics.printf(quiz.crittername, 100, 480, 390, "center")
+		end
 		love.graphics.setColor(1, 1, 1)
 		love.graphics.draw(quiz.endcritter, 225, 200, 0, 2, 2)
 	end
