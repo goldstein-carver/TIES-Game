@@ -570,9 +570,9 @@ function game.make_choice(x, y)
 	else
 		x = 2
 	end
-	if y <= 250 then
+	if y <= 255 then
 		y = 0
-	elseif y <= 350 then
+	elseif y <= 375 then
 		y = 1
 	else
 		y = 2
@@ -653,6 +653,7 @@ function game.draw()
 		love.graphics.rectangle("fill", 50, 100, 400, 460)
 		love.graphics.setColor(0, 0, 0)
 		love.graphics.printf("More Mutations", 50, 530, 400, "center")
+		love.graphics.printf("Choose Three", 50, 110, 400, "center")
 		love.graphics.setColor(1, 1, 1)
 		local i = 1
 		while i <= 9 do
@@ -913,7 +914,7 @@ function game.cursor_check()
 		if y >= 520 then
 			love.mouse.setCursor(game.hand)
 		elseif (x >= 100 and x <= 180) or (x >= 220 and x <= 300) or (x >= 340 and x <= 420) then
-			if (y >= 145 and y <= 225) or (y >= 265 and y <= 345) or (y >= 385 and y <= 465) then
+			if (y >= 145 and y <= 255) or (y >= 265 and y <= 375) or (y >= 385 and y <= 495) then
 				love.mouse.setCursor(game.hand)
 			else
 				love.mouse.setCursor()
@@ -1018,7 +1019,7 @@ function game.mousepressed(x, y, button, istouch, presses)
 		if x >= 50 and x <= 450 and y <= 560 and y >= 520 then
 			game.generate_choices()
 		elseif (x >= 100 and x <= 180) or (x >= 220 and x <= 300) or (x >= 340 and x <= 420) then
-			if (y >= 145 and y <= 225) or (y >= 265 and y <= 345) or (y >= 385 and y <= 465) then
+			if (y >= 145 and y <= 255) or (y >= 265 and y <= 375) or (y >= 385 and y <= 495) then
 				game.make_choice(x, y)
 			end
 		end
