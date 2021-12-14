@@ -807,14 +807,14 @@ function game.update(dt)
 				end
 			elseif not game.wheel.clickable then
 				game.wheel.theta = (game.wheel.theta + game.wheel.omega*dt) % (2*math.pi)
-				game.wheel.omega = game.wheel.omega - 2*math.random()*dt
+				game.wheel.omega = game.wheel.omega - 6*math.random()*dt
 				if game.wheel.omega <= 0 then
 					game.wheel.waittime = 1.5
 				end
 			end
 		else
 			game.elapsed_time = game.elapsed_time + dt
-			if game.elapsed_time > 3 then
+			if game.elapsed_time > 2 then
 				game.next_generation()
 			end
 		end
