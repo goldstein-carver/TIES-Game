@@ -770,21 +770,7 @@ function game.update(dt)
 	end
 	--Game counter
 	if game.began and not game.ended then
-		if game.paused then
-			if game.paused > 0 then
-				game.paused = game.paused - dt
-			else
-				if game.arrowclicked then
-					game.arrowvisible = false
-					game.paused = nil
-					game.talking = nil
-					game.arrowclicked = false
-					game.run_sound()
-				else
-					game.arrowvisible = true
-				end
-			end
-		elseif game.wheel then
+		if game.wheel then
 			if game.wheel.waittime then
 				game.wheel.waittime = game.wheel.waittime - dt
 				if game.wheel.waittime <= 0 then
@@ -812,6 +798,20 @@ function game.update(dt)
 				game.wheel.omega = game.wheel.omega - 6*math.random()*dt
 				if game.wheel.omega <= 0 then
 					game.wheel.waittime = 1.5
+				end
+			end
+		elseif game.paused then
+			if game.paused > 0 then
+				game.paused = game.paused - dt
+			else
+				if game.arrowclicked then
+					game.arrowvisible = false
+					game.paused = nil
+					game.talking = nil
+					game.arrowclicked = false
+					game.run_sound("audios/Music.ogg")
+				else
+					game.arrowvisible = true
 				end
 			end
 		else
