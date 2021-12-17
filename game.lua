@@ -30,6 +30,8 @@ function game.load()
 	game.logo = love.graphics.newImage("images/SmallTIES.jpg")
 	game.predator = love.graphics.newImage("images/predator.png")
 	game.boldfont = love.graphics.newFont("Bold.ttf")
+	game.mute = love.graphics.newImage("images/AudioButton.png")--100x100
+	game.unmute = love.graphics.newImage("images/NonAudioButton.png")--110x110
 	game.critters = {}
 	game.max_pop = 16
 end
@@ -55,6 +57,8 @@ function game.cleanup()
 	game.logo:release()
 	game.predator:release()
 	game.boldfont:release()
+	game.mute:release()
+	game.unmute:release()
 end
 function game.load_critter(critter)
 	if type(critter) == "table" then
@@ -115,6 +119,9 @@ function game.win()
 	game.run_sound("audios/Darwin_Win.ogg")
 end
 function game.setwheel()
+	if not game.paused then
+		game.run_sound()
+	end
 	game.spins = game.spins - 1
 	game.wheel = {critters={}, theta=0, omega=0, clickable=true}
 	local organismcount = 0
@@ -691,14 +698,19 @@ function game.draw()
 		love.graphics.printf(game.talking, 285, 595, 630, "left")
 	end
 	love.graphics.setColor(139/255, 69/255, 19/255)
-	love.graphics.rectangle("fill", 840, 90, 170, 60, 10, 8)
+	love.graphics.rectangle("fill", 840, 120, 170, 60, 10, 8)
 	love.graphics.setColor(245/255,222/255,179/255)
-	love.graphics.rectangle("fill", 850, 100, 150, 40, 10, 8)
+	love.graphics.rectangle("fill", 850, 130, 150, 40, 10, 8)
 	love.graphics.setColor(31/255, 67/255, 156/255)
 	love.graphics.setFont(game.boldfont)
-	love.graphics.printf("YEARS:", 860, 112, 130, "left")
-	love.graphics.printf(tostring(game.years), 860, 112, 130, "right")
+	love.graphics.printf("YEARS:", 860, 142, 130, "left")
+	love.graphics.printf(tostring(game.years), 860, 142, 130, "right")
 	love.graphics.setColor(1, 1, 1)
+	if is_muted then
+		love.graphics.draw(game.unmute, 947, 57, 0, 0.6, 0.6)
+	else
+		love.graphics.draw(game.mute, 950, 60, 0, 0.6, 0.6)
+	end
 	if game.wheel then
 		love.graphics.push()
 		love.graphics.translate(512, 330)
@@ -792,6 +804,9 @@ function game.update(dt)
 					game.shimmertarget = game.wheel.chosenone
 					game.shimmeralpha = 1
 					game.wheel = nil
+					if not game.paused then
+						game.run_sound("audios/Music.ogg")
+					end
 				end
 			elseif not game.wheel.clickable then
 				game.wheel.theta = (game.wheel.theta + game.wheel.omega*dt) % (2*math.pi)
@@ -906,6 +921,8 @@ function game.cursor_check()
 	local x,y = love.mouse.getPosition()
 	if y <= 60 then
 		love.mouse.setCursor(game.hand)
+	elseif x >= 950 and x <= 1010 and y >= 60 and y <= 120 then
+		love.mouse.setCursor(game.hand)
 	elseif y >= 580 and x <= 135 then
 		love.mouse.setCursor(game.hand)
 	elseif y >= 555 and y <= 575 and x >= 965 then
@@ -1005,6 +1022,14 @@ function game.mousepressed(x, y, button, istouch, presses)
 			switch("glossary")
 		end
 		return
+	elseif x >= 950 and x <= 1010 and y >= 60 and y <= 120 then
+		if not is_muted then
+			game.run_sound()
+		end
+		is_muted = not is_muted
+		if game.began and (not game.ended) and (not game.paused) and (not game.wheel) then
+			game.run_sound("audios/Music.ogg")
+		end
 	elseif y >= 555 and y <= 575 and x >= 965 then
 		switch("hints")
 	elseif y >= 580 and x <= 135 then

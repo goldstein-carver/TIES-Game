@@ -7,7 +7,7 @@ Copyright (C) 2021 Carver Goldstein
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ]]
 credits = {}
-credits.string = "The TIES Time Machine Game\n\nBrought to you by The Teacher Institute for Evolutionary Science\n\nBuilt using LÖVE (https://www.love2d.org)\n\nProgrammed by Carver Goldstein\n\nGame Art by Keystone Canyon Press (https://www.keystonecanyon.com)\n\nGalápagos Island Map from https://www.freeworldmaps.net/southamerica/galapagos/map.html\n\nLandscapes courtesy of tallhawaiianshirtenby\n\nAudio by Nicholas Little"
+credits.string = "The TIES Time Machine Game\n\nBrought to you by The Teacher Institute for Evolutionary Science\n\nBuilt using LÖVE (https://www.love2d.org)\n\nProgrammed by Carver Goldstein\n\nGame Art by Keystone Canyon Press (https://www.keystonecanyon.com)\n\nGalápagos Island Map from https://www.freeworldmaps.net/southamerica/galapagos/map.html\n\nLandscapes courtesy of tallhawaiianshirtenby\n\nMusic cropped from\nhttps://www.free-stock-music.com/fsm-team-escp-forest.html\n\nNicholas Little as the voice of Charles Darwin"
 function credits.load()
 	credits.background = love.graphics.newImage("images/WoodBackground.jpg")
 	credits.hand = love.mouse.getSystemCursor("hand")
@@ -33,6 +33,8 @@ function credits.update(dt)
 	elseif x >= 475 and x <= 765 and y >= 125 and y <= 145 then
 		love.mouse.setCursor(credits.hand)
 	elseif x >= 97 and x <= 927 and y >= 327 and y <= 347 then
+		love.mouse.setCursor(credits.hand)
+	elseif x >= 130 and x <= 894 and y >= 469 and y <= 489 then
 		love.mouse.setCursor(credits.hand)
 	else
 		love.mouse.setCursor()
@@ -61,6 +63,8 @@ function credits.mousepressed(x, y, button, istouch, presses)
 		love.system.openURL("https://www.love2d.org")
 	elseif x >= 97 and x <= 927 and y >= 327 and y <= 347 then
 		love.system.openURL("https://www.freeworldmaps.net/southamerica/galapagos/map.html")
+	elseif x >= 130 and x <= 894 and y >= 469 and y <= 489 then
+		love.system.openURL("https://www.free-stock-music.com/fsm-team-escp-forest.html")
 	end
 end
 function credits.touchpressed(id, x, y, dx, dy, pressure)
