@@ -45,13 +45,15 @@ function glossary.draw()
 	love.graphics.setColor(1, 1, 1)
 end
 function glossary.update(dt)
-	local x,y = love.mouse.getPosition()
-	if y <= 60 then
-		love.mouse.setCursor(glossary.hand)
-	elseif x <= 81 and y >= 628 then
-		love.mouse.setCursor(glossary.hand)
-	else
-		love.mouse.setCursor()
+	if love.mouse.isCursorSupported() then
+		local x,y = love.mouse.getPosition()
+		if y <= 60 then
+			love.mouse.setCursor(glossary.hand)
+		elseif x <= 81 and y >= 628 then
+			love.mouse.setCursor(glossary.hand)
+		else
+			love.mouse.setCursor()
+		end
 	end
 end
 function glossary.cleanup()

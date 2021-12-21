@@ -276,23 +276,25 @@ function quiz.draw()
 	
 end
 function quiz.update(dt)
-	local x,y = love.mouse.getPosition()
-	if x <= 81 and y >= 628 then
-		love.mouse.setCursor(quiz.hand)
-	elseif y <= 60 then
-		love.mouse.setCursor(quiz.hand)
-	elseif quiz.number == 0 and x >= 540 and x <= 940 and y >= 100 and y <= 140 then
-		love.mouse.setCursor(quiz.hand)
-	elseif quiz.number > 0 and quiz.number < 11 and (not quiz.selected) and x >= 565 and x <= 900 and y >= 100 and y <= 300 and y % 50 < 25 then
-		if y < 425 or quiz.answers[3] then
+	if love.mouse.isCursorSupported() then
+		local x,y = love.mouse.getPosition()
+		if x <= 81 and y >= 628 then
 			love.mouse.setCursor(quiz.hand)
+		elseif y <= 60 then
+			love.mouse.setCursor(quiz.hand)
+		elseif quiz.number == 0 and x >= 540 and x <= 940 and y >= 100 and y <= 140 then
+			love.mouse.setCursor(quiz.hand)
+		elseif quiz.number > 0 and quiz.number < 11 and (not quiz.selected) and x >= 565 and x <= 900 and y >= 100 and y <= 300 and y % 50 < 25 then
+			if y < 425 or quiz.answers[3] then
+				love.mouse.setCursor(quiz.hand)
+			end
+		elseif quiz.selected and x >= 540 and x <= 940 and y >= 635 and y <= 660 then
+			love.mouse.setCursor(quiz.hand)
+		elseif quiz.number == 11 and x >= 540 and x <= 940 and y >= 635 and y <= 680 then
+			love.mouse.setCursor(quiz.hand)
+		else
+			love.mouse.setCursor()
 		end
-	elseif quiz.selected and x >= 540 and x <= 940 and y >= 635 and y <= 660 then
-		love.mouse.setCursor(quiz.hand)
-	elseif quiz.number == 11 and x >= 540 and x <= 940 and y >= 635 and y <= 680 then
-		love.mouse.setCursor(quiz.hand)
-	else
-		love.mouse.setCursor()
 	end
 end
 function quiz.cleanup()

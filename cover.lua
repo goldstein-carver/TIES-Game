@@ -73,36 +73,38 @@ function cover.draw()
 	love.graphics.printf("This game is brought to you by The Teacher Institute for Evolutionary Science", 240, 10, 660, "center")
 end
 function cover.update(dt)
-	local x,y = love.mouse.getPosition()
-	local bool = false
-	if x >= 924 and y <= 100 then
-		bool = true
-	end
-	if x <= 195 and y <= 200 then
-		bool = true
-	end
-	if x >= 250 and x <= 885 and y >= 10 and y <= 70 then--HERE
-		bool = true
-	end
-	if y>=100 and y<=185 then
-		if x>=240 and x<=540 then
-			bool=true
-		elseif x>=584 and x<=899 then
-			bool=true
+	if love.mouse.isCursorSupported() then
+		local x,y = love.mouse.getPosition()
+		local bool = false
+		if x >= 924 and y <= 100 then
+			bool = true
 		end
-	elseif y>=640 and y<=695 then
-		if x>=10 and x<=305 then
-			bool=true
-		elseif x>=320 and x<=800 then
-			bool=true
-		elseif x>=820 and x<=1014 then
-			bool=true
+		if x <= 195 and y <= 200 then
+			bool = true
 		end
-	end
-	if bool then
-		love.mouse.setCursor(cover.hand)
-	else 
-		love.mouse.setCursor()
+		if x >= 250 and x <= 885 and y >= 10 and y <= 70 then--HERE
+			bool = true
+		end
+		if y>=100 and y<=185 then
+			if x>=240 and x<=540 then
+				bool=true
+			elseif x>=584 and x<=899 then
+				bool=true
+			end
+		elseif y>=640 and y<=695 then
+			if x>=10 and x<=305 then
+				bool=true
+			elseif x>=320 and x<=800 then
+				bool=true
+			elseif x>=820 and x<=1014 then
+				bool=true
+			end
+		end
+		if bool then
+			love.mouse.setCursor(cover.hand)
+		else 
+			love.mouse.setCursor()
+		end
 	end
 	if (not is_muted) and (not cover.finished_audio) then
 		if not cover.voice:isPlaying() then

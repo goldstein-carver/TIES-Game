@@ -23,21 +23,23 @@ function credits.cleanup()
 	credits.logo:release()
 end
 function credits.update(dt)
-	local x,y = love.mouse.getPosition()
-	if x >= 904 and y >= 670 then
-		love.mouse.setCursor(credits.hand)
-	elseif x <= 135 and y >= 580 then
-		love.mouse.setCursor(credits.hand)
-	elseif x >= 530 and x <= 950 and y >= 240 and y <= 260 then
-		love.mouse.setCursor(credits.hand)
-	elseif x >= 475 and x <= 765 and y >= 125 and y <= 145 then
-		love.mouse.setCursor(credits.hand)
-	elseif x >= 97 and x <= 927 and y >= 327 and y <= 347 then
-		love.mouse.setCursor(credits.hand)
-	elseif x >= 130 and x <= 894 and y >= 469 and y <= 489 then
-		love.mouse.setCursor(credits.hand)
-	else
-		love.mouse.setCursor()
+	if love.mouse.isCursorSupported() then
+		local x,y = love.mouse.getPosition()
+		if x >= 904 and y >= 670 then
+			love.mouse.setCursor(credits.hand)
+		elseif x <= 135 and y >= 580 then
+			love.mouse.setCursor(credits.hand)
+		elseif x >= 530 and x <= 950 and y >= 240 and y <= 260 then
+			love.mouse.setCursor(credits.hand)
+		elseif x >= 475 and x <= 765 and y >= 125 and y <= 145 then
+			love.mouse.setCursor(credits.hand)
+		elseif x >= 97 and x <= 927 and y >= 327 and y <= 347 then
+			love.mouse.setCursor(credits.hand)
+		elseif x >= 130 and x <= 894 and y >= 469 and y <= 489 then
+			love.mouse.setCursor(credits.hand)
+		else
+			love.mouse.setCursor()
+		end
 	end
 end
 function credits.draw(dt)

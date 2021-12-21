@@ -52,13 +52,15 @@ function bio.draw()
 	love.graphics.setColor(1, 1, 1)
 end
 function bio.update(dt)
-	local x,y = love.mouse.getPosition()
-	if y <= 60 then
-		love.mouse.setCursor(bio.hand)
-	elseif x <= 81 and y >= 628 then
-		love.mouse.setCursor(bio.hand)
-	else
-		love.mouse.setCursor()
+	if love.mouse.isCursorSupported() then
+		local x,y = love.mouse.getPosition()
+		if y <= 60 then
+			love.mouse.setCursor(bio.hand)
+		elseif x <= 81 and y >= 628 then
+			love.mouse.setCursor(bio.hand)
+		else
+			love.mouse.setCursor()
+		end
 	end
 end
 function bio.cleanup()

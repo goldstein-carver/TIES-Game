@@ -590,8 +590,8 @@ function game.make_choice(x, y)
 end
 function game.run_sound(filepath)--nil can be used to cancel audio
 	if not is_muted then
-		love.audio.stop()
 		if game.audioSource then
+			love.audio.stop(game.audioSource)
 			game.audioSource:release()
 			game.audioSource = nil
 		end
@@ -772,7 +772,7 @@ function game.draw()
 	love.graphics.setColor(1, 1, 1)
 end
 function game.update(dt)
-	game.cursor_check()
+	if love.mouse.isCursorSupported() then game.cursor_check() end
 	if game.shimmeralpha then
 		game.shimmeralpha = game.shimmeralpha - 2*dt
 		if game.shimmeralpha <= 0 then

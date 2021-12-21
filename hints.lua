@@ -63,15 +63,17 @@ function hints.draw()
 	love.graphics.draw(hints.longneck, 860, 550)
 end
 function hints.update(dt)
-	local x,y = love.mouse.getPosition()
-	if y <= 60 then
-		love.mouse.setCursor(hints.hand)
-	elseif x >= 944 and y >= 670 then
-		love.mouse.setCursor(hints.hand)
-	elseif x <= 81 and y >= 628 then
-		love.mouse.setCursor(hints.hand)
-	else
-		love.mouse.setCursor()
+	if love.mouse.isCursorSupported() then
+		local x,y = love.mouse.getPosition()
+		if y <= 60 then
+			love.mouse.setCursor(hints.hand)
+		elseif x >= 944 and y >= 670 then
+			love.mouse.setCursor(hints.hand)
+		elseif x <= 81 and y >= 628 then
+			love.mouse.setCursor(hints.hand)
+		else
+			love.mouse.setCursor()
+		end
 	end
 end
 function hints.cleanup()

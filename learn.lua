@@ -136,7 +136,7 @@ function learn.draw()
 	end
 end
 function learn.update(dt)
-	learn.cursor_check()
+	if love.mouse.isCursorSupported() then learn.cursor_check() end
 	if learn.arrowclicked then
 		learn.time_on_slide = 0
 		learn.arrowclicked = nil
@@ -225,8 +225,8 @@ function learn.touchpressed(id, x, y, dx, dy, pressure)
 end
 function learn.run_sound(filepath)--nil can be used to cancel audio
 	if not is_muted then
-		love.audio.stop()
 		if learn.audioSource then
+			love.audio.stop(learn.audioSource)
 			learn.audioSource:release()
 			learn.audioSource = nil
 		end
