@@ -17,7 +17,7 @@ function game.load()
 	game.smallfont = love.graphics.newFont(20)
 	game.bigfont = love.graphics.newFont(30)
 	game.verybigfont = love.graphics.newFont(40)
-	game.hand = love.mouse.getSystemCursor("hand")
+	if love.mouse.isCursorSupported() then game.hand = love.mouse.getSystemCursor("hand") end
 	game.background = love.graphics.newImage("images/Environment.jpg")
 	game.hotbackground = love.graphics.newImage("images/HotEnvironment.jpg")
 	game.coldbackground = love.graphics.newImage("images/ColdEnvironment.jpg")
@@ -39,7 +39,7 @@ function game.cleanup()
 	game.smallfont:release()
 	game.bigfont:release()
 	game.verybigfont:release()
-	game.hand:release()
+	if game.hand then game.hand:release() end
 	game.background:release()
 	game.hotbackground:release()
 	game.coldbackground:release()
@@ -852,15 +852,15 @@ function game.update(dt)
 	end
 end
 function game.handle_pregame(dt)
+	if game.elapsed_time == 0 then
+		game.years = 0
+		game.generations = 0
+		game.talking = "Welcome to the TIES Time Machine! The game is based on the rules of natural selection. Your species will have to survive a changing, often cruel, environment."
+		game.run_sound("audios/Darwin1.ogg")
+	end
 	game.elapsed_time = game.elapsed_time + dt
 	if game.elapsed_time < 0.5 then
 		game.arrowvisible = false
-		game.talking = nil
-		game.generations = 0
-		game.years = 0
-	elseif game.elapsed_time >= 0.5 and game.elapsed_time - dt < 0.5 then
-		game.talking = "Welcome to the TIES Time Machine! The game is based on the rules of natural selection. Your species will have to survive a changing, often cruel, environment."
-		game.run_sound("audios/Darwin1.ogg")
 	elseif game.elapsed_time >= 2 and game.elapsed_time < 100 then
 		game.arrowvisible = true
 		game.elapsed_time = 2
@@ -1060,7 +1060,4 @@ function game.mousepressed(x, y, button, istouch, presses)
 			end
 		end
 	end
-end
-function game.touchpressed(id, x, y, dx, dy, pressure)
-	game.mousepressed(x, y, 1)
 end

@@ -10,7 +10,7 @@ learn = {ended=true}
 function learn.load()
 	love.graphics.setBackgroundColor(205/255, 133/255, 63/255)
 	learn.background = love.graphics.newImage("images/WoodBackground.jpg")
-	learn.hand = love.mouse.getSystemCursor("hand")
+	if love.mouse.isCursorSupported() then learn.hand = love.mouse.getSystemCursor("hand") end
 	learn.smallfont = love.graphics.newFont(20)
 	learn.bigfont = love.graphics.newFont(30)
 	learn.logo = love.graphics.newImage("images/SmallTIES.jpg")
@@ -184,7 +184,7 @@ function learn.cursor_check()
 end
 function learn.cleanup()
 	learn.background:release()
-	learn.hand:release()
+	if learn.hand then learn.hand:release() end
 	learn.smallfont:release()
 	learn.bigfont:release()
 	learn.logo:release()
@@ -219,9 +219,6 @@ function learn.mousepressed(x, y, button, istouch, presses)
 	elseif x >= 925 and y >= 580 and learn.arrowvisible then
 		learn.arrowclicked = true
 	end
-end
-function learn.touchpressed(id, x, y, dx, dy, pressure)
-	learn.mousepressed(x, y, 1)
 end
 function learn.run_sound(filepath)--nil can be used to cancel audio
 	if not is_muted then

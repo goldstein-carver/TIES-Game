@@ -16,7 +16,6 @@ function love.load()
 		end
 		cleanup()
 		cleanup = _G[filename].cleanup
-		love.touchpressed = _G[filename].touchpressed
 		love.mousepressed = _G[filename].mousepressed
 		love.draw = _G[filename].draw
 		love.update = _G[filename].update

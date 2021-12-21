@@ -10,7 +10,7 @@ credits = {}
 credits.string = "The TIES Time Machine Game\n\nBrought to you by The Teacher Institute for Evolutionary Science\n\nBuilt using LÖVE (https://www.love2d.org)\n\nProgrammed by Carver Goldstein\n\nGame Art by Keystone Canyon Press (https://www.keystonecanyon.com)\n\nGalápagos Island Map from https://www.freeworldmaps.net/southamerica/galapagos/map.html\n\nLandscapes courtesy of tallhawaiianshirtenby\n\nMusic cropped from\nhttps://www.free-stock-music.com/fsm-team-escp-forest.html\n\nNicholas Little as the voice of Charles Darwin"
 function credits.load()
 	credits.background = love.graphics.newImage("images/WoodBackground.jpg")
-	credits.hand = love.mouse.getSystemCursor("hand")
+	if love.mouse.isCursorSupported() then credits.hand = love.mouse.getSystemCursor("hand") end
 	credits.middlefont = love.graphics.newFont(30)
 	credits.smallfont = love.graphics.newFont(25)
 	credits.logo = love.graphics.newImage("images/SmallTIES.jpg")
@@ -18,7 +18,7 @@ end
 function credits.cleanup()
 	credits.middlefont:release()
 	credits.smallfont:release()
-	credits.hand:release()
+	if credits.hand then credits.hand:release() end
 	credits.background:release()
 	credits.logo:release()
 end
@@ -68,7 +68,4 @@ function credits.mousepressed(x, y, button, istouch, presses)
 	elseif x >= 130 and x <= 894 and y >= 469 and y <= 489 then
 		love.system.openURL("https://www.free-stock-music.com/fsm-team-escp-forest.html")
 	end
-end
-function credits.touchpressed(id, x, y, dx, dy, pressure)
-	credits.mousepressed(x, y, 1)
 end

@@ -10,7 +10,7 @@ bio = {}
 function bio.load()
 	love.graphics.setBackgroundColor(205/255, 133/255, 63/255)
 	bio.background = love.graphics.newImage("images/WoodBackground.jpg")
-	bio.hand = love.mouse.getSystemCursor("hand")
+	if love.mouse.isCursorSupported() then bio.hand = love.mouse.getSystemCursor("hand") end
 	bio.smallfont = love.graphics.newFont(20)
 	bio.bigfont = love.graphics.newFont(30)
 	bio.middlefont = love.graphics.newFont(24)
@@ -65,7 +65,7 @@ function bio.update(dt)
 end
 function bio.cleanup()
 	bio.background:release()
-	bio.hand:release()
+	if bio.hand then bio.hand:release() end
 	bio.smallfont:release()
 	bio.book:release()
 	bio.darwin:release()
@@ -94,7 +94,4 @@ function bio.mousepressed(x, y, button, istouch, presses)
 		end
 		return
 	end
-end
-function bio.touchpressed(id, x, y, dx, dy, pressure)
-	bio.mousepressed(x, y, 1)
 end

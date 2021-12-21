@@ -12,7 +12,7 @@ function cover.load()
 	love.graphics.setBackgroundColor(205/255, 133/255, 63/255)
 	cover.background = love.graphics.newImage("images/WoodBackground.jpg")
 	cover.darwin = love.graphics.newImage("images/Darwin.png")
-	cover.hand = love.mouse.getSystemCursor("hand")
+	if love.mouse.isCursorSupported() then cover.hand = love.mouse.getSystemCursor("hand") end
 	cover.smallfont = love.graphics.newFont(25)
 	cover.middlefont = love.graphics.newFont(30)
 	cover.bigfont = love.graphics.newFont(35)
@@ -116,7 +116,7 @@ function cover.cleanup()
 	love.mouse.setCursor()
 	cover.background:release()
 	cover.darwin:release()
-	cover.hand:release()
+	if cover.hand then cover.hand:release() end
 	cover.smallfont:release()
 	cover.middlefont:release()
 	cover.bigfont:release()
@@ -155,7 +155,4 @@ function cover.mousepressed(x, y, button, istouch, presses)
 			switch("glossary")
 		end
 	end
-end
-function cover.touchpressed(id, x, y, dx, dy, pressure)
-	cover.mousepressed(x, y, 1)
 end

@@ -13,7 +13,7 @@ function glossary.load()
 	love.graphics.setBackgroundColor(205/255, 133/255, 63/255)
 	glossary.background = love.graphics.newImage("images/WoodBackground.jpg")
 	glossary.book = love.graphics.newImage("images/Book.png")
-	glossary.hand = love.mouse.getSystemCursor("hand")
+	if love.mouse.isCursorSupported() then glossary.hand = love.mouse.getSystemCursor("hand") end
 	glossary.smallfont = love.graphics.newFont(20)
 	glossary.tinyfont = love.graphics.newFont(17)
 	glossary.logo = love.graphics.newImage("images/SmallTIES.jpg")
@@ -58,7 +58,7 @@ function glossary.update(dt)
 end
 function glossary.cleanup()
 	glossary.background:release()
-	glossary.hand:release()
+	if glossary.hand then glossary.hand:release() end
 	glossary.smallfont:release()
 	glossary.book:release()
 	glossary.tinyfont:release()
@@ -84,7 +84,4 @@ function glossary.mousepressed(x, y, button, istouch, presses)
 		end
 		return
 	end
-end
-function glossary.touchpressed(id, x, y, dx, dy, pressure)
-	glossary.mousepressed(x, y, 1)
 end

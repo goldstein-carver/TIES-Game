@@ -10,7 +10,7 @@ hints = {}
 function hints.load()
 	love.graphics.setBackgroundColor(205/255, 133/255, 63/255)
 	hints.background = love.graphics.newImage("images/WoodBackground.jpg")
-	hints.hand = love.mouse.getSystemCursor("hand")
+	if love.mouse.isCursorSupported() then hints.hand = love.mouse.getSystemCursor("hand") end
 	hints.smallfont = love.graphics.newFont(20)
 	hints.book = love.graphics.newImage("images/Book.png")
 	hints.logo = love.graphics.newImage("images/SmallTIES.jpg")
@@ -78,7 +78,7 @@ function hints.update(dt)
 end
 function hints.cleanup()
 	hints.background:release()
-	hints.hand:release()
+	if hints.hand then hints.hand:release() end
 	hints.smallfont:release()
 	hints.book:release()
 	hints.logo:release()
@@ -113,7 +113,4 @@ function hints.mousepressed(x, y, button, istouch, presses)
 		end
 		return
 	end
-end
-function hints.touchpressed(id, x, y, dx, dy, pressure)
-	hints.mousepressed(x, y, 1)
 end

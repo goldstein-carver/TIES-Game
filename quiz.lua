@@ -16,7 +16,7 @@ quiz.selected = nil
 function quiz.load()
 	love.graphics.setBackgroundColor(205/255, 133/255, 63/255)
 	quiz.background = love.graphics.newImage("images/WoodBackground.jpg")
-	quiz.hand = love.mouse.getSystemCursor("hand")
+	if love.mouse.isCursorSupported() then quiz.hand = love.mouse.getSystemCursor("hand") end
 	quiz.smallfont = love.graphics.newFont(20)
 	quiz.bigfont = love.graphics.newFont(40)
 	quiz.middlefont = love.graphics.newFont(30)
@@ -299,7 +299,7 @@ function quiz.update(dt)
 end
 function quiz.cleanup()
 	quiz.background:release()
-	quiz.hand:release()
+	if quiz.hand then quiz.hand:release() end
 	quiz.smallfont:release()
 	quiz.bigfont:release()
 	quiz.middlefont:release()
@@ -347,7 +347,4 @@ function quiz.mousepressed(x, y, button, istouch, presses)
 	elseif quiz.number == 11 and x >= 540 and x <= 940 and y >= 635 and y <= 680 then
 		quiz.reset()
 	end
-end
-function quiz.touchpressed(id, x, y, dx, dy, pressure)
-	quiz.mousepressed(x, y, 1)
 end
