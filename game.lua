@@ -15,6 +15,7 @@ game.elapsed_time = 0
 game.organisms = {}
 function game.load()
 	game.smallfont = love.graphics.newFont(20)
+	game.smallerfont = love.graphics.newFont(15)
 	game.bigfont = love.graphics.newFont(30)
 	game.verybigfont = love.graphics.newFont(40)
 	if love.mouse.isCursorSupported() then game.hand = love.mouse.getSystemCursor("hand") end
@@ -37,6 +38,7 @@ function game.load()
 end
 function game.cleanup()
 	game.smallfont:release()
+	game.smallerfont:release()
 	game.bigfont:release()
 	game.verybigfont:release()
 	if game.hand then game.hand:release() end
@@ -660,7 +662,9 @@ function game.draw()
 		love.graphics.rectangle("fill", 50, 100, 400, 460)
 		love.graphics.setColor(0, 0, 0)
 		love.graphics.printf("More Mutations", 50, 530, 400, "center")
-		love.graphics.printf("Choose Three", 50, 110, 400, "center")
+		love.graphics.setFont(game.smallerfont)
+		love.graphics.printf("Click On Three Critters to Start Your Population", 50, 110, 400, "center")
+		love.graphics.setFont(game.smallfont)
 		love.graphics.setColor(1, 1, 1)
 		local i = 1
 		while i <= 9 do
