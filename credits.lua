@@ -7,7 +7,7 @@ Copyright (C) 2021 Carver Goldstein
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ]]
 credits = {}
-credits.string = "The TIES Time Machine Game\n\nBrought to you by The Teacher Institute for Evolutionary Science\n\nBuilt using LÖVE (https://www.love2d.org)\n\nProgrammed by Carver Goldstein\n\nGame Art by Keystone Canyon Press (https://www.keystonecanyon.com)\n\nGalápagos Island Map from https://www.freeworldmaps.net/southamerica/galapagos/map.html\n\nLandscapes courtesy of tallhawaiianshirtenby\n\nMusic cropped from\nhttps://www.free-stock-music.com/fsm-team-escp-forest.html\n\nNicholas Little as the voice of Charles Darwin"
+credits.string = "The TIES Time Machine Game\n\nBrought to you by The Teacher Institute for Evolutionary Science\n\nProgrammed by Carver Goldstein\n\nGame Art by Keystone Canyon Press (https://www.keystonecanyon.com)\n\nBuilt using LÖVE (https://www.love2d.org)\n\nGalápagos Island Map from https://www.freeworldmaps.net/southamerica/galapagos/map.html\n\nLandscapes courtesy of tallhawaiianshirtenby\n\nMusic cropped from\nhttps://www.free-stock-music.com/fsm-team-escp-forest.html\n\nNicholas Little as the voice of Charles Darwin\n\nSource code hosted at\nhttps://github.com/goldstein-carver/TIES-Game"
 function credits.load()
 	credits.background = love.graphics.newImage("images/WoodBackground.jpg")
 	if love.mouse.isCursorSupported() then credits.hand = love.mouse.getSystemCursor("hand") end
@@ -29,13 +29,15 @@ function credits.update(dt)
 			love.mouse.setCursor(credits.hand)
 		elseif x <= 135 and y >= 580 then
 			love.mouse.setCursor(credits.hand)
-		elseif x >= 530 and x <= 950 and y >= 240 and y <= 260 then
+		elseif x >= 530 and x <= 950 and y >= 180 and y <= 200 then
 			love.mouse.setCursor(credits.hand)
-		elseif x >= 475 and x <= 765 and y >= 125 and y <= 145 then
+		elseif x >= 475 and x <= 765 and y >= 240 and y <= 260 then
 			love.mouse.setCursor(credits.hand)
 		elseif x >= 97 and x <= 927 and y >= 327 and y <= 347 then
 			love.mouse.setCursor(credits.hand)
 		elseif x >= 130 and x <= 894 and y >= 469 and y <= 489 then
+			love.mouse.setCursor(credits.hand)
+		elseif x >= 220 and x <= 804 and y >= 616 and y <= 636 then
 			love.mouse.setCursor(credits.hand)
 		else
 			love.mouse.setCursor()
@@ -59,13 +61,15 @@ function credits.mousepressed(x, y, button, istouch, presses)
 		switch("cover")
 	elseif x <= 135 and y >= 580 then
 		love.system.openURL("https://tieseducation.org")
-	elseif x >= 530 and x <= 950 and y >= 240 and y <= 260 then
+	elseif x >= 530 and x <= 950 and y >= 180 and y <= 200 then
 		love.system.openURL("https://www.keystonecanyon.com")
-	elseif x >= 475 and x <= 765 and y >= 125 and y <= 145 then
+	elseif x >= 475 and x <= 765 and y >= 240 and y <= 260 then
 		love.system.openURL("https://www.love2d.org")
 	elseif x >= 97 and x <= 927 and y >= 327 and y <= 347 then
 		love.system.openURL("https://www.freeworldmaps.net/southamerica/galapagos/map.html")
 	elseif x >= 130 and x <= 894 and y >= 469 and y <= 489 then
 		love.system.openURL("https://www.free-stock-music.com/fsm-team-escp-forest.html")
+	elseif x >= 220 and x <= 804 and y >= 616 and y <= 636 then
+		love.system.openURL("https://github.com/goldstein-carver/TIES-Game")
 	end
 end
