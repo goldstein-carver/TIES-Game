@@ -1,9 +1,7 @@
 --[[
 This file is part of "Who Wants to Live a Million Years?"
 Copyright (C) 2021 Carver Goldstein
-
 "Who Wants to Live a Million Years?" is software released under the CC-BY-NC-ND 4.0 license: <https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode>. Furthermore, this file is licensed under the GNU General Public License version 3.0. You should have received a copy of the GNU General Public License along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ]]
 --Darwin is 257x300
@@ -313,7 +311,7 @@ function game.kill()
 			counter = counter + 1
 		end
 		while counter > 0 do
-			if math.random(3) > 1 then
+			if math.random(20) > 1 then
 				table.remove(game.organisms, counter)
 			end
 			counter = counter - 1
@@ -325,10 +323,11 @@ function game.kill()
 			counter = counter + 1
 		end
 		while counter > 0 do
+			local mass = game.organisms[counter].Mass % 3
 			local stripes = game.organisms[counter].Striped % 2
 			local legs = game.organisms[counter].Legs % 3
-			local survival = stripes + legs + 1 --Roll d4, die if > this number
-			if math.random(4) > survival then
+			local survival = stripes + 2*legs + mass - 1 --Roll d5, die if > this number
+			if math.random(5) > survival then
 				table.remove(game.organisms, counter)
 			end
 			counter = counter - 1
@@ -344,8 +343,8 @@ function game.kill()
 			local hair = game.organisms[counter].Hair % 3
 			local legs = game.organisms[counter].Legs % 3
 			local neck = game.organisms[counter].Neck % 2
-			local survival = mass + hair - legs - neck + 1 --Roll d4, die if > this number
-			if math.random(4) > survival then
+			local survival = 2*mass + 3*hair - legs - neck - 2 --Roll d6, die if > this number
+			if math.random(6) > survival then
 				table.remove(game.organisms, counter)
 			end
 			counter = counter - 1
@@ -359,8 +358,10 @@ function game.kill()
 		while counter > 0 do
 			local mass = game.organisms[counter].Mass % 3
 			local hair = game.organisms[counter].Hair % 3
-			local survival = 4 - mass - hair --Roll d4, die if > this number
-			if math.random(4) > survival then
+			local legs = game.organisms[counter].Legs % 3
+			local neck = game.organisms[counter].Neck % 2
+			local survival = legs + neck - 2*mass - 3*hair + 6 --Roll d6, die if > this number
+			if math.random(6) > survival then
 				table.remove(game.organisms, counter)
 			end
 			counter = counter - 1
@@ -373,8 +374,9 @@ function game.kill()
 		end
 		while counter > 0 do
 			local neck = game.organisms[counter].Neck % 2
-			local survival = 2*neck + 2 --Roll d4, die if > this number
-			if math.random(4) > survival then
+			local legs = game.organisms[counter].Legs % 3
+			local survival = 3*neck + legs --Roll d5, die if > this number
+			if math.random(5) > survival then
 				table.remove(game.organisms, counter)
 			end
 			counter = counter - 1
@@ -394,14 +396,14 @@ function game.kill()
 			counter = counter + 1
 		end
 		while counter > 0 do
-			local death = 0 --Roll d4, die if <= this number
+			local death = 0 --Roll d3, die if <= this number
 			if game.organisms[counter][game.primary_attribute] % primary_mod == game.primary_phenotype then
 				death = 3
 			end
 			if game.organisms[counter][game.secondary_attribute] % secondary_mod == game.secondary_phenotype then
 				death = death + 1
 			end
-			if math.random(4) <= death then
+			if math.random(3) <= death then
 				table.remove(game.organisms, counter)
 			end
 			counter = counter - 1
